@@ -1,0 +1,3 @@
+ufuzz - browse unicode with dmenu and copy to clipboard with xclip/xsel
+
+deps: sed dmenu awk tr xclip|xsel

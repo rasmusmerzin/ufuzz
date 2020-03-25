@@ -1,0 +1,3057 @@
+#!/bin/sh
+#deps: sed dmenu awk tr xclip|xsel
+#desc: Browse unicode with dmenu and copy to clipboard with xclip/xsel
+
+alias menu='dmenu -nb "#000" -nf "#fff" -sb "#000" -sf "#666" -fn "Hack-8" -l 6 -i -p "unicode:"'
+
+sed -n 's/^#U+/U+/;/^U+.*$/p' "$(command -v "$0")" | menu | awk '{print $3}' | tr -d '\n' | (if command -v xclip; then xclip -selection clipboard; else xsel -b; fi)
+
+#U+0000 0 NUL Null character
+#U+0001 1 SOH Start of Heading
+#U+0002 2 STX Start of Text
+#U+0003 3 ETX End-of-text character
+#U+0004 4 EOT End-of-transmission character
+#U+0005 5 ENQ Enquiry character
+#U+0006 6 ACK Acknowledge character
+#U+0007 7 BEL Bell character
+#U+0008 8 BS Backspace
+#U+0009 9 HT Horizontal tab
+#U+000A 10 LF Line feed
+#U+000B 11 VT Vertical tab
+#U+000C 12 FF Form feed
+#U+000D 13 CR Carriage return
+#U+000E 14 SO Shift Out
+#U+000F 15 SI Shift In
+#U+0010 16 DLE Data Link Escape
+#U+0011 17 DC1 Device Control 1
+#U+0012 18 DC2 Device Control 2
+#U+0013 19 DC3 Device Control 3
+#U+0014 20 DC4 Device Control 4
+#U+0015 21 NAK Negative-acknowledge character
+#U+0016 22 SYN Synchronous Idle
+#U+0017 23 ETB End of Transmission Block
+#U+0018 24 CAN Cancel character
+#U+0019 25 EM End of Medium
+#U+001A 26 SUB Substitute character
+#U+001B 27 ESC Escape character
+#U+001C 28 FS File Separator
+#U+001D 29 GS Group Separator
+#U+001E 30 RS Record Separator
+#U+001F 31 US Unit Separator
+#U+007F 127 DEL Delete
+#U+0080 128 PAD Padding Character
+#U+0081 129 HOP High Octet Preset
+#U+0082 130 BPH Break Permitted Here
+#U+0083 131 NBH No Break Here
+#U+0084 132 IND Index
+#U+0085 133 NEL Next Line
+#U+0086 134 SSA Start of Selected Area
+#U+0087 135 ESA End of Selected Area
+#U+0088 136 HTS Character Tabulation Set
+#U+0089 137 HTJ Character Tabulation with Justification
+#U+008A 138 VTS Line Tabulation Set
+#U+008B 139 PLD Partial Line Forward
+#U+008C 140 PLU Partial Line Backward
+#U+008D 141 RI Reverse Line Feed
+#U+008E 142 SS2 Single-Shift Two
+#U+008F 143 SS3 Single-Shift Three
+#U+0090 144 DCS Device Control String
+#U+0091 145 PU1 Private Use 1
+#U+0092 146 PU2 Private Use 2
+#U+0093 147 STS Set Transmit State
+#U+0094 148 CCH Cancel character
+#U+0095 149 MW Message Waiting
+#U+0096 150 SPA Start of Protected Area
+#U+0097 151 EPA End of Protected Area
+#U+0098 152 SOS Start of String
+#U+0099 153 SGCI Single Graphic Character Introducer
+#U+009A 154 SCI Single Character Intro Introducer
+#U+009B 155 CSI Control Sequence Introducer
+#U+009C 156 ST String Terminator
+#U+009D 157 OSC Operating System Command
+#U+009E 158 PM Private Message
+#U+009F 159 APC Application Program Command
+
+#U+0020 32 Space
+#U+0021 33 ! Exclamation mark
+#U+0022 34 " Quotation mark
+#U+0023 35 # Sharp
+#U+0024 36 $ Dollar sign
+#U+0025 37 % Percent sign
+#U+0026 38 & Ampersand
+#U+0027 39 ' Apostrophe
+#U+0028 40 ( Left parenthesis
+#U+0029 41 ) Right parenthesis
+#U+002A 42 * Asterisk
+#U+002B 43 + Plus sign
+#U+002C 44 , Comma
+#U+002D 45 - Hyphen-minus
+#U+002E 46 . Full stop
+#U+002F 47 / Slash (Solidus)
+#U+0030 48 0 Digit Zero
+#U+0031 49 1 Digit One
+#U+0032 50 2 Digit Two
+#U+0033 51 3 Digit Three
+#U+0034 52 4 Digit Four
+#U+0035 53 5 Digit Five
+#U+0036 54 6 Digit Six
+#U+0037 55 7 Digit Seven
+#U+0038 56 8 Digit Eight
+#U+0039 57 9 Digit Nine
+#U+003A 58 : Colon
+#U+003B 59 ; Semicolon
+#U+003C 60 < Less-than sign
+#U+003D 61 = Equal sign
+#U+003E 62 < Greater-than sign
+#U+003F 63 ? Question mark
+#U+0040 64 @ At sign
+#U+0041 65 A Latin Capital letter A
+#U+0042 66 B Latin Capital letter B
+#U+0043 67 C Latin Capital letter C
+#U+0044 68 D Latin Capital letter D
+#U+0045 69 E Latin Capital letter E
+#U+0046 70 F Latin Capital letter F
+#U+0047 71 G Latin Capital letter G
+#U+0048 72 H Latin Capital letter H
+#U+0049 73 I Latin Capital letter I
+#U+004A 74 J Latin Capital letter J
+#U+004B 75 K Latin Capital letter K
+#U+004C 76 L Latin Capital letter L
+#U+004D 77 M Latin Capital letter M
+#U+004E 78 N Latin Capital letter N
+#U+004F 79 O Latin Capital letter O
+#U+0050 80 P Latin Capital letter P
+#U+0051 81 Q Latin Capital letter Q
+#U+0052 82 R Latin Capital letter R
+#U+0053 83 S Latin Capital letter S
+#U+0054 84 T Latin Capital letter T
+#U+0055 85 U Latin Capital letter U
+#U+0056 86 V Latin Capital letter V
+#U+0057 87 W Latin Capital letter W
+#U+0058 88 X Latin Capital letter X
+#U+0059 89 Y Latin Capital letter Y
+#U+005A 90 Z Latin Capital letter Z
+#U+005B 91 [ Left Square Bracket
+#U+005C 92 \ Backslash
+#U+005D 93 ] Right Square Bracket
+#U+005E 94 ^ Circumflex accent
+#U+005F 95 _ Low line
+#U+0060 96 ` Grave accent
+#U+0061 97 a Latin Small Letter A
+#U+0062 98 b Latin Small Letter B
+#U+0063 99 c Latin Small Letter C
+#U+0064 100 d Latin Small Letter D
+#U+0065 101 e Latin Small Letter E
+#U+0066 102 f Latin Small Letter F
+#U+0067 103 g Latin Small Letter G
+#U+0068 104 h Latin Small Letter H
+#U+0069 105 i Latin Small Letter I
+#U+006A 106 j Latin Small Letter J
+#U+006B 107 k Latin Small Letter K
+#U+006C 108 l Latin Small Letter L
+#U+006D 109 m Latin Small Letter M
+#U+006E 110 n Latin Small Letter N
+#U+006F 111 o Latin Small Letter O
+#U+0070 112 p Latin Small Letter P
+#U+0071 113 q Latin Small Letter Q
+#U+0072 114 r Latin Small Letter R
+#U+0073 115 s Latin Small Letter S
+#U+0074 116 t Latin Small Letter T
+#U+0075 117 u Latin Small Letter U
+#U+0076 118 v Latin Small Letter V
+#U+0077 119 w Latin Small Letter W
+#U+0078 120 x Latin Small Letter X
+#U+0079 121 y Latin Small Letter Y
+#U+007A 122 z Latin Small Letter Z
+#U+007B 123 { Left Curly Bracket
+#U+007C 124 | Vertical bar
+#U+007D 125 } Right Curly Bracket
+#U+007E 126 ~ Tilde
+
+#U+00A0 160   Non-breaking space
+#U+00A1 161 ¡ Inverted Exclamation Mark
+#U+00A2 162 ¢ Cent sign
+#U+00A3 163 £ Pound sign
+#U+00A4 164 ¤ Currency sign
+#U+00A5 165 ¥ Yen sign
+#U+00A6 166 ¦ Broken bar
+#U+00A7 167 § Section sign
+#U+00A8 168 ¨ Diaeresis (Umlaut)
+#U+00A9 169 © Copyright sign
+#U+00AA 170 ª Feminine Ordinal Indicator
+#U+00AB 171 « Left-pointing double angle quotation mark
+#U+00AC 172 ¬ Not sign
+#U+00AD 173 ­ Soft hyphen
+#U+00AE 174 ® Registered sign
+#U+00AF 175 ¯ macron
+#U+00B0 176 ° Degree symbol
+#U+00B1 177 ± Plus-minus sign
+#U+00B2 178 ² Superscript two
+#U+00B3 179 ³ Superscript three
+#U+00B4 180 ´ Acute accent
+#U+00B5 181 µ Micro sign
+#U+00B6 182 ¶ Pilcrow sign
+#U+00B7 183 · Middle dot
+#U+00B8 184 ¸ Cedilla
+#U+00B9 185 ¹ Superscript one
+#U+00BA 186 º Masculine ordinal indicator
+#U+00BB 187 » Right-pointing double angle quotation mark
+#U+00BC 188 ¼ Vulgar fraction one quarter
+#U+00BD 189 ½ Vulgar fraction one half
+#U+00BE 190 ¾ Vulgar fraction three quarters
+#U+00BF 191 ¿ Inverted Question Mark
+#U+00C0 192 À Latin Capital Letter A with grave
+#U+00C1 193 Á Latin Capital letter A with acute
+#U+00C2 194 Â Latin Capital letter A with circumflex
+#U+00C3 195 Ã Latin Capital letter A with tilde
+#U+00C4 196 Ä Latin Capital letter A with diaeresis
+#U+00C5 197 Å Latin Capital letter A with ring above
+#U+00C6 198 Æ Latin Capital letter Æ
+#U+00C7 199 Ç Latin Capital letter C with cedilla
+#U+00C8 200 È Latin Capital letter E with grave
+#U+00C9 201 É Latin Capital letter E with acute
+#U+00CA 202 Ê Latin Capital letter E with circumflex
+#U+00CB 203 Ë Latin Capital letter E with diaeresis
+#U+00CC 204 Ì Latin Capital letter I with grave
+#U+00CD 205 Í Latin Capital letter I with acute
+#U+00CE 206 Î Latin Capital letter I with circumflex
+#U+00CF 207 Ï Latin Capital letter I with diaeresis
+#U+00D0 208 Ð Latin Capital letter Eth
+#U+00D1 209 Ñ Latin Capital letter N with tilde
+#U+00D2 210 Ò Latin Capital letter O with grave
+#U+00D3 211 Ó Latin Capital letter O with acute
+#U+00D4 212 Ô Latin Capital letter O with circumflex
+#U+00D5 213 Õ Latin Capital letter O with tilde
+#U+00D6 214 Ö Latin Capital letter O with diaeresis
+#U+00D7 215 × Multiplication sign
+#U+00D8 216 Ø Latin Capital letter O with stroke
+#U+00D9 217 Ù Latin Capital letter U with grave
+#U+00DA 218 Ú Latin Capital letter U with acute
+#U+00DB 219 Û Latin Capital Letter U with circumflex
+#U+00DC 220 Ü Latin Capital Letter U with diaeresis
+#U+00DD 221 Ý Latin Capital Letter Y with acute
+#U+00DE 222 Þ Latin Capital Letter Thorn
+#U+00DF 223 ß Latin Small Letter sharp S
+#U+00E0 224 à Latin Small Letter A with grave
+#U+00E1 225 á Latin Small Letter A with acute
+#U+00E2 226 â Latin Small Letter A with circumflex
+#U+00E3 227 ã Latin Small Letter A with tilde
+#U+00E4 228 ä Latin Small Letter A with diaeresis
+#U+00E5 229 å Latin Small Letter A with ring above
+#U+00E6 230 æ Latin Small Letter Æ
+#U+00E7 231 ç Latin Small Letter C with cedilla
+#U+00E8 232 è Latin Small Letter E with grave
+#U+00E9 233 é Latin Small Letter E with acute
+#U+00EA 234 ê Latin Small Letter E with circumflex
+#U+00EB 235 ë Latin Small Letter E with diaeresis
+#U+00EC 236 ì Latin Small Letter I with grave
+#U+00ED 237 í Latin Small Letter I with acute
+#U+00EE 238 î Latin Small Letter I with circumflex
+#U+00EF 239 ï Latin Small Letter I with diaeresis
+#U+00F0 240 ð Latin Small Letter Eth
+#U+00F1 241 ñ Latin Small Letter N with tilde
+#U+00F2 242 ò Latin Small Letter O with grave
+#U+00F3 243 ó Latin Small Letter O with acute
+#U+00F4 244 ô Latin Small Letter O with circumflex
+#U+00F5 245 õ Latin Small Letter O with tilde
+#U+00F6 246 ö Latin Small Letter O with diaeresis
+#U+00F7 247 ÷ Division sign
+#U+00F8 248 ø Latin Small Letter O with stroke
+#U+00F9 249 ù Latin Small Letter U with grave
+#U+00FA 250 ú Latin Small Letter U with acute
+#U+00FB 251 û Latin Small Letter U with circumflex
+#U+00FC 252 ü Latin Small Letter U with diaeresis
+#U+00FD 253 ý Latin Small Letter Y with acute
+#U+00FE 254 þ Latin Small Letter Thorn
+#U+00FF 255 ÿ Latin Small Letter Y with diaeresis
+
+#U+0100 256 Ā Latin Capital Letter A with macron
+#U+0101 257 ā Latin Small Letter A with macron
+#U+0102 258 Ă Latin Capital Letter A with breve
+#U+0103 259 ă Latin Small Letter A with breve
+#U+0104 260 Ą Latin Capital Letter A with ogonek
+#U+0105 261 ą Latin Small Letter A with ogonek
+#U+0106 262 Ć Latin Capital Letter C with acute
+#U+0107 263 ć Latin Small Letter C with acute
+#U+0108 264 Ĉ Latin Capital Letter C with circumflex
+#U+0109 265 ĉ Latin Small Letter C with circumflex
+#U+010A 266 Ċ Latin Capital Letter C with dot above
+#U+010B 267 ċ Latin Small Letter C with dot above
+#U+010C 268 Č Latin Capital Letter C with caron
+#U+010D 269 č Latin Small Letter C with caron
+#U+010E 270 Ď Latin Capital Letter D with caron
+#U+010F 271 ď Latin Small Letter D with caron
+#U+0110 272 Đ Latin Capital Letter D with stroke
+#U+0111 273 đ Latin Small Letter D with stroke
+#U+0112 274 Ē Latin Capital Letter E with macron
+#U+0113 275 ē Latin Small Letter E with macron
+#U+0114 276 Ĕ Latin Capital Letter E with breve
+#U+0115 277 ĕ Latin Small Letter E with breve
+#U+0116 278 Ė Latin Capital Letter E with dot above
+#U+0117 279 ė Latin Small Letter E with dot above
+#U+0118 280 Ę Latin Capital Letter E with ogonek
+#U+0119 281 ę Latin Small Letter E with ogonek
+#U+011A 282 Ě Latin Capital Letter E with caron
+#U+011B 283 ě Latin Small Letter E with caron
+#U+011C 284 Ĝ Latin Capital Letter G with circumflex
+#U+011D 285 ĝ Latin Small Letter G with circumflex
+#U+011E 286 Ğ Latin Capital Letter G with breve
+#U+011F 287 ğ Latin Small Letter G with breve
+#U+0120 288 Ġ Latin Capital Letter G with dot above
+#U+0121 289 ġ Latin Small Letter G with dot above
+#U+0122 290 Ģ Latin Capital Letter G with cedilla
+#U+0123 291 ģ Latin Small Letter G with cedilla
+#U+0124 292 Ĥ Latin Capital Letter H with circumflex
+#U+0125 293 ĥ Latin Small Letter H with circumflex
+#U+0126 294 Ħ Latin Capital Letter H with stroke
+#U+0127 295 ħ Latin Small Letter H with stroke
+#U+0128 296 Ĩ Latin Capital Letter I with tilde
+#U+0129 297 ĩ Latin Small Letter I with tilde
+#U+012A 298 Ī Latin Capital Letter I with macron
+#U+012B 299 ī Latin Small Letter I with macron
+#U+012C 300 Ĭ Latin Capital Letter I with breve
+#U+012D 301 ĭ Latin Small Letter I with breve
+#U+012E 302 Į Latin Capital Letter I with ogonek
+#U+012F 303 į Latin Small Letter I with ogonek
+#U+0130 304 İ Latin Capital Letter I with dot above
+#U+0131 305 ı Latin Small Letter dotless I
+#U+0132 306 Ĳ Latin Capital Ligature IJ
+#U+0133 307 ĳ Latin Small Ligature IJ
+#U+0134 308 Ĵ Latin Capital Letter J with circumflex
+#U+0135 309 ĵ Latin Small Letter J with circumflex
+#U+0136 310 Ķ Latin Capital Letter K with cedilla
+#U+0137 311 ķ Latin Small Letter K with cedilla
+#U+0138 312 ĸ Latin Small Letter Kra
+#U+0139 313 Ĺ Latin Capital Letter L with acute
+#U+013A 314 ĺ Latin Small Letter L with acute
+#U+013B 315 Ļ Latin Capital Letter L with cedilla
+#U+013C 316 ļ Latin Small Letter L with cedilla
+#U+013D 317 Ľ Latin Capital Letter L with caron
+#U+013E 318 ľ Latin Small Letter L with caron
+#U+013F 319 Ŀ Latin Capital Letter L with middle dot
+#U+0140 320 ŀ Latin Small Letter L with middle dot
+#U+0141 321 Ł Latin Capital Letter L with stroke
+#U+0142 322 ł Latin Small Letter L with stroke
+#U+0143 323 Ń Latin Capital Letter N with acute
+#U+0144 324 ń Latin Small Letter N with acute
+#U+0145 325 Ņ Latin Capital Letter N with cedilla
+#U+0146 326 ņ Latin Small Letter N with cedilla
+#U+0147 327 Ň Latin Capital Letter N with caron
+#U+0148 328 ň Latin Small Letter N with caron
+#U+0149 329 ŉ Latin Small Letter N preceded by apostrophe
+#U+014A 330 Ŋ Latin Capital Letter Eng
+#U+014B 331 ŋ Latin Small Letter Eng
+#U+014C 332 Ō Latin Capital Letter O with macron
+#U+014D 333 ō Latin Small Letter O with macron
+#U+014E 334 Ŏ Latin Capital Letter O with breve
+#U+014F 335 ŏ Latin Small Letter O with breve
+#U+0150 336 Ő Latin Capital Letter O with double acute
+#U+0151 337 ő Latin Small Letter O with double acute
+#U+0152 338 Œ Latin Capital Ligature OE
+#U+0153 339 œ Latin Small Ligature OE
+#U+0154 340 Ŕ Latin Capital Letter R with acute
+#U+0155 341 ŕ Latin Small Letter R with acute
+#U+0156 342 Ŗ Latin Capital Letter R with cedilla
+#U+0157 343 ŗ Latin Small Letter R with cedilla
+#U+0158 344 Ř Latin Capital Letter R with caron
+#U+0159 345 ř Latin Small Letter R with caron
+#U+015A 346 Ś Latin Capital Letter S with acute
+#U+015B 347 ś Latin Small Letter S with acute
+#U+015C 348 Ŝ Latin Capital Letter S with circumflex
+#U+015D 349 ŝ Latin Small Letter S with circumflex
+#U+015E 350 Ş Latin Capital Letter S with cedilla
+#U+015F 351 ş Latin Small Letter S with cedilla
+#U+0160 352 Š Latin Capital Letter S with caron
+#U+0161 353 š Latin Small Letter S with caron
+#U+0162 354 Ţ Latin Capital Letter T with cedilla
+#U+0163 355 ţ Latin Small Letter T with cedilla
+#U+0164 356 Ť Latin Capital Letter T with caron
+#U+0165 357 ť Latin Small Letter T with caron
+#U+0166 358 Ŧ Latin Capital Letter T with stroke
+#U+0167 359 ŧ Latin Small Letter T with stroke
+#U+0168 360 Ũ Latin Capital Letter U with tilde
+#U+0169 361 ũ Latin Small Letter U with tilde
+#U+016A 362 Ū Latin Capital Letter U with macron
+#U+016B 363 ū Latin Small Letter U with macron
+#U+016C 364 Ŭ Latin Capital Letter U with breve
+#U+016D 365 ŭ Latin Small Letter U with breve
+#U+016E 366 Ů Latin Capital Letter U with ring above
+#U+016F 367 ů Latin Small Letter U with ring above
+#U+0170 368 Ű Latin Capital Letter U with double acute
+#U+0171 369 ű Latin Small Letter U with double acute
+#U+0172 370 Ų Latin Capital Letter U with ogonek
+#U+0173 371 ų Latin Small Letter U with ogonek
+#U+0174 372 Ŵ Latin Capital Letter W with circumflex
+#U+0175 373 ŵ Latin Small Letter W with circumflex
+#U+0176 374 Ŷ Latin Capital Letter Y with circumflex
+#U+0177 375 ŷ Latin Small Letter Y with circumflex
+#U+0178 376 Ÿ Latin Capital Letter Y with diaeresis
+#U+0179 377 Ź Latin Capital Letter Z with acute
+#U+017A 378 ź Latin Small Letter Z with acute
+#U+017B 379 Ż Latin Capital Letter Z with dot above
+#U+017C 380 ż Latin Small Letter Z with dot above
+#U+017D 381 Ž Latin Capital Letter Z with caron
+#U+017E 382 ž Latin Small Letter Z with caron
+#U+017F 383 ſ Latin Small Letter long S
+
+#U+0180 384 ƀ Latin Small Letter B with stroke
+#U+0181 385 Ɓ Latin Capital Letter B with hook
+#U+0182 386 Ƃ Latin Capital Letter B with top bar
+#U+0183 387 ƃ Latin Small Letter B with top bar
+#U+0184 388 Ƅ Latin Capital Letter Tone Six
+#U+0185 389 ƅ Latin Small Letter Tone Six
+#U+0186 390 Ɔ Latin Capital Letter Open O
+#U+0187 391 Ƈ Latin Capital Letter C with hook
+#U+0188 392 ƈ Latin Small Letter C with hook
+#U+0189 393 Ɖ Latin Capital Letter African D
+#U+018A 394 Ɗ Latin Capital Letter D with hook
+#U+018B 395 Ƌ Latin Capital Letter D with top bar
+#U+018C 396 ƌ Latin Small Letter D with top bar
+#U+018D 397 ƍ Latin Small Letter Turned Delta
+#U+018E 398 Ǝ Latin Capital Letter Reversed E
+#U+018F 399 Ə Latin Capital Letter Schwa
+#U+0190 400 Ɛ Latin Capital Letter Open E
+#U+0191 401 Ƒ Latin Capital Letter F with hook
+#U+0192 402 ƒ Latin Small Letter F with hook
+#U+0193 403 Ɠ Latin Capital Letter G with hook
+#U+0194 404 Ɣ Latin Capital Letter Gamma
+#U+0195 405 ƕ Latin Small Letter HV
+#U+0196 406 Ɩ Latin Capital Letter Iota
+#U+0197 407 Ɨ Latin Capital Letter I with stroke
+#U+0198 408 Ƙ Latin Capital Letter K with hook
+#U+0199 409 ƙ Latin Small Letter K with hook
+#U+019A 410 ƚ Latin Small Letter L with bar
+#U+019B 411 ƛ Latin Small Letter Lambda with stroke
+#U+019C 412 Ɯ Latin Capital Letter Turned M
+#U+019D 413 Ɲ Latin Capital Letter N with left hook
+#U+019E 414 ƞ Latin Small Letter N with long right leg
+#U+019F 415 Ɵ Latin Capital Letter O with middle tilde
+#U+01A0 416 Ơ Latin Capital Letter O with horn
+#U+01A1 417 ơ Latin Small Letter O with horn
+#U+01A2 418 Ƣ Latin Capital Letter OI (= Latin Capital Letter Gha)
+#U+01A3 419 ƣ Latin Small Letter OI (= Latin Small Letter Gha)
+#U+01A4 420 Ƥ Latin Capital Letter P with hook
+#U+01A5 421 ƥ Latin Small Letter P with hook
+#U+01A6 422 Ʀ Latin Letter YR
+#U+01A7 423 Ƨ Latin Capital Letter Tone Two
+#U+01A8 424 ƨ Latin Small Letter Tone Two
+#U+01A9 425 Ʃ Latin Capital Letter Esh
+#U+01AA 426 ƪ Latin Letter Reversed Esh Loop
+#U+01AB 427 ƫ Latin Small Letter T with palatal hook
+#U+01AC 428 Ƭ Latin Capital Letter T with hook
+#U+01AD 429 ƭ Latin Small Letter T with hook
+#U+01AE 430 Ʈ Latin Capital Letter T with retroflex hook
+#U+01AF 431 Ư Latin Capital Letter U with horn
+#U+01B0 432 ư Latin Small Letter U with horn
+#U+01B1 433 Ʊ Latin Capital Letter Upsilon
+#U+01B2 434 Ʋ Latin Capital Letter V with hook
+#U+01B3 435 Ƴ Latin Capital Letter Y with hook
+#U+01B4 436 ƴ Latin Small Letter Y with hook
+#U+01B5 437 Ƶ Latin Capital Letter Z with stroke
+#U+01B6 438 ƶ Latin Small Letter Z with stroke
+#U+01B7 439 Ʒ Latin Capital Letter Ezh
+#U+01B8 440 Ƹ Latin Capital Letter Ezh reversed
+#U+01B9 441 ƹ Latin Small Letter Ezh reversed
+#U+01BA 442 ƺ Latin Small Letter Ezh with tail
+#U+01BB 443 ƻ Latin Letter Two with stroke
+#U+01BC 444 Ƽ Latin Capital Letter Tone Five
+#U+01BD 445 ƽ Latin Small Letter Tone Five
+#U+01BE 446 ƾ Latin Letter Inverted Glottal Stop with stroke
+#U+01BF 447 ƿ Latin Letter Wynn
+#U+01C0 448 ǀ Latin Letter Dental Click
+#U+01C1 449 ǁ Latin Letter Lateral Click
+#U+01C2 450 ǂ Latin Letter Alveolar Click
+#U+01C3 451 ǃ Latin Letter Retroflex Click
+#U+01C4 452 Ǆ Latin Capital Letter DZ with caron
+#U+01C5 453 ǅ Latin Capital Letter D with Small Letter Z with caron
+#U+01C6 454 ǆ Latin Small Letter DZ with caron
+#U+01C7 455 Ǉ Latin Capital Letter LJ
+#U+01C8 456 ǈ Latin Capital Letter L with Small Letter J
+#U+01C9 457 ǉ Latin Small Letter LJ
+#U+01CA 458 Ǌ Latin Capital Letter NJ
+#U+01CB 459 ǋ Latin Capital Letter N with Small Letter J
+#U+01CC 460 ǌ Latin Small Letter NJ
+#U+01CD 461 Ǎ Latin Capital Letter A with caron
+#U+01CE 462 ǎ Latin Small Letter A with caron
+#U+01CF 463 Ǐ Latin Capital Letter I with caron
+#U+01D0 464 ǐ Latin Small Letter I with caron
+#U+01D1 465 Ǒ Latin Capital Letter O with caron
+#U+01D2 466 ǒ Latin Small Letter O with caron
+#U+01D3 467 Ǔ Latin Capital Letter U with caron
+#U+01D4 468 ǔ Latin Small Letter U with caron
+#U+01D5 469 Ǖ Latin Capital Letter U with diaeresis and macron
+#U+01D6 470 ǖ Latin Small Letter U with diaeresis and macron
+#U+01D7 471 Ǘ Latin Capital Letter U with diaeresis and acute
+#U+01D8 472 ǘ Latin Small Letter U with diaeresis and acute
+#U+01D9 473 Ǚ Latin Capital Letter U with diaeresis and caron
+#U+01DA 474 ǚ Latin Small Letter U with diaeresis and caron
+#U+01DB 475 Ǜ Latin Capital Letter U with diaeresis and grave
+#U+01DC 476 ǜ Latin Small Letter U with diaeresis and grave
+#U+01DD 477 ǝ Latin Small Letter Turned E
+#U+01DE 478 Ǟ Latin Capital Letter A with diaeresis and macron
+#U+01DF 479 ǟ Latin Small Letter A with diaeresis and macron
+#U+01E0 480 Ǡ Latin Capital Letter A with dot above and macron
+#U+01E1 481 ǡ Latin Small Letter A with dot above and macron
+#U+01E2 482 Ǣ Latin Capital Letter Æ with macron
+#U+01E3 483 ǣ Latin Small Letter Æ with macron
+#U+01E4 484 Ǥ Latin Capital Letter G with stroke
+#U+01E5 485 ǥ Latin Small Letter G with stroke
+#U+01E6 486 Ǧ Latin Capital Letter G with caron
+#U+01E7 487 ǧ Latin Small Letter G with caron
+#U+01E8 488 Ǩ Latin Capital Letter K with caron
+#U+01E9 489 ǩ Latin Small Letter K with caron
+#U+01EA 490 Ǫ Latin Capital Letter O with ogonek
+#U+01EB 491 ǫ Latin Small Letter O with ogonek
+#U+01EC 492 Ǭ Latin Capital Letter O with ogonek and macron
+#U+01ED 493 ǭ Latin Small Letter O with ogonek and macron
+#U+01EE 494 Ǯ Latin Capital Letter Ezh with caron
+#U+01EF 495 ǯ Latin Small Letter Ezh with caron
+#U+01F0 496 ǰ Latin Small Letter J with caron
+#U+01F1 497 Ǳ Latin Capital Letter DZ
+#U+01F2 498 ǲ Latin Capital Letter D with Small Letter Z
+#U+01F3 499 ǳ Latin Small Letter DZ
+#U+01F4 500 Ǵ Latin Capital Letter G with acute
+#U+01F5 501 ǵ Latin Small Letter G with acute
+#U+01F6 502 Ƕ Latin Capital Letter Hwair
+#U+01F7 503 Ƿ Latin Capital Letter Wynn
+#U+01F8 504 Ǹ Latin Capital Letter N with grave
+#U+01F9 505 ǹ Latin Small Letter N with grave
+#U+01FA 506 Ǻ Latin Capital Letter A with ring above and acute
+#U+01FB 507 ǻ Latin Small Letter A with ring above and acute
+#U+01FC 508 Ǽ Latin Capital Letter Æ with acute
+#U+01FD 509 ǽ Latin Small Letter Æ with acute
+#U+01FE 510 Ǿ Latin Capital Letter O with stroke and acute
+#U+01FF 511 ǿ Latin Small Letter O with stroke and acute
+#U+0200 512 Ȁ Latin Capital Letter A with double grave
+#U+0201 513 ȁ Latin Small Letter A with double grave
+#U+0202 514 Ȃ Latin Capital Letter A with inverted breve
+#U+0203 515 ȃ Latin Small Letter A with inverted breve
+#U+0204 516 Ȅ Latin Capital Letter E with double grave
+#U+0205 517 ȅ Latin Small Letter E with double grave
+#U+0206 518 Ȇ Latin Capital Letter E with inverted breve
+#U+0207 519 ȇ Latin Small Letter E with inverted breve
+#U+0208 520 Ȉ Latin Capital Letter I with double grave
+#U+0209 521 ȉ Latin Small Letter I with double grave
+#U+020A 522 Ȋ Latin Capital Letter I with inverted breve
+#U+020B 523 ȋ Latin Small Letter I with inverted breve
+#U+020C 524 Ȍ Latin Capital Letter O with double grave
+#U+020D 525 ȍ Latin Small Letter O with double grave
+#U+020E 526 Ȏ Latin Capital Letter O with inverted breve
+#U+020F 527 ȏ Latin Small Letter O with inverted breve
+#U+0210 528 Ȑ Latin Capital Letter R with double grave
+#U+0211 529 ȑ Latin Small Letter R with double grave
+#U+0212 530 Ȓ Latin Capital Letter R with inverted breve
+#U+0213 531 ȓ Latin Small Letter R with inverted breve
+#U+0214 532 Ȕ Latin Capital Letter U with double grave
+#U+0215 533 ȕ Latin Small Letter U with double grave
+#U+0216 534 Ȗ Latin Capital Letter U with inverted breve
+#U+0217 535 ȗ Latin Small Letter U with inverted breve
+#U+0218 536 Ș Latin Capital Letter S with comma below
+#U+0219 537 ș Latin Small Letter S with comma below
+#U+021A 538 Ț Latin Capital Letter T with comma below
+#U+021B 539 ț Latin Small Letter T with comma below
+#U+021C 540 Ȝ Latin Capital Letter Yogh
+#U+021D 541 ȝ Latin Small Letter Yogh
+#U+021E 542 Ȟ Latin Capital Letter H with caron
+#U+021F 543 ȟ Latin Small Letter H with caron
+#U+0220 544 Ƞ Latin Capital Letter N with long right leg
+#U+0221 545 ȡ Latin Small Letter D with curl
+#U+0222 546 Ȣ Latin Capital Letter OU
+#U+0223 547 ȣ Latin Small Letter OU
+#U+0224 548 Ȥ Latin Capital Letter Z with hook
+#U+0225 549 ȥ Latin Small Letter Z with hook
+#U+0226 550 Ȧ Latin Capital Letter A with dot above
+#U+0227 551 ȧ Latin Small Letter A with dot above
+#U+0228 552 Ȩ Latin Capital Letter E with cedilla
+#U+0229 553 ȩ Latin Small Letter E with cedilla
+#U+022A 554 Ȫ Latin Capital Letter O with diaeresis and macron
+#U+022B 555 ȫ Latin Small Letter O with diaeresis and macron
+#U+022C 556 Ȭ Latin Capital Letter O with tilde and macron
+#U+022D 557 ȭ Latin Small Letter O with tilde and macron
+#U+022E 558 Ȯ Latin Capital Letter O with dot above
+#U+022F 559 ȯ Latin Small Letter O with dot above
+#U+0230 560 Ȱ Latin Capital Letter O with dot above and macron
+#U+0231 561 ȱ Latin Small Letter O with dot above and macron
+#U+0232 562 Ȳ Latin Capital Letter Y with macron
+#U+0233 563 ȳ Latin Small Letter Y with macron
+#U+0234 564 ȴ Latin Small Letter L with curl
+#U+0235 565 ȵ Latin Small Letter N with curl
+#U+0236 566 ȶ Latin Small Letter T with curl
+#U+0237 567 ȷ Latin Small Letter Dotless J
+#U+0238 568 ȸ Latin Small Letter DB Digraph
+#U+0239 569 ȹ Latin Small Letter QP Digraph
+#U+023A 570 Ⱥ Latin Capital Letter A with stroke
+#U+023B 571 Ȼ Latin Capital Letter C with stroke
+#U+023C 572 ȼ Latin Small Letter C with stroke
+#U+023D 573 Ƚ Latin Capital Letter L with bar
+#U+023E 574 Ⱦ Latin Capital Letter T with diagonal stroke
+#U+023F 575 ȿ Latin Small Letter S with swash tail
+#U+0240 576 ɀ Latin Small Letter Z with swash tail
+#U+0241 577 Ɂ Latin Capital Letter Glottal Stop
+#U+0242 578 ɂ Latin Small Letter Glottal Stop
+#U+0243 579 Ƀ Latin Capital Letter B with stroke
+#U+0244 580 Ʉ Latin Capital Letter U bar
+#U+0245 581 Ʌ Latin Capital Letter Turned V
+#U+0246 582 Ɇ Latin Capital Letter E with stroke
+#U+0247 583 ɇ Latin Small Letter E with stroke
+#U+0248 584 Ɉ Latin Capital Letter J with stroke
+#U+0249 585 ɉ Latin Small Letter J with stroke
+#U+024A 586 Ɋ Latin Capital Letter Q with hook tail
+#U+024B 587 ɋ Latin Small Letter Q with hook tail
+#U+024C 588 Ɍ Latin Capital Letter R with stroke
+#U+024D 589 ɍ Latin Small Letter R with stroke
+#U+024E 590 Ɏ Latin Capital Letter Y with stroke
+#U+024F 591 ɏ Latin Small Letter Y with stroke
+
+#U+1E02 647 Ḃ Latin Capital Letter B with dot above
+#U+1E03 648 ḃ Latin Small Letter B with dot above
+#U+1E0A 649 Ḋ Latin Capital Letter D with dot above
+#U+1E0B 650 ḋ Latin Small Letter D with dot above
+#U+1E1E 651 Ḟ Latin Capital Letter F with dot above
+#U+1E1F 652 ḟ Latin Small Letter F with dot above
+#U+1E40 653 Ṁ Latin Capital Letter M with dot above
+#U+1E41 654 ṁ Latin Small Letter M with dot above
+#U+1E56 655 Ṗ Latin Capital Letter P with dot above
+#U+1E57 656 ṗ Latin Small Letter P with dot above
+#U+1E60 657 Ṡ Latin Capital Letter S with dot above
+#U+1E61 658 ṡ Latin Small Letter S with dot above
+#U+1E6A 659 Ṫ Latin Capital Letter T with dot above
+#U+1E6B 660 ṫ Latin Small Letter T with dot above
+#U+1E80 661 Ẁ Latin Capital Letter W with grave
+#U+1E81 662 ẁ Latin Small Letter W with grave
+#U+1E82 663 Ẃ Latin Capital Letter W with acute
+#U+1E83 664 ẃ Latin Small Letter W with acute
+#U+1E84 665 Ẅ Latin Capital Letter W with diaeresis
+#U+1E85 666 ẅ Latin Small Letter W with diaeresis
+#U+1E9B 667 ẛ Latin Small Letter Long S with dot above
+#U+1EF2 668 Ỳ Latin Capital Letter Y with grave
+#U+1EF3 669 ỳ Latin Small Letter Y with grave
+
+#U+0259 601 ə Latin Small Letter Schwa
+#U+027C 636 ɼ Latin Small Letter R with long leg
+#U+0292 658 ʒ Latin Small Letter Ezh
+
+#U+02B0 688 ʰ Modifier Letter Small H
+#U+02B1 689 ʱ Modifier Letter Small H with hook
+#U+02B2 690 ʲ Modifier Letter Small J
+#U+02B3 691 ʳ Modifier Letter Small R
+#U+02B4 692 ʴ Modifier Letter Small Turned R
+#U+02B5 693 ʵ Modifier Letter Small Turned R with hook
+#U+02B6 694 ʶ Modifier Letter Small Capital Inverted R
+#U+02B7 695 ʷ Modifier Letter Small W
+#U+02B8 696 ʸ Modifier Letter Small Y
+#U+02B9 697 ʹ Modifier Letter Prime
+#U+02BA 698 ʺ Modifier Letter Double Prime
+#U+02BB 699 ʻ Modifier Letter Turned Comma
+#U+02BC 700 ʼ Modifier Letter Apostrophe
+#U+02BD 701 ʽ Modifier Letter Reversed Comma
+#U+02BE 702 ʾ Modifier Letter Right Half Ring
+#U+02BF 703 ʿ Modifier Letter Left Half Ring
+#U+02C0 704 ˀ Modifier Letter Glottal Stop
+#U+02C1 705 ˁ Modifier Letter Reversed Glottal Stop
+#U+02C2 706 ˂ Modifier Letter Left Arrowhead
+#U+02C3 707 ˃ Modifier Letter Right Arrowhead
+#U+02C4 708 ˄ Modifier Letter Up Arrowhead
+#U+02C5 709 ˅ Modifier Letter Down Arrowhead
+#U+02C6 710 ˆ Modifier Letter Circumflex Accent
+#U+02C7 711 ˇ Caron
+#U+02C8 712 ˈ Modifier Letter Vertical Line
+#U+02C9 713 ˉ Modifier Letter Macron
+#U+02CA 714 ˊ Modifier Letter Acute Accent
+#U+02CB 715 ˋ Modifier Letter Grave Accent
+#U+02CC 716 ˌ Modifier Letter Low Vertical Line
+#U+02CD 717 ˍ Modifier Letter Low Macron
+#U+02CE 718 ˎ Modifier Letter Low Grave Accent
+#U+02CF 719 ˏ Modifier Letter Low Acute Accent
+#U+02D0 720 ː Modifier Letter Triangular Colon
+#U+02D1 721 ˑ Modifier Letter Half Triangular Colon
+#U+02D2 722 ˒ Modifier Letter Centered Right Half Ring
+#U+02D3 723 ˓ Modifier Letter Centered Left Half Ring
+#U+02D4 724 ˔ Modifier Letter Up Tack
+#U+02D5 725 ˕ Modifier Letter Down Tack
+#U+02D6 726 ˖ Modifier Letter Plus Sign
+#U+02D7 727 ˗ Modifier Letter Minus Sign
+#U+02D8 728 ˘ Breve
+#U+02D9 729 ˙ Dot Above
+#U+02DA 730 ˚ Ring Above
+#U+02DB 731 ˛ Ogonek
+#U+02DC 732 ˜ Small Tilde
+#U+02DD 733 ˝ Double Acute Accent
+#U+02DE 734 ˞ Modifier Letter Rhotic Hook
+#U+02DF 735 ˟ Modifier Letter Cross Accent
+#U+02E0 736 ˠ Modifier Letter Small Gamma
+#U+02E1 737 ˡ Modifier Letter Small L
+#U+02E2 738 ˢ Modifier Letter Small S
+#U+02E3 739 ˣ Modifier Letter Small X
+#U+02E4 740 ˤ Modifier Letter Small Reversed Glottal Stop
+#U+02E5 741 ˥ Modifier Letter Extra-High Tone Bar
+#U+02E6 742 ˦ Modifier Letter High Tone Bar
+#U+02E7 743 ˧ Modifier Letter Mid Tone Bar
+#U+02E8 744 ˨ Modifier Letter Low Tone Bar
+#U+02E9 745 ˩ Modifier Letter Extra-Low Tone Bar
+#U+02EA 746 ˪ Modifier Letter Yin Departing Tone Mark
+#U+02EB 747 ˫ Modifier Letter Yang Departing Tone Mark
+#U+02EC 748 ˬ Modifier Letter Voicing
+#U+02ED 749 ˭ Modifier Letter Unaspirated
+#U+02EE 750 ˮ Modifier Letter Double Apostrophe
+#U+02EF 751 ˯ Modifier Letter Low Down Arrowhead
+#U+02F0 752 ˰ Modifier Letter Low Up Arrowhead
+#U+02F1 753 ˱ Modifier Letter Low Left Arrowhead
+#U+02F2 754 ˲ Modifier Letter Low Right Arrowhead
+#U+02F3 755 ˳ Modifier Letter Low Ring
+#U+02F4 756 ˴ Modifier Letter Middle Grave Accent
+#U+02F5 757 ˵ Modifier Letter Middle Double Grave Accent
+#U+02F6 758 ˶ Modifier Letter Middle Double Acute Accent
+#U+02F7 759 ˷ Modifier Letter Low Tilde
+#U+02F8 760 ˸ Modifier Letter Raised Colon
+#U+02F9 761 ˹ Modifier Letter Begin High Tone
+#U+02FA 762 ˺ Modifier Letter End High Tone
+#U+02FB 763 ˻ Modifier Letter Begin Low Tone
+#U+02FC 764 ˼ Modifier Letter End Low Tone
+#U+02FD 765 ˽ Modifier Letter Shelf
+#U+02FE 766 ˾ Modifier Letter Open Shelf
+#U+02FF 767 ˿ Modifier Letter Low Left Arrow
+
+#U+0370 880 Ͱ Greek Capital Letter Heta
+#U+0371 881 ͱ Greek Small Letter Heta
+#U+0372 882 Ͳ Greek Capital Letter Archaic Sampi
+#U+0373 883 ͳ Greek Small Letter Archaic Sampi
+#U+0374 884 ʹ Greek Numeral Sign
+#U+0375 885 ͵ Greek Lower Numeral Sign
+#U+0376 886 Ͷ Greek Capital Letter Pamphylian Digamma
+#U+0377 887 ͷ Greek Small Letter Pamphylian Digamma
+#U+037A 890 ͺ Greek Ypogegrammeni
+#U+037B 891 ͻ Greek Small Reversed Lunate Sigma Symbol
+#U+037C 892 ͼ Greek Small Dotted Lunate Sigma Symbol
+#U+037D 893 ͽ Greek Small Reversed Dotted Lunate Sigma Symbol
+#U+037E 894 ; Greek Question Mark
+#U+037F 895 Ϳ Greek Capital Letter Yot
+#U+0384 900 ΄ Greek tonos)
+#U+0385 901 ΅ Greek diaeresis with acute accent
+#U+0386 902 Ά Greek Capital Letter A with acute accent
+#U+0387 903 · Greek Ano Teleia
+#U+0388 904 Έ Greek Capital Letter Epsilon with acute accent
+#U+0389 905 Ή Greek Capital Letter Eta with acute accent
+#U+038A 906 Ί Greek Capital Letter Iota with acute accent
+#U+038C 908 Ό Greek Capital Letter Omicron with acute accent
+#U+038E 910 Ύ Greek Capital Letter Upsilon with acute accent
+#U+038F 911 Ώ Greek Capital Letter Omega with acute accent
+#U+0390 912 ΐ Greek Small Letter Iota with diaeresis and acute accent
+#U+0391 913 Α Greek Capital Letter Alpha
+#U+0392 914 Β Greek Capital Letter Beta
+#U+0393 915 Γ Greek Capital Letter Gamma
+#U+0394 916 Δ Greek Capital Letter Delta
+#U+0395 917 Ε Greek Capital Letter Epsilon
+#U+0396 918 Ζ Greek Capital Letter Zeta
+#U+0397 919 Η Greek Capital Letter Eta
+#U+0398 920 Θ Greek Capital Letter Theta
+#U+0399 921 Ι Greek Capital Letter Iota
+#U+039A 922 Κ Greek Capital Letter Kappa
+#U+039B 923 Λ Greek Capital Letter Lambda
+#U+039C 924 Μ Greek Capital Letter Mu
+#U+039D 925 Ν Greek Capital Letter Nu
+#U+039E 926 Ξ Greek Capital Letter Xi
+#U+039F 927 Ο Greek Capital Letter Omicron
+#U+03A0 928 Π Greek Capital Letter Pi
+#U+03A1 929 Ρ Greek Capital Letter Rho
+#U+03A3 931 Σ Greek Capital Letter Sigma
+#U+03A4 932 Τ Greek Capital Letter Tau
+#U+03A5 933 Υ Greek Capital Letter Upsilon
+#U+03A6 934 Φ Greek Capital Letter Phi
+#U+03A7 935 Χ Greek Capital Letter Chi
+#U+03A8 936 Ψ Greek Capital Letter Psi
+#U+03A9 937 Ω Greek Capital Letter Omega
+#U+03AA 938 Ϊ Greek Capital Letter Iota with diaeresis
+#U+03AB 939 Ϋ Greek Capital Letter Upsilon with diaeresis
+#U+03AC 940 ά Greek Small Letter Alpha with acute accent
+#U+03AD 941 έ Greek Small Letter Epsilon with acute accent
+#U+03AE 942 ή Greek Small Letter Eta with acute accent
+#U+03AF 943 ί Greek Small Letter Iota with acute accent
+#U+03B0 944 ΰ Greek Small Letter Upsilon with diaeresis and acute accent
+#U+03B1 945 α Greek Small Letter Alpha
+#U+03B2 946 β Greek Small Letter Beta
+#U+03B3 947 γ Greek Small Letter Gamma
+#U+03B4 948 δ Greek Small Letter Delta
+#U+03B5 949 ε Greek Small Letter Epsilon
+#U+03B6 950 ζ Greek Small Letter Zeta
+#U+03B7 951 η Greek Small Letter Eta
+#U+03B8 952 θ Greek Small Letter Theta
+#U+03B9 953 ι Greek Small Letter Iota
+#U+03BA 954 κ Greek Small Letter Kappa
+#U+03BB 955 λ Greek Small Letter Lambda
+#U+03BC 956 μ Greek Small Letter Mu
+#U+03BD 957 ν Greek Small Letter Nu
+#U+03BE 958 ξ Greek Small Letter Xi
+#U+03BF 959 ο Greek Small Letter Omicron
+#U+03C0 960 π Greek Small Letter Pi
+#U+03C1 961 ρ Greek Small Letter Rho
+#U+03C2 962 ς Greek Small Letter Final Sigma
+#U+03C3 963 σ Greek Small Letter Sigma
+#U+03C4 964 τ Greek Small Letter Tau
+#U+03C5 965 υ Greek Small Letter Upsilon
+#U+03C6 966 φ Greek Small Letter Phi
+#U+03C7 967 χ Greek Small Letter Chi
+#U+03C8 968 ψ Greek Small Letter Psi
+#U+03C9 969 ω Greek Small Letter Omega
+#U+03CA 970 ϊ Greek Small Letter Iota with diaeresis
+#U+03CB 971 ϋ Greek Small Letter Upsilon with diaeresis
+#U+03CC 972 ό Greek Small Letter Omicron with acute accent
+#U+03CD 973 ύ Greek Small Letter Upsilon with acute accent
+#U+03CE 974 ώ Greek Small Letter Omega with acute accent
+#U+03CF 975 Ϗ Greek Capital Kai Symbol
+#U+03D0 976 ϐ Greek Beta Symbol
+#U+03D1 977 ϑ Greek Theta Symbol
+#U+03D2 978 ϒ Greek Upsilon with hook Symbol
+#U+03D3 979 ϓ Greek Upsilon with acute and hook Symbol
+#U+03D4 980 ϔ Greek Upsilon with diaeresis and hook Symbol
+#U+03D5 981 ϕ Greek Phi Symbol
+#U+03D6 982 ϖ Greek Pi Symbol
+#U+03D7 983 ϗ Greek Kai Symbol
+#U+03D8 984 Ϙ Greek Letter Qoppa
+#U+03D9 985 ϙ Greek Small Letter Qoppa
+#U+03DA 986 Ϛ Greek Letter Stigma (letter)
+#U+03DB 987 ϛ Greek Small Letter Stigma
+#U+03DC 988 Ϝ Greek Letter Digamma
+#U+03DD 989 ϝ Greek Small Letter Digamma
+#U+03DE 990 Ϟ Greek Letter Koppa
+#U+03DF 991 ϟ Greek Small Letter Koppa
+#U+03E0 992 Ϡ Greek Letter Sampi
+#U+03E1 993 ϡ Greek Small Letter Sampi
+#U+03E2 994 Ϣ Coptic Capital Letter Shei
+#U+03E3 995 ϣ Coptic Small Letter Shei
+#U+03E4 996 Ϥ Coptic Capital Letter Fei
+#U+03E5 997 ϥ Coptic Small Letter Fei
+#U+03E6 998 Ϧ Coptic Capital Letter Khei
+#U+03E7 999 ϧ Coptic Small Letter Khei
+#U+03E8 1000 Ϩ Coptic Capital Letter Hori
+#U+03E9 1001 ϩ Coptic Small Letter Hori
+#U+03EA 1002 Ϫ Coptic Capital Letter Gangia
+#U+03EB 1003 ϫ Coptic Small Letter Gangia
+#U+03EC 1004 Ϭ Coptic Capital Letter Shima
+#U+03ED 1005 ϭ Coptic Small Letter Shima
+#U+03EE 1006 Ϯ Coptic Capital Letter Dei
+#U+03EF 1007 ϯ Coptic Small Letter Dei
+#U+03F0 1008 ϰ Greek Kappa Symbol
+#U+03F1 1009 ϱ Greek Rho Symbol
+#U+03F2 1010 ϲ Greek Lunate Sigma Symbol
+#U+03F3 1011 ϳ Greek Letter Yot
+#U+03F4 1012 ϴ Greek Capital Theta Symbol
+#U+03F5 1013 ϵ Greek Lunate Epsilon Symbol
+#U+03F6 1014 ϶ Greek Reversed Lunate Epsilon Symbol
+#U+03F7 1015 Ϸ Greek Capital Sho
+#U+03F8 1016 ϸ Greek Small Letter Sho
+#U+03F9 1017 Ϲ Greek Capital Lunate Sigma Symbol
+#U+03FA 1018 Ϻ Greek Capital San
+#U+03FB 1019 ϻ Greek Small Letter San
+#U+03FC 1020 ϼ Greek Rho with stroke Symbol
+#U+03FD 1021 Ͻ Greek Capital Reversed Lunate Sigma Symbol
+#U+03FE 1022 Ͼ Greek Capital Dotted Lunate Sigma Symbol
+#U+03FF 1023 Ͽ Greek Capital Reversed Dotted Lunate Sigma Symbol
+
+#U+1F00 7936 ἀ GREEK SMALL LETTER ALPHA WITH PSILI
+#U+1F01 7937 ἁ GREEK SMALL LETTER ALPHA WITH DASIA
+#U+1F02 7938 ἂ GREEK SMALL LETTER ALPHA WITH PSILI AND VARIA
+#U+1F03 7939 ἃ GREEK SMALL LETTER ALPHA WITH DASIA AND VARIA
+#U+1F04 7940 ἄ GREEK SMALL LETTER ALPHA WITH PSILI AND OXIA
+#U+1F05 7941 ἅ GREEK SMALL LETTER ALPHA WITH DASIA AND OXIA
+#U+1F06 7942 ἆ GREEK SMALL LETTER ALPHA WITH PSILI AND PERISPOMENI
+#U+1F07 7943 ἇ GREEK SMALL LETTER ALPHA WITH DASIA AND PERISPOMENI
+#U+1F08 7944 Ἀ GREEK CAPITAL LETTER ALPHA WITH PSILI
+#U+1F09 7945 Ἁ GREEK CAPITAL LETTER ALPHA WITH DASIA
+#U+1F0A 7946 Ἂ GREEK CAPITAL LETTER ALPHA WITH PSILI AND VARIA
+#U+1F0B 7947 Ἃ GREEK CAPITAL LETTER ALPHA WITH DASIA AND VARIA
+#U+1F0C 7948 Ἄ GREEK CAPITAL LETTER ALPHA WITH PSILI AND OXIA
+#U+1F0D 7949 Ἅ GREEK CAPITAL LETTER ALPHA WITH DASIA AND OXIA
+#U+1F0E 7950 Ἆ GREEK CAPITAL LETTER ALPHA WITH PSILI AND PERISPOMENI
+#U+1F0F 7951 Ἇ GREEK CAPITAL LETTER ALPHA WITH DASIA AND PERISPOMENI
+#U+1F10 7952 ἐ GREEK SMALL LETTER EPSILON WITH PSILI
+#U+1F11 7953 ἑ GREEK SMALL LETTER EPSILON WITH DASIA
+#U+1F12 7954 ἒ GREEK SMALL LETTER EPSILON WITH PSILI AND VARIA
+#U+1F13 7955 ἓ GREEK SMALL LETTER EPSILON WITH DASIA AND VARIA
+#U+1F14 7956 ἔ GREEK SMALL LETTER EPSILON WITH PSILI AND OXIA
+#U+1F15 7957 ἕ GREEK SMALL LETTER EPSILON WITH DASIA AND OXIA
+#U+1F18 7960 Ἐ GREEK CAPITAL LETTER EPSILON WITH PSILI
+#U+1F19 7961 Ἑ GREEK CAPITAL LETTER EPSILON WITH DASIA
+#U+1F1A 7962 Ἒ GREEK CAPITAL LETTER EPSILON WITH PSILI AND VARIA
+#U+1F1B 7963 Ἓ GREEK CAPITAL LETTER EPSILON WITH DASIA AND VARIA
+#U+1F1C 7964 Ἔ GREEK CAPITAL LETTER EPSILON WITH PSILI AND OXIA
+#U+1F1D 7965 Ἕ GREEK CAPITAL LETTER EPSILON WITH DASIA AND OXIA
+#U+1F20 7968 ἠ GREEK SMALL LETTER ETA WITH PSILI
+#U+1F21 7969 ἡ GREEK SMALL LETTER ETA WITH DASIA
+#U+1F22 7970 ἢ GREEK SMALL LETTER ETA WITH PSILI AND VARIA
+#U+1F23 7971 ἣ GREEK SMALL LETTER ETA WITH DASIA AND VARIA
+#U+1F24 7972 ἤ GREEK SMALL LETTER ETA WITH PSILI AND OXIA
+#U+1F25 7973 ἥ GREEK SMALL LETTER ETA WITH DASIA AND OXIA
+#U+1F26 7974 ἦ GREEK SMALL LETTER ETA WITH PSILI AND PERISPOMENI
+#U+1F27 7975 ἧ GREEK SMALL LETTER ETA WITH DASIA AND PERISPOMENI
+#U+1F28 7976 Ἠ GREEK CAPITAL LETTER ETA WITH PSILI
+#U+1F29 7977 Ἡ GREEK CAPITAL LETTER ETA WITH DASIA
+#U+1F2A 7978 Ἢ GREEK CAPITAL LETTER ETA WITH PSILI AND VARIA
+#U+1F2B 7979 Ἣ GREEK CAPITAL LETTER ETA WITH DASIA AND VARIA
+#U+1F2C 7980 Ἤ GREEK CAPITAL LETTER ETA WITH PSILI AND OXIA
+#U+1F2D 7981 Ἥ GREEK CAPITAL LETTER ETA WITH DASIA AND OXIA
+#U+1F2E 7982 Ἦ GREEK CAPITAL LETTER ETA WITH PSILI AND PERISPOMENI
+#U+1F2F 7983 Ἧ GREEK CAPITAL LETTER ETA WITH DASIA AND PERISPOMENI
+#U+1F30 7984 ἰ GREEK SMALL LETTER IOTA WITH PSILI
+#U+1F31 7985 ἱ GREEK SMALL LETTER IOTA WITH DASIA
+#U+1F32 7986 ἲ GREEK SMALL LETTER IOTA WITH PSILI AND VARIA
+#U+1F33 7987 ἳ GREEK SMALL LETTER IOTA WITH DASIA AND VARIA
+#U+1F34 7988 ἴ GREEK SMALL LETTER IOTA WITH PSILI AND OXIA
+#U+1F35 7989 ἵ GREEK SMALL LETTER IOTA WITH DASIA AND OXIA
+#U+1F36 7990 ἶ GREEK SMALL LETTER IOTA WITH PSILI AND PERISPOMENI
+#U+1F37 7991 ἷ GREEK SMALL LETTER IOTA WITH DASIA AND PERISPOMENI
+#U+1F38 7992 Ἰ GREEK CAPITAL LETTER IOTA WITH PSILI
+#U+1F39 7993 Ἱ GREEK CAPITAL LETTER IOTA WITH DASIA
+#U+1F3A 7994 Ἲ GREEK CAPITAL LETTER IOTA WITH PSILI AND VARIA
+#U+1F3B 7995 Ἳ GREEK CAPITAL LETTER IOTA WITH DASIA AND VARIA
+#U+1F3C 7996 Ἴ GREEK CAPITAL LETTER IOTA WITH PSILI AND OXIA
+#U+1F3D 7997 Ἵ GREEK CAPITAL LETTER IOTA WITH DASIA AND OXIA
+#U+1F3E 7998 Ἶ GREEK CAPITAL LETTER IOTA WITH PSILI AND PERISPOMENI
+#U+1F3F 7999 Ἷ GREEK CAPITAL LETTER IOTA WITH DASIA AND PERISPOMENI
+#U+1F40 8000 ὀ GREEK SMALL LETTER OMICRON WITH PSILI
+#U+1F41 8001 ὁ GREEK SMALL LETTER OMICRON WITH DASIA
+#U+1F42 8002 ὂ GREEK SMALL LETTER OMICRON WITH PSILI AND VARIA
+#U+1F43 8003 ὃ GREEK SMALL LETTER OMICRON WITH DASIA AND VARIA
+#U+1F44 8004 ὄ GREEK SMALL LETTER OMICRON WITH PSILI AND OXIA
+#U+1F45 8005 ὅ GREEK SMALL LETTER OMICRON WITH DASIA AND OXIA
+#U+1F48 8008 Ὀ GREEK CAPITAL LETTER OMICRON WITH PSILI
+#U+1F49 8009 Ὁ GREEK CAPITAL LETTER OMICRON WITH DASIA
+#U+1F4A 8010 Ὂ GREEK CAPITAL LETTER OMICRON WITH PSILI AND VARIA
+#U+1F4B 8011 Ὃ GREEK CAPITAL LETTER OMICRON WITH DASIA AND VARIA
+#U+1F4C 8012 Ὄ GREEK CAPITAL LETTER OMICRON WITH PSILI AND OXIA
+#U+1F4D 8013 Ὅ GREEK CAPITAL LETTER OMICRON WITH DASIA AND OXIA
+#U+1F50 8016 ὐ GREEK SMALL LETTER UPSILON WITH PSILI
+#U+1F51 8017 ὑ GREEK SMALL LETTER UPSILON WITH DASIA
+#U+1F52 8018 ὒ GREEK SMALL LETTER UPSILON WITH PSILI AND VARIA
+#U+1F53 8019 ὓ GREEK SMALL LETTER UPSILON WITH DASIA AND VARIA
+#U+1F54 8020 ὔ GREEK SMALL LETTER UPSILON WITH PSILI AND OXIA
+#U+1F55 8021 ὕ GREEK SMALL LETTER UPSILON WITH DASIA AND OXIA
+#U+1F56 8022 ὖ GREEK SMALL LETTER UPSILON WITH PSILI AND PERISPOMENI
+#U+1F57 8023 ὗ GREEK SMALL LETTER UPSILON WITH DASIA AND PERISPOMENI
+#U+1F59 8025 Ὑ GREEK CAPITAL LETTER UPSILON WITH DASIA
+#U+1F5B 8027 Ὓ GREEK CAPITAL LETTER UPSILON WITH DASIA AND VARIA
+#U+1F5D 8029 Ὕ GREEK CAPITAL LETTER UPSILON WITH DASIA AND OXIA
+#U+1F5F 8031 Ὗ GREEK CAPITAL LETTER UPSILON WITH DASIA AND PERISPOMENI
+#U+1F60 8032 ὠ GREEK SMALL LETTER OMEGA WITH PSILI
+#U+1F61 8033 ὡ GREEK SMALL LETTER OMEGA WITH DASIA
+#U+1F62 8034 ὢ GREEK SMALL LETTER OMEGA WITH PSILI AND VARIA
+#U+1F63 8035 ὣ GREEK SMALL LETTER OMEGA WITH DASIA AND VARIA
+#U+1F64 8036 ὤ GREEK SMALL LETTER OMEGA WITH PSILI AND OXIA
+#U+1F65 8037 ὥ GREEK SMALL LETTER OMEGA WITH DASIA AND OXIA
+#U+1F66 8038 ὦ GREEK SMALL LETTER OMEGA WITH PSILI AND PERISPOMENI
+#U+1F67 8039 ὧ GREEK SMALL LETTER OMEGA WITH DASIA AND PERISPOMENI
+#U+1F68 8040 Ὠ GREEK CAPITAL LETTER OMEGA WITH PSILI
+#U+1F69 8041 Ὡ GREEK CAPITAL LETTER OMEGA WITH DASIA
+#U+1F6A 8042 Ὢ GREEK CAPITAL LETTER OMEGA WITH PSILI AND VARIA
+#U+1F6B 8043 Ὣ GREEK CAPITAL LETTER OMEGA WITH DASIA AND VARIA
+#U+1F6C 8044 Ὤ GREEK CAPITAL LETTER OMEGA WITH PSILI AND OXIA
+#U+1F6D 8045 Ὥ GREEK CAPITAL LETTER OMEGA WITH DASIA AND OXIA
+#U+1F6E 8046 Ὦ GREEK CAPITAL LETTER OMEGA WITH PSILI AND PERISPOMENI
+#U+1F6F 8047 Ὧ GREEK CAPITAL LETTER OMEGA WITH DASIA AND PERISPOMENI
+#U+1F70 8048 ὰ GREEK SMALL LETTER ALPHA WITH VARIA
+#U+1F71 8049 ά GREEK SMALL LETTER ALPHA WITH OXIA
+#U+1F72 8050 ὲ GREEK SMALL LETTER EPSILON WITH VARIA
+#U+1F73 8051 έ GREEK SMALL LETTER EPSILON WITH OXIA
+#U+1F74 8052 ὴ GREEK SMALL LETTER ETA WITH VARIA
+#U+1F75 8053 ή GREEK SMALL LETTER ETA WITH OXIA
+#U+1F76 8054 ὶ GREEK SMALL LETTER IOTA WITH VARIA
+#U+1F77 8055 ί GREEK SMALL LETTER IOTA WITH OXIA
+#U+1F78 8056 ὸ GREEK SMALL LETTER OMICRON WITH VARIA
+#U+1F79 8057 ό GREEK SMALL LETTER OMICRON WITH OXIA
+#U+1F7A 8058 ὺ GREEK SMALL LETTER UPSILON WITH VARIA
+#U+1F7B 8059 ύ GREEK SMALL LETTER UPSILON WITH OXIA
+#U+1F7C 8060 ὼ GREEK SMALL LETTER OMEGA WITH VARIA
+#U+1F7D 8061 ώ GREEK SMALL LETTER OMEGA WITH OXIA
+#U+1F80 8064 ᾀ GREEK SMALL LETTER ALPHA WITH PSILI AND YPOGEGRAMMENI
+#U+1F81 8065 ᾁ GREEK SMALL LETTER ALPHA WITH DASIA AND YPOGEGRAMMENI
+#U+1F82 8066 ᾂ GREEK SMALL LETTER ALPHA WITH PSILI AND VARIA AND YPOGEGRAMMENI
+#U+1F83 8067 ᾃ GREEK SMALL LETTER ALPHA WITH DASIA AND VARIA AND YPOGEGRAMMENI
+#U+1F84 8068 ᾄ GREEK SMALL LETTER ALPHA WITH PSILI AND OXIA AND YPOGEGRAMMENI
+#U+1F85 8069 ᾅ GREEK SMALL LETTER ALPHA WITH DASIA AND OXIA AND YPOGEGRAMMENI
+#U+1F86 8070 ᾆ GREEK SMALL LETTER ALPHA WITH PSILI AND PERISPOMENI AND YPOGEGRAMMENI
+#U+1F87 8071 ᾇ GREEK SMALL LETTER ALPHA WITH DASIA AND PERISPOMENI AND YPOGEGRAMMENI
+#U+1F88 8072 ᾈ GREEK CAPITAL LETTER ALPHA WITH PSILI AND PROSGEGRAMMENI
+#U+1F89 8073 ᾉ GREEK CAPITAL LETTER ALPHA WITH DASIA AND PROSGEGRAMMENI
+#U+1F8A 8074 ᾊ GREEK CAPITAL LETTER ALPHA WITH PSILI AND VARIA AND PROSGEGRAMMENI
+#U+1F8B 8075 ᾋ GREEK CAPITAL LETTER ALPHA WITH DASIA AND VARIA AND PROSGEGRAMMENI
+#U+1F8C 8076 ᾌ GREEK CAPITAL LETTER ALPHA WITH PSILI AND OXIA AND PROSGEGRAMMENI
+#U+1F8D 8077 ᾍ GREEK CAPITAL LETTER ALPHA WITH DASIA AND OXIA AND PROSGEGRAMMENI
+#U+1F8E 8078 ᾎ GREEK CAPITAL LETTER ALPHA WITH PSILI AND PERISPOMENI AND PROSGEGRAMMENI
+#U+1F8F 8079 ᾏ GREEK CAPITAL LETTER ALPHA WITH DASIA AND PERISPOMENI AND PROSGEGRAMMENI
+#U+1F90 8080 ᾐ GREEK SMALL LETTER ETA WITH PSILI AND YPOGEGRAMMENI
+#U+1F91 8081 ᾑ GREEK SMALL LETTER ETA WITH DASIA AND YPOGEGRAMMENI
+#U+1F92 8082 ᾒ GREEK SMALL LETTER ETA WITH PSILI AND VARIA AND YPOGEGRAMMENI
+#U+1F93 8083 ᾓ GREEK SMALL LETTER ETA WITH DASIA AND VARIA AND YPOGEGRAMMENI
+#U+1F94 8084 ᾔ GREEK SMALL LETTER ETA WITH PSILI AND OXIA AND YPOGEGRAMMENI
+#U+1F95 8085 ᾕ GREEK SMALL LETTER ETA WITH DASIA AND OXIA AND YPOGEGRAMMENI
+#U+1F96 8086 ᾖ GREEK SMALL LETTER ETA WITH PSILI AND PERISPOMENI AND YPOGEGRAMMENI
+#U+1F97 8087 ᾗ GREEK SMALL LETTER ETA WITH DASIA AND PERISPOMENI AND YPOGEGRAMMENI
+#U+1F98 8088 ᾘ GREEK CAPITAL LETTER ETA WITH PSILI AND PROSGEGRAMMENI
+#U+1F99 8089 ᾙ GREEK CAPITAL LETTER ETA WITH DASIA AND PROSGEGRAMMENI
+#U+1F9A 8090 ᾚ GREEK CAPITAL LETTER ETA WITH PSILI AND VARIA AND PROSGEGRAMMENI
+#U+1F9B 8091 ᾛ GREEK CAPITAL LETTER ETA WITH DASIA AND VARIA AND PROSGEGRAMMENI
+#U+1F9C 8092 ᾜ GREEK CAPITAL LETTER ETA WITH PSILI AND OXIA AND PROSGEGRAMMENI
+#U+1F9D 8093 ᾝ GREEK CAPITAL LETTER ETA WITH DASIA AND OXIA AND PROSGEGRAMMENI
+#U+1F9E 8094 ᾞ GREEK CAPITAL LETTER ETA WITH PSILI AND PERISPOMENI AND PROSGEGRAMMENI
+#U+1F9F 8095 ᾟ GREEK CAPITAL LETTER ETA WITH DASIA AND PERISPOMENI AND PROSGEGRAMMENI
+#U+1FA0 8096 ᾠ GREEK SMALL LETTER OMEGA WITH PSILI AND YPOGEGRAMMENI
+#U+1FA1 8097 ᾡ GREEK SMALL LETTER OMEGA WITH DASIA AND YPOGEGRAMMENI
+#U+1FA2 8098 ᾢ GREEK SMALL LETTER OMEGA WITH PSILI AND VARIA AND YPOGEGRAMMENI
+#U+1FA3 8099 ᾣ GREEK SMALL LETTER OMEGA WITH DASIA AND VARIA AND YPOGEGRAMMENI
+#U+1FA4 8100 ᾤ GREEK SMALL LETTER OMEGA WITH PSILI AND OXIA AND YPOGEGRAMMENI
+#U+1FA5 8101 ᾥ GREEK SMALL LETTER OMEGA WITH DASIA AND OXIA AND YPOGEGRAMMENI
+#U+1FA6 8102 ᾦ GREEK SMALL LETTER OMEGA WITH PSILI AND PERISPOMENI AND YPOGEGRAMMENI
+#U+1FA7 8103 ᾧ GREEK SMALL LETTER OMEGA WITH DASIA AND PERISPOMENI AND YPOGEGRAMMENI
+#U+1FA8 8104 ᾨ GREEK CAPITAL LETTER OMEGA WITH PSILI AND PROSGEGRAMMENI
+#U+1FA9 8105 ᾩ GREEK CAPITAL LETTER OMEGA WITH DASIA AND PROSGEGRAMMENI
+#U+1FAA 8106 ᾪ GREEK CAPITAL LETTER OMEGA WITH PSILI AND VARIA AND PROSGEGRAMMENI
+#U+1FAB 8107 ᾫ GREEK CAPITAL LETTER OMEGA WITH DASIA AND VARIA AND PROSGEGRAMMENI
+#U+1FAC 8108 ᾬ GREEK CAPITAL LETTER OMEGA WITH PSILI AND OXIA AND PROSGEGRAMMENI
+#U+1FAD 8109 ᾭ GREEK CAPITAL LETTER OMEGA WITH DASIA AND OXIA AND PROSGEGRAMMENI
+#U+1FAE 8110 ᾮ GREEK CAPITAL LETTER OMEGA WITH PSILI AND PERISPOMENI AND PROSGEGRAMMENI
+#U+1FAF 8111 ᾯ GREEK CAPITAL LETTER OMEGA WITH DASIA AND PERISPOMENI AND PROSGEGRAMMENI
+#U+1FB0 8112 ᾰ GREEK SMALL LETTER ALPHA WITH VRACHY
+#U+1FB1 8113 ᾱ GREEK SMALL LETTER ALPHA WITH MACRON
+#U+1FB2 8114 ᾲ GREEK SMALL LETTER ALPHA WITH VARIA AND YPOGEGRAMMENI
+#U+1FB3 8115 ᾳ GREEK SMALL LETTER ALPHA WITH YPOGEGRAMMENI
+#U+1FB4 8116 ᾴ GREEK SMALL LETTER ALPHA WITH OXIA AND YPOGEGRAMMENI
+#U+1FB6 8118 ᾶ GREEK SMALL LETTER ALPHA WITH PERISPOMENI
+#U+1FB7 8119 ᾷ GREEK SMALL LETTER ALPHA WITH PERISPOMENI AND YPOGEGRAMMENI
+#U+1FB8 8120 Ᾰ GREEK CAPITAL LETTER ALPHA WITH VRACHY
+#U+1FB9 8121 Ᾱ GREEK CAPITAL LETTER ALPHA WITH MACRON
+#U+1FBA 8122 Ὰ GREEK CAPITAL LETTER ALPHA WITH VARIA
+#U+1FBB 8123 Ά GREEK CAPITAL LETTER ALPHA WITH OXIA
+#U+1FBC 8124 ᾼ GREEK CAPITAL LETTER ALPHA WITH PROSGEGRAMMENI
+#U+1FBD 8125 ᾽ GREEK KORONIS
+#U+1FBE 8126 ι GREEK PROSGEGRAMMENI
+#U+1FBF 8127 ᾿ GREEK PSILI
+#U+1FC0 8128 ῀ GREEK PERISPOMENI
+#U+1FC1 8129 ῁ GREEK DIALYTIKA AND PERISPOMENI
+#U+1FC2 8130 ῂ GREEK SMALL LETTER ETA WITH VARIA AND YPOGEGRAMMENI
+#U+1FC3 8131 ῃ GREEK SMALL LETTER ETA WITH YPOGEGRAMMENI
+#U+1FC4 8132 ῄ GREEK SMALL LETTER ETA WITH OXIA AND YPOGEGRAMMENI
+#U+1FC6 8134 ῆ GREEK SMALL LETTER ETA WITH PERISPOMENI
+#U+1FC7 8135 ῇ GREEK SMALL LETTER ETA WITH PERISPOMENI AND YPOGEGRAMMENI
+#U+1FC8 8136 Ὲ GREEK CAPITAL LETTER EPSILON WITH VARIA
+#U+1FC9 8137 Έ GREEK CAPITAL LETTER EPSILON WITH OXIA
+#U+1FCA 8138 Ὴ GREEK CAPITAL LETTER ETA WITH VARIA
+#U+1FCB 8139 Ή GREEK CAPITAL LETTER ETA WITH OXIA
+#U+1FCC 8140 ῌ GREEK CAPITAL LETTER ETA WITH PROSGEGRAMMENI
+#U+1FCD 8141 ῍ GREEK PSILI AND VARIA
+#U+1FCE 8142 ῎ GREEK PSILI AND OXIA
+#U+1FCF 8143 ῏ GREEK PSILI AND PERISPOMENI
+#U+1FD0 8144 ῐ GREEK SMALL LETTER IOTA WITH VRACHY
+#U+1FD1 8145 ῑ GREEK SMALL LETTER IOTA WITH MACRON
+#U+1FD2 8146 ῒ GREEK SMALL LETTER IOTA WITH DIALYTIKA AND VARIA
+#U+1FD3 8147 ΐ GREEK SMALL LETTER IOTA WITH DIALYTIKA AND OXIA
+#U+1FD6 8150 ῖ GREEK SMALL LETTER IOTA WITH PERISPOMENI
+#U+1FD7 8151 ῗ GREEK SMALL LETTER IOTA WITH DIALYTIKA AND PERISPOMENI
+#U+1FD8 8152 Ῐ GREEK CAPITAL LETTER IOTA WITH VRACHY
+#U+1FD9 8153 Ῑ GREEK CAPITAL LETTER IOTA WITH MACRON
+#U+1FDA 8154 Ὶ GREEK CAPITAL LETTER IOTA WITH VARIA
+#U+1FDB 8155 Ί GREEK CAPITAL LETTER IOTA WITH OXIA
+#U+1FDD 8157 ῝ GREEK DASIA AND VARIA
+#U+1FDE 8158 ῞ GREEK DASIA AND OXIA
+#U+1FDF 8159 ῟ GREEK DASIA AND PERISPOMENI
+#U+1FE0 8160 ῠ GREEK SMALL LETTER UPSILON WITH VRACHY
+#U+1FE1 8161 ῡ GREEK SMALL LETTER UPSILON WITH MACRON
+#U+1FE2 8162 ῢ GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND VARIA
+#U+1FE3 8163 ΰ GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND OXIA
+#U+1FE4 8164 ῤ GREEK SMALL LETTER RHO WITH PSILI
+#U+1FE5 8165 ῥ GREEK SMALL LETTER RHO WITH DASIA
+#U+1FE6 8166 ῦ GREEK SMALL LETTER UPSILON WITH PERISPOMENI
+#U+1FE7 8167 ῧ GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND PERISPOMENI
+#U+1FE8 8168 Ῠ GREEK CAPITAL LETTER UPSILON WITH VRACHY
+#U+1FE9 8169 Ῡ GREEK CAPITAL LETTER UPSILON WITH MACRON
+#U+1FEA 8170 Ὺ GREEK CAPITAL LETTER UPSILON WITH VARIA
+#U+1FEB 8171 Ύ GREEK CAPITAL LETTER UPSILON WITH OXIA
+#U+1FEC 8172 Ῥ GREEK CAPITAL LETTER RHO WITH DASIA
+#U+1FED 8173 ῭ GREEK DIALYTIKA AND VARIA
+#U+1FEE 8174 ΅ GREEK DIALYTIKA AND OXIA
+#U+1FEF 8175 ` GREEK VARIA
+#U+1FF2 8178 ῲ GREEK SMALL LETTER OMEGA WITH VARIA AND YPOGEGRAMMENI
+#U+1FF3 8179 ῳ GREEK SMALL LETTER OMEGA WITH YPOGEGRAMMENI
+#U+1FF4 8180 ῴ GREEK SMALL LETTER OMEGA WITH OXIA AND YPOGEGRAMMENI
+#U+1FF6 8182 ῶ GREEK SMALL LETTER OMEGA WITH PERISPOMENI
+#U+1FF7 8183 ῷ GREEK SMALL LETTER OMEGA WITH PERISPOMENI AND YPOGEGRAMMENI
+#U+1FF8 8184 Ὸ GREEK CAPITAL LETTER OMICRON WITH VARIA
+#U+1FF9 8185 Ό GREEK CAPITAL LETTER OMICRON WITH OXIA
+#U+1FFA 8186 Ὼ GREEK CAPITAL LETTER OMEGA WITH VARIA
+#U+1FFB 8187 Ώ GREEK CAPITAL LETTER OMEGA WITH OXIA
+#U+1FFC 8188 ῼ GREEK CAPITAL LETTER OMEGA WITH PROSGEGRAMMENI
+#U+1FFD 8189 ´ GREEK OXIA
+#U+1FFE 8190 ῾ GREEK DASIA
+
+#U+0400 1024 Ѐ Cyrillic Capital Letter Ie with grave
+#U+0401 1025 Ё Cyrillic Capital Letter Io
+#U+0402 1026 Ђ Cyrillic Capital Letter Dje
+#U+0403 1027 Ѓ Cyrillic Capital Letter Gje
+#U+0404 1028 Є Cyrillic Capital Letter Ukrainian Ie
+#U+0405 1029 Ѕ Cyrillic Capital Letter Dze
+#U+0406 1030 І Cyrillic Capital Letter Byelorussian-Ukrainian I
+#U+0407 1031 Ї Cyrillic Capital Letter Yi
+#U+0408 1032 Ј Cyrillic Capital Letter Je
+#U+0409 1033 Љ Cyrillic Capital Letter Lje
+#U+040A 1034 Њ Cyrillic Capital Letter Nje
+#U+040B 1035 Ћ Cyrillic Capital Letter Tshe
+#U+040C 1036 Ќ Cyrillic Capital Letter Kje
+#U+040D 1037 Ѝ Cyrillic Capital Letter I with grave
+#U+040E 1038 Ў Cyrillic Capital Letter Short U
+#U+040F 1039 Џ Cyrillic Capital Letter Dzhe
+#U+0410 1040 А Cyrillic Capital Letter A
+#U+0411 1041 Б Cyrillic Capital Letter Be
+#U+0412 1042 В Cyrillic Capital Letter Ve
+#U+0413 1043 Г Cyrillic Capital Letter Ghe
+#U+0414 1044 Д Cyrillic Capital Letter De
+#U+0415 1045 Е Cyrillic Capital Letter Ie
+#U+0416 1046 Ж Cyrillic Capital Letter Zhe
+#U+0417 1047 З Cyrillic Capital Letter Ze
+#U+0418 1048 И Cyrillic Capital Letter I
+#U+0419 1049 Й Cyrillic Capital Letter Short I
+#U+041A 1050 К Cyrillic Capital Letter Ka
+#U+041B 1051 Л Cyrillic Capital Letter El
+#U+041C 1052 М Cyrillic Capital Letter Em
+#U+041D 1053 Н Cyrillic Capital Letter En
+#U+041E 1054 О Cyrillic Capital Letter O
+#U+041F 1055 П Cyrillic Capital Letter Pe
+#U+0420 1056 Р Cyrillic Capital Letter Er
+#U+0421 1057 С Cyrillic Capital Letter Es
+#U+0422 1058 Т Cyrillic Capital Letter Te
+#U+0423 1059 У Cyrillic Capital Letter U
+#U+0424 1060 Ф Cyrillic Capital Letter Ef
+#U+0425 1061 Х Cyrillic Capital Letter Ha
+#U+0426 1062 Ц Cyrillic Capital Letter Tse
+#U+0427 1063 Ч Cyrillic Capital Letter Che
+#U+0428 1064 Ш Cyrillic Capital Letter Sha
+#U+0429 1065 Щ Cyrillic Capital Letter Shcha
+#U+042A 1066 Ъ Cyrillic Capital Letter Hard Sign
+#U+042B 1067 Ы Cyrillic Capital Letter Yeru
+#U+042C 1068 Ь Cyrillic Capital Letter Soft Sign
+#U+042D 1069 Э Cyrillic Capital Letter E
+#U+042E 1070 Ю Cyrillic Capital Letter Yu
+#U+042F 1071 Я Cyrillic Capital Letter Ya
+#U+0430 1072 а Cyrillic Small Letter A
+#U+0431 1073 б Cyrillic Small Letter Be
+#U+0432 1074 в Cyrillic Small Letter Ve
+#U+0433 1075 г Cyrillic Small Letter Ghe
+#U+0434 1076 д Cyrillic Small Letter De
+#U+0435 1077 е Cyrillic Small Letter Ie
+#U+0436 1078 ж Cyrillic Small Letter Zhe
+#U+0437 1079 з Cyrillic Small Letter Ze
+#U+0438 1080 и Cyrillic Small Letter I
+#U+0439 1081 й Cyrillic Small Letter Short I
+#U+043A 1082 к Cyrillic Small Letter Ka
+#U+043B 1083 л Cyrillic Small Letter El
+#U+043C 1084 м Cyrillic Small Letter Em
+#U+043D 1085 н Cyrillic Small Letter En
+#U+043E 1086 о Cyrillic Small Letter O
+#U+043F 1087 п Cyrillic Small Letter Pe
+#U+0440 1088 р Cyrillic Small Letter Er
+#U+0441 1089 с Cyrillic Small Letter Es
+#U+0442 1090 т Cyrillic Small Letter Te
+#U+0443 1091 у Cyrillic Small Letter U
+#U+0444 1092 ф Cyrillic Small Letter Ef
+#U+0445 1093 х Cyrillic Small Letter Ha
+#U+0446 1094 ц Cyrillic Small Letter Tse
+#U+0447 1095 ч Cyrillic Small Letter Che
+#U+0448 1096 ш Cyrillic Small Letter Sha
+#U+0449 1097 щ Cyrillic Small Letter Shcha
+#U+044A 1098 ъ Cyrillic Small Letter Hard Sign
+#U+044B 1099 ы Cyrillic Small Letter Yeru
+#U+044C 1100 ь Cyrillic Small Letter Soft Sign
+#U+044D 1101 э Cyrillic Small Letter E
+#U+044E 1102 ю Cyrillic Small Letter Yu
+#U+044F 1103 я Cyrillic Small Letter Ya
+#U+0450 1104 ѐ Cyrillic Small Letter Ie with grave
+#U+0451 1105 ё Cyrillic Small Letter Io
+#U+0452 1106 ђ Cyrillic Small Letter Dje
+#U+0453 1107 ѓ Cyrillic Small Letter Gje
+#U+0454 1108 є Cyrillic Small Letter Ukrainian Ie
+#U+0455 1109 ѕ Cyrillic Small Letter Dze
+#U+0456 1110 і Cyrillic Small Letter Byelorussian-Ukrainian I
+#U+0457 1111 ї Cyrillic Small Letter Yi
+#U+0458 1112 ј Cyrillic Small Letter Je
+#U+0459 1113 љ Cyrillic Small Letter Lje
+#U+045A 1114 њ Cyrillic Small Letter Nje
+#U+045B 1115 ћ Cyrillic Small Letter Tshe
+#U+045C 1116 ќ Cyrillic Small Letter Kje
+#U+045D 1117 ѝ Cyrillic Small Letter I with grave
+#U+045E 1118 ў Cyrillic Small Letter Short U
+#U+045F 1119 џ Cyrillic Small Letter Dzhe
+#U+0460 1120 Ѡ Cyrillic Capital Letter Omega
+#U+0461 1121 ѡ Cyrillic Small Letter Omega
+#U+0462 1122 Ѣ Cyrillic Capital Letter Yat
+#U+0463 1123 ѣ Cyrillic Small Letter Yat
+#U+0464 1124 Ѥ Cyrillic Capital Letter Iotified E
+#U+0465 1125 ѥ Cyrillic Small Letter Iotified E
+#U+0466 1126 Ѧ Cyrillic Capital Letter Little Yus
+#U+0467 1127 ѧ Cyrillic Small Letter Little Yus
+#U+0468 1128 Ѩ Cyrillic Capital Letter Iotified Little Yus
+#U+0469 1129 ѩ Cyrillic Small Letter Iotified Little Yus
+#U+046A 1130 Ѫ Cyrillic Capital Letter Big Yus
+#U+046B 1131 ѫ Cyrillic Small Letter Big Yus
+#U+046C 1132 Ѭ Cyrillic Capital Letter Iotified Big Yus
+#U+046D 1133 ѭ Cyrillic Small Letter Iotified Big Yus
+#U+046E 1134 Ѯ Cyrillic Capital Letter Ksi
+#U+046F 1135 ѯ Cyrillic Small Letter Ksi
+#U+0470 1136 Ѱ Cyrillic Capital Letter Psi
+#U+0471 1137 ѱ Cyrillic Small Letter Psi
+#U+0472 1138 Ѳ Cyrillic Capital Letter Fita
+#U+0473 1139 ѳ Cyrillic Small Letter Fita
+#U+0474 1140 Ѵ Cyrillic Capital Letter Izhitsa
+#U+0475 1141 ѵ Cyrillic Small Letter Izhitsa
+#U+0476 1142 Ѷ Cyrillic Capital Letter Izhitsa with double grave accent
+#U+0477 1143 ѷ Cyrillic Small Letter Izhitsa with double grave accent
+#U+0478 1144 Ѹ Cyrillic Capital Letter Uk
+#U+0479 1145 ѹ Cyrillic Small Letter Uk
+#U+047A 1146 Ѻ Cyrillic Capital Letter Round Omega
+#U+047B 1147 ѻ Cyrillic Small Letter Round Omega
+#U+047C 1148 Ѽ Cyrillic Capital Letter Omega with Titlo
+#U+047D 1149 ѽ Cyrillic Small Letter Omega with Titlo
+#U+047E 1150 Ѿ Cyrillic Capital Letter Ot
+#U+047F 1151 ѿ Cyrillic Small Letter Ot
+#U+0480 1152 Ҁ Cyrillic Capital Letter Koppa
+#U+0481 1153 ҁ Cyrillic Small Letter Koppa
+#U+0482 1154 ҂ Cyrillic Thousands Sign
+#U+0483 1155 &#160;҃ Combining Cyrillic Titlo
+#U+0484 1156 &#160;҄ Combining Cyrillic Palatalization
+#U+0485 1157 &#160;҅ Combining Cyrillic Dasia Pneumata
+#U+0486 1158 &#160;҆ Combining Cyrillic Psili Pneumata
+#U+0487 1159 &#160;҇ Combining Cyrillic Pokrytie
+#U+0488 1160 &#160;҈ Combining Cyrillic Hundred Thousands Sign
+#U+0489 1161 &#160;҉ Combining Cyrillic Millions Sign
+#U+048A 1162 Ҋ Cyrillic Capital Letter Short I with tail
+#U+048B 1163 ҋ Cyrillic Small Letter Short I with tail
+#U+048C 1164 Ҍ Cyrillic Capital Letter Semisoft Sign
+#U+048D 1165 ҍ Cyrillic Small Letter Semisoft Sign
+#U+048E 1166 Ҏ Cyrillic Capital Letter Er with tick
+#U+048F 1167 ҏ Cyrillic Small Letter Er with tick
+#U+0490 1168 Ґ Cyrillic Capital Letter Ghe with upturn
+#U+0491 1169 ґ Cyrillic Small Letter Ghe with upturn
+#U+0492 1170 Ғ Cyrillic Capital Letter Ghe with stroke
+#U+0493 1171 ғ Cyrillic Small Letter Ghe with stroke
+#U+0494 1172 Ҕ Cyrillic Capital Letter Ghe with middle hook
+#U+0495 1173 ҕ Cyrillic Small Letter Ghe with middle hook
+#U+0496 1174 Җ Cyrillic Capital Letter Zhe with descender
+#U+0497 1175 җ Cyrillic Small Letter Zhe with descender
+#U+0498 1176 Ҙ Cyrillic Capital Letter Ze with descender
+#U+0499 1177 ҙ Cyrillic Small Letter Ze with descender
+#U+049A 1178 Қ Cyrillic Capital Letter Ka with descender
+#U+049B 1179 қ Cyrillic Small Letter Ka with descender
+#U+049C 1180 Ҝ Cyrillic Capital Letter Ka with vertical stroke
+#U+049D 1181 ҝ Cyrillic Small Letter Ka with vertical stroke
+#U+049E 1182 Ҟ Cyrillic Capital Letter Ka with stroke
+#U+049F 1183 ҟ Cyrillic Small Letter Ka with stroke
+#U+04A0 1184 Ҡ Cyrillic Capital Letter Bashkir Ka
+#U+04A1 1185 ҡ Cyrillic Small Letter Bashkir Ka
+#U+04A2 1186 Ң Cyrillic Capital Letter En with descender
+#U+04A3 1187 ң Cyrillic Small Letter En with descender
+#U+04A4 1188 Ҥ Cyrillic Capital Ligature En Ghe
+#U+04A5 1189 ҥ Cyrillic Small Ligature En Ghe
+#U+04A6 1190 Ҧ Cyrillic Capital Letter Pe with middle hook
+#U+04A7 1191 ҧ Cyrillic Small Letter Pe with middle hook
+#U+04A8 1192 Ҩ Cyrillic Capital Letter Abkhazian Ha
+#U+04A9 1193 ҩ Cyrillic Small Letter Abkhazian Ha
+#U+04AA 1194 Ҫ Cyrillic Capital Letter Es with descender
+#U+04AB 1195 ҫ Cyrillic Small Letter Es with descender
+#U+04AC 1196 Ҭ Cyrillic Capital Letter Te with descender
+#U+04AD 1197 ҭ Cyrillic Small Letter Te with descender
+#U+04AE 1198 Ү Cyrillic Capital Letter Straight U
+#U+04AF 1199 ү Cyrillic Small Letter Straight U
+#U+04B0 1200 Ұ Cyrillic Capital Letter Straight U with stroke
+#U+04B1 1201 ұ Cyrillic Small Letter Straight U with stroke
+#U+04B2 1202 Ҳ Cyrillic Capital Letter Ha with descender
+#U+04B3 1203 ҳ Cyrillic Small Letter Ha with descender
+#U+04B4 1204 Ҵ Cyrillic Capital Ligature Te Tse
+#U+04B5 1205 ҵ Cyrillic Small Ligature Te Tse
+#U+04B6 1206 Ҷ Cyrillic Capital Letter Che with descender
+#U+04B7 1207 ҷ Cyrillic Small Letter Che with descender
+#U+04B8 1208 Ҹ Cyrillic Capital Letter Che with vertical stroke
+#U+04B9 1209 ҹ Cyrillic Small Letter Che with vertical stroke
+#U+04BA 1210 Һ Cyrillic Capital Letter Shha
+#U+04BB 1211 һ Cyrillic Small Letter Shha
+#U+04BC 1212 Ҽ Cyrillic Capital Letter Abkhazian Che
+#U+04BD 1213 ҽ Cyrillic Small Letter Abkhazian Che
+#U+04BE 1214 Ҿ Cyrillic Capital Letter Abkhazian Che with descender
+#U+04BF 1215 ҿ Cyrillic Small Letter Abkhazian Che with descender
+#U+04C0 1216 Ӏ Cyrillic Letter Palochka
+#U+04C1 1217 Ӂ Cyrillic Capital Letter Zhe with breve
+#U+04C2 1218 ӂ Cyrillic Small Letter Zhe with breve
+#U+04C3 1219 Ӄ Cyrillic Capital Letter Ka with hook
+#U+04C4 1220 ӄ Cyrillic Small Letter Ka with hook
+#U+04C5 1221 Ӆ Cyrillic Capital Letter El with tail
+#U+04C6 1222 ӆ Cyrillic Small Letter El with tail
+#U+04C7 1223 Ӈ Cyrillic Capital Letter En with hook
+#U+04C8 1224 ӈ Cyrillic Small Letter En with hook
+#U+04C9 1225 Ӊ Cyrillic Capital Letter En with tail
+#U+04CA 1226 ӊ Cyrillic Small Letter En with tail
+#U+04CB 1227 Ӌ Cyrillic Capital Letter Khakassian Che
+#U+04CC 1228 ӌ Cyrillic Small Letter Khakassian Che
+#U+04CD 1229 Ӎ Cyrillic Capital Letter Em with tail
+#U+04CE 1230 ӎ Cyrillic Small Letter Em with tail
+#U+04CF 1231 ӏ Cyrillic Small Letter Palochka
+#U+04D0 1232 Ӑ Cyrillic Capital Letter A with breve
+#U+04D1 1233 ӑ Cyrillic Small Letter A with breve
+#U+04D2 1234 Ӓ Cyrillic Capital Letter A with diaeresis
+#U+04D3 1235 ӓ Cyrillic Small Letter A with diaeresis
+#U+04D4 1236 Ӕ Cyrillic Capital Ligature A Ie
+#U+04D5 1237 ӕ Cyrillic Small Ligature A Ie
+#U+04D6 1238 Ӗ Cyrillic Capital Letter Ie with breve
+#U+04D7 1239 ӗ Cyrillic Small Letter Ie with breve
+#U+04D8 1240 Ә Cyrillic Capital Letter Schwa
+#U+04D9 1241 ә Cyrillic Small Letter Schwa
+#U+04DA 1242 Ӛ Cyrillic Capital Letter Schwa with diaeresis
+#U+04DB 1243 ӛ Cyrillic Small Letter Schwa with diaeresis
+#U+04DC 1244 Ӝ Cyrillic Capital Letter Zhe with diaeresis
+#U+04DD 1245 ӝ Cyrillic Small Letter Zhe with diaeresis
+#U+04DE 1246 Ӟ Cyrillic Capital Letter Ze with diaeresis
+#U+04DF 1247 ӟ Cyrillic Small Letter Ze with diaeresis
+#U+04E0 1248 Ӡ Cyrillic Capital Letter Abkhazian Dze
+#U+04E1 1249 ӡ Cyrillic Small Letter Abkhazian Dze
+#U+04E2 1250 Ӣ Cyrillic Capital Letter I with macron
+#U+04E3 1251 ӣ Cyrillic Small Letter I with macron
+#U+04E4 1252 Ӥ Cyrillic Capital Letter I with diaeresis
+#U+04E5 1253 ӥ Cyrillic Small Letter I with diaeresis
+#U+04E6 1254 Ӧ Cyrillic Capital Letter O with diaeresis
+#U+04E7 1255 ӧ Cyrillic Small Letter O with diaeresis
+#U+04E8 1256 Ө Cyrillic Capital Letter Barred O
+#U+04E9 1257 ө Cyrillic Small Letter Barred O
+#U+04EA 1258 Ӫ Cyrillic Capital Letter Barred O with diaeresis
+#U+04EB 1259 ӫ Cyrillic Small Letter Barred O with diaeresis
+#U+04EC 1260 Ӭ Cyrillic Capital Letter E with diaeresis
+#U+04ED 1261 ӭ Cyrillic Small Letter E with diaeresis
+#U+04EE 1262 Ӯ Cyrillic Capital Letter U with macron
+#U+04EF 1263 ӯ Cyrillic Small Letter U with macron
+#U+04F0 1264 Ӱ Cyrillic Capital Letter U with diaeresis
+#U+04F1 1265 ӱ Cyrillic Small Letter U with diaeresis
+#U+04F2 1266 Ӳ Cyrillic Capital Letter U with double acute
+#U+04F3 1267 ӳ Cyrillic Small Letter U with double acute
+#U+04F4 1268 Ӵ Cyrillic Capital Letter Che with diaeresis
+#U+04F5 1269 ӵ Cyrillic Small Letter Che with diaeresis
+#U+04F6 1270 Ӷ Cyrillic Capital Letter Ghe with descender
+#U+04F7 1271 ӷ Cyrillic Small Letter Ghe with descender
+#U+04F8 1272 Ӹ Cyrillic Capital Letter Yeru with diaeresis
+#U+04F9 1273 ӹ Cyrillic Small Letter Yeru with diaeresis
+#U+04FA 1274 Ӻ Cyrillic Capital Letter Ghe with stroke and hook
+#U+04FB 1275 ӻ Cyrillic Small Letter Ghe with stroke and hook
+#U+04FC 1276 Ӽ Cyrillic Capital Letter Ha with hook
+#U+04FD 1277 ӽ Cyrillic Small Letter Ha with hook
+#U+04FE 1278 Ӿ Cyrillic Capital Letter Ha with stroke
+#U+04FF 1279 ӿ Cyrillic Small Letter Ha with stroke
+
+#U+2013 8211 – En dash
+#U+2014 8212 — Em dash
+#U+2015 8213 ― Horizontal bar
+#U+2017 8215 ‗ Double low line
+#U+2018 8216 ‘ Left single quotation mark
+#U+2019 8217 ’ Right single quotation mark
+#U+201A 8218 ‚ Single low-9 quotation mark
+#U+201B 8219 ‛ Single high-reversed-9 quotation mark
+#U+201C 8220 “ Left double quotation mark
+#U+201D 8221 ” Right double quotation mark
+#U+201E 8222 „ Double low-9 quotation mark
+#U+2020 8224 † Dagger
+#U+2021 8225 ‡ Double dagger
+#U+2022 8226 • Bullet
+#U+2026 8230 … Horizontal ellipsis
+#U+2030 8240 ‰ Per mille sign
+#U+2032 8242 ′ Prime
+#U+2033 8243 ″ Double prime
+#U+2039 8249 ‹ Single left-pointing angle quotation mark
+#U+203A 8250 › Single right-pointing angle quotation mark
+#U+203C 8252 ‼ Double exclamation mark
+#U+203E 8254 ‾ Overline
+#U+2044 8260 ⁄ Fraction slash
+#U+204A 8266 ⁊ Tironian et sign
+
+#U+2000 8192   EN QUAD
+#U+2001 8193   EM QUAD
+#U+2002 8194   EN SPACE
+#U+2003 8195   EM SPACE
+#U+2004 8196   THREE-PER-EM SPACE
+#U+2005 8197   FOUR-PER-EM SPACE
+#U+2006 8198   SIX-PER-EM SPACE
+#U+2007 8199   FIGURE SPACE
+#U+2008 8200   PUNCTUATION SPACE
+#U+2009 8201   THIN SPACE
+#U+200A 8202   HAIR SPACE
+#U+200B 8203 ​ ZERO WIDTH SPACE (alias ZWSP)
+#U+200C 8204 ‌ ZERO WIDTH NON-JOINER (alias ZWNJ)
+#U+200D 8205 ‍ ZERO WIDTH JOINER (alias ZWJ)
+#U+200E 8206 ‎ LEFT-TO-RIGHT MARK (alias LRM)
+#U+200F 8207 ‏ RIGHT-TO-LEFT MARK (alias RLM)
+#U+2010 8208 ‐ HYPHEN
+#U+2011 8209 ‑ NON-BREAKING HYPHEN
+#U+2012 8210 ‒ FIGURE DASH
+#U+2013 8211 – EN DASH
+#U+2014 8212 — EM DASH
+#U+2015 8213 ― HORIZONTAL BAR
+#U+2016 8214 ‖ DOUBLE VERTICAL LINE
+#U+2017 8215 ‗ DOUBLE LOW LINE
+#U+2018 8216 ‘ LEFT SINGLE QUOTATION MARK
+#U+2019 8217 ’ RIGHT SINGLE QUOTATION MARK
+#U+201A 8218 ‚ SINGLE LOW-9 QUOTATION MARK
+#U+201B 8219 ‛ SINGLE HIGH-REVERSED-9 QUOTATION MARK
+#U+201C 8220 “ LEFT DOUBLE QUOTATION MARK
+#U+201D 8221 ” RIGHT DOUBLE QUOTATION MARK
+#U+201E 8222 „ DOUBLE LOW-9 QUOTATION MARK
+#U+201F 8223 ‟ DOUBLE HIGH-REVERSED-9 QUOTATION MARK
+#U+2020 8224 † DAGGER
+#U+2021 8225 ‡ DOUBLE DAGGER
+#U+2022 8226 • BULLET
+#U+2023 8227 ‣ TRIANGULAR BULLET
+#U+2024 8228 ․ ONE DOT LEADER
+#U+2025 8229 ‥ TWO DOT LEADER
+#U+2026 8230 … HORIZONTAL ELLIPSIS
+#U+2027 8231 ‧ HYPHENATION POINT
+#U+2028 8232   LINE SEPARATOR
+#U+2029 8233   PARAGRAPH SEPARATOR
+#U+202A 8234 ‪ LEFT-TO-RIGHT EMBEDDING (alias LRE)
+#U+202B 8235 ‫ RIGHT-TO-LEFT EMBEDDING (alias RLE)
+#U+202C 8236 ‬ POP DIRECTIONAL FORMATTING (alias PDF)
+#U+202D 8237 ‭ LEFT-TO-RIGHT OVERRIDE (alias LRO)
+#U+202E 8238 ‮ RIGHT-TO-LEFT OVERRIDE (alias RLO)
+#U+202F 8239   NARROW NO-BREAK SPACE (alias NNBSP)
+#U+2030 8240 ‰ PER MILLE SIGN
+#U+2031 8241 ‱ PER TEN THOUSAND SIGN
+#U+2032 8242 ′ PRIME
+#U+2033 8243 ″ DOUBLE PRIME
+#U+2034 8244 ‴ TRIPLE PRIME
+#U+2035 8245 ‵ REVERSED PRIME
+#U+2036 8246 ‶ REVERSED DOUBLE PRIME
+#U+2037 8247 ‷ REVERSED TRIPLE PRIME
+#U+2038 8248 ‸ CARET
+#U+2039 8249 ‹ SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+#U+203A 8250 › SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+#U+203B 8251 ※ REFERENCE MARK
+#U+203C 8252 ‼ DOUBLE EXCLAMATION MARK
+#U+203D 8253 ‽ INTERROBANG
+#U+203E 8254 ‾ OVERLINE
+#U+203F 8255 ‿ UNDERTIE
+#U+2040 8256 ⁀ CHARACTER TIE
+#U+2041 8257 ⁁ CARET INSERTION POINT
+#U+2042 8258 ⁂ ASTERISM
+#U+2043 8259 ⁃ HYPHEN BULLET
+#U+2044 8260 ⁄ FRACTION SLASH
+#U+2045 8261 ⁅ LEFT SQUARE BRACKET WITH QUILL
+#U+2046 8262 ⁆ RIGHT SQUARE BRACKET WITH QUILL
+#U+2047 8263 ⁇ DOUBLE QUESTION MARK
+#U+2048 8264 ⁈ QUESTION EXCLAMATION MARK
+#U+2049 8265 ⁉ EXCLAMATION QUESTION MARK
+#U+204A 8266 ⁊ TIRONIAN SIGN ET
+#U+204B 8267 ⁋ REVERSED PILCROW SIGN
+#U+204C 8268 ⁌ BLACK LEFTWARDS BULLET
+#U+204D 8269 ⁍ BLACK RIGHTWARDS BULLET
+#U+204E 8270 ⁎ LOW ASTERISK
+#U+204F 8271 ⁏ REVERSED SEMICOLON
+#U+2050 8272 ⁐ CLOSE UP
+#U+2051 8273 ⁑ TWO ASTERISKS ALIGNED VERTICALLY
+#U+2052 8274 ⁒ COMMERCIAL MINUS SIGN
+#U+2053 8275 ⁓ SWUNG DASH
+#U+2054 8276 ⁔ INVERTED UNDERTIE
+#U+2055 8277 ⁕ FLOWER PUNCTUATION MARK
+#U+2056 8278 ⁖ THREE DOT PUNCTUATION
+#U+2057 8279 ⁗ QUADRUPLE PRIME
+#U+2058 8280 ⁘ FOUR DOT PUNCTUATION
+#U+2059 8281 ⁙ FIVE DOT PUNCTUATION
+#U+205A 8282 ⁚ TWO DOT PUNCTUATION
+#U+205B 8283 ⁛ FOUR DOT MARK
+#U+205C 8284 ⁜ DOTTED CROSS
+#U+205D 8285 ⁝ TRICOLON
+#U+205E 8286 ⁞ VERTICAL FOUR DOTS
+#U+205F 8287   MEDIUM MATHEMATICAL SPACE (alias MMSP)
+#U+2060 8288 ⁠ WORD JOINER (alias WJ)
+#U+2061 8289 ⁡ FUNCTION APPLICATION
+#U+2062 8290 ⁢ INVISIBLE TIMES
+#U+2063 8291 ⁣ INVISIBLE SEPARATOR
+#U+2064 8292 ⁤ INVISIBLE PLUS
+#U+2066 8294 ⁦ LEFT-TO-RIGHT ISOLATE (alias LRI)
+#U+2067 8295 ⁧ RIGHT-TO-LEFT ISOLATE (alias RLI)
+#U+2068 8296 ⁨ FIRST STRONG ISOLATE (alias FSI)
+#U+2069 8297 ⁩ POP DIRECTIONAL ISOLATE (alias PDI)
+#U+206A 8298 ⁪ INHIBIT SYMMETRIC SWAPPING
+#U+206B 8299 ⁫ ACTIVATE SYMMETRIC SWAPPING
+#U+206C 8300 ⁬ INHIBIT ARABIC FORM SHAPING
+#U+206D 8301 ⁭ ACTIVATE ARABIC FORM SHAPING
+#U+206E 8302 ⁮ NATIONAL DIGIT SHAPES
+#U+206F 8303 ⁯ NOMINAL DIGIT SHAPES
+
+#U+2070 8304 ⁰ SUPERSCRIPT ZERO
+#U+2071 8305 ⁱ SUPERSCRIPT LATIN SMALL LETTER I
+#U+2074 8308 ⁴ SUPERSCRIPT FOUR
+#U+2075 8309 ⁵ SUPERSCRIPT FIVE
+#U+2076 8310 ⁶ SUPERSCRIPT SIX
+#U+2077 8311 ⁷ SUPERSCRIPT SEVEN
+#U+2078 8312 ⁸ SUPERSCRIPT EIGHT
+#U+2079 8313 ⁹ SUPERSCRIPT NINE
+#U+207A 8314 ⁺ SUPERSCRIPT PLUS SIGN
+#U+207B 8315 ⁻ SUPERSCRIPT MINUS
+#U+207C 8316 ⁼ SUPERSCRIPT EQUALS SIGN
+#U+207D 8317 ⁽ SUPERSCRIPT LEFT PARENTHESIS
+#U+207E 8318 ⁾ SUPERSCRIPT RIGHT PARENTHESIS
+#U+207F 8319 ⁿ SUPERSCRIPT LATIN SMALL LETTER N
+#U+2080 8320 ₀ SUBSCRIPT ZERO
+#U+2081 8321 ₁ SUBSCRIPT ONE
+#U+2082 8322 ₂ SUBSCRIPT TWO
+#U+2083 8323 ₃ SUBSCRIPT THREE
+#U+2084 8324 ₄ SUBSCRIPT FOUR
+#U+2085 8325 ₅ SUBSCRIPT FIVE
+#U+2086 8326 ₆ SUBSCRIPT SIX
+#U+2087 8327 ₇ SUBSCRIPT SEVEN
+#U+2088 8328 ₈ SUBSCRIPT EIGHT
+#U+2089 8329 ₉ SUBSCRIPT NINE
+#U+208A 8330 ₊ SUBSCRIPT PLUS SIGN
+#U+208B 8331 ₋ SUBSCRIPT MINUS
+#U+208C 8332 ₌ SUBSCRIPT EQUALS SIGN
+#U+208D 8333 ₍ SUBSCRIPT LEFT PARENTHESIS
+#U+208E 8334 ₎ SUBSCRIPT RIGHT PARENTHESIS
+#U+2090 8336 ₐ LATIN SUBSCRIPT SMALL LETTER A
+#U+2091 8337 ₑ LATIN SUBSCRIPT SMALL LETTER E
+#U+2092 8338 ₒ LATIN SUBSCRIPT SMALL LETTER O
+#U+2093 8339 ₓ LATIN SUBSCRIPT SMALL LETTER X
+#U+2094 8340 ₔ LATIN SUBSCRIPT SMALL LETTER SCHWA
+#U+2095 8341 ₕ LATIN SUBSCRIPT SMALL LETTER H
+#U+2096 8342 ₖ LATIN SUBSCRIPT SMALL LETTER K
+#U+2097 8343 ₗ LATIN SUBSCRIPT SMALL LETTER L
+#U+2098 8344 ₘ LATIN SUBSCRIPT SMALL LETTER M
+#U+2099 8345 ₙ LATIN SUBSCRIPT SMALL LETTER N
+#U+209A 8346 ₚ LATIN SUBSCRIPT SMALL LETTER P
+#U+209B 8347 ₛ LATIN SUBSCRIPT SMALL LETTER S
+#U+209C 8348 ₜ LATIN SUBSCRIPT SMALL LETTER T
+
+#U+20A0 8352 ₠ EURO-CURRENCY SIGN
+#U+20A1 8353 ₡ COLON SIGN
+#U+20A2 8354 ₢ CRUZEIRO SIGN
+#U+20A3 8355 ₣ FRENCH FRANC SIGN
+#U+20A4 8356 ₤ LIRA SIGN
+#U+20A5 8357 ₥ MILL SIGN
+#U+20A6 8358 ₦ NAIRA SIGN
+#U+20A7 8359 ₧ PESETA SIGN
+#U+20A8 8360 ₨ RUPEE SIGN
+#U+20A9 8361 ₩ WON SIGN
+#U+20AA 8362 ₪ NEW SHEQEL SIGN
+#U+20AB 8363 ₫ DONG SIGN
+#U+20AC 8364 € EURO SIGN
+#U+20AD 8365 ₭ KIP SIGN
+#U+20AE 8366 ₮ TUGRIK SIGN
+#U+20AF 8367 ₯ DRACHMA SIGN
+#U+20B0 8368 ₰ GERMAN PENNY SIGN
+#U+20B1 8369 ₱ PESO SIGN
+#U+20B2 8370 ₲ GUARANI SIGN
+#U+20B3 8371 ₳ AUSTRAL SIGN
+#U+20B4 8372 ₴ HRYVNIA SIGN
+#U+20B5 8373 ₵ CEDI SIGN
+#U+20B6 8374 ₶ LIVRE TOURNOIS SIGN
+#U+20B7 8375 ₷ SPESMILO SIGN
+#U+20B8 8376 ₸ TENGE SIGN
+#U+20B9 8377 ₹ INDIAN RUPEE SIGN
+#U+20BA 8378 ₺ TURKISH LIRA SIGN
+#U+20BB 8379 ₻ NORDIC MARK SIGN
+#U+20BC 8380 ₼ MANAT SIGN
+#U+20BD 8381 ₽ RUBLE SIGN
+#U+20BE 8382 ₾ LARI SIGN
+#U+20BF 8383 ₿ BITCOIN SIGN
+
+#U+2100 8448 ℀ ACCOUNT OF
+#U+2101 8449 ℁ ADDRESSED TO THE SUBJECT
+#U+2102 8450 ℂ DOUBLE-STRUCK CAPITAL C
+#U+2103 8451 ℃ DEGREE CELSIUS
+#U+2104 8452 ℄ CENTRE LINE SYMBOL
+#U+2105 8453 ℅ CARE OF
+#U+2106 8454 ℆ CADA UNA
+#U+2107 8455 ℇ EULER CONSTANT
+#U+2108 8456 ℈ SCRUPLE
+#U+2109 8457 ℉ DEGREE FAHRENHEIT
+#U+210A 8458 ℊ SCRIPT SMALL G
+#U+210B 8459 ℋ SCRIPT CAPITAL H
+#U+210C 8460 ℌ BLACK-LETTER CAPITAL H
+#U+210D 8461 ℍ DOUBLE-STRUCK CAPITAL H
+#U+210E 8462 ℎ PLANCK CONSTANT
+#U+210F 8463 ℏ PLANCK CONSTANT OVER TWO PI
+#U+2110 8464 ℐ SCRIPT CAPITAL I
+#U+2111 8465 ℑ BLACK-LETTER CAPITAL I
+#U+2112 8466 ℒ SCRIPT CAPITAL L
+#U+2113 8467 ℓ SCRIPT SMALL L
+#U+2114 8468 ℔ L B BAR SYMBOL
+#U+2115 8469 ℕ DOUBLE-STRUCK CAPITAL N
+#U+2116 8470 № NUMERO SIGN
+#U+2117 8471 ℗ SOUND RECORDING COPYRIGHT
+#U+2118 8472 ℘ SCRIPT CAPITAL P (alias WEIERSTRASS ELLIPTIC FUNCTION)
+#U+2119 8473 ℙ DOUBLE-STRUCK CAPITAL P
+#U+211A 8474 ℚ DOUBLE-STRUCK CAPITAL Q
+#U+211B 8475 ℛ SCRIPT CAPITAL R
+#U+211C 8476 ℜ BLACK-LETTER CAPITAL R
+#U+211D 8477 ℝ DOUBLE-STRUCK CAPITAL R
+#U+211E 8478 ℞ PRESCRIPTION TAKE
+#U+211F 8479 ℟ RESPONSE
+#U+2120 8480 ℠ SERVICE MARK
+#U+2121 8481 ℡ TELEPHONE SIGN
+#U+2122 8482 ™ TRADE MARK SIGN
+#U+2123 8483 ℣ VERSICLE
+#U+2124 8484 ℤ DOUBLE-STRUCK CAPITAL Z
+#U+2125 8485 ℥ OUNCE SIGN
+#U+2126 8486 Ω OHM SIGN
+#U+2127 8487 ℧ INVERTED OHM SIGN
+#U+2128 8488 ℨ BLACK-LETTER CAPITAL Z
+#U+2129 8489 ℩ TURNED GREEK SMALL LETTER IOTA
+#U+212A 8490 K KELVIN SIGN
+#U+212B 8491 Å ANGSTROM SIGN
+#U+212C 8492 ℬ SCRIPT CAPITAL B
+#U+212D 8493 ℭ BLACK-LETTER CAPITAL C
+#U+212E 8494 ℮ ESTIMATED SYMBOL
+#U+212F 8495 ℯ SCRIPT SMALL E
+#U+2130 8496 ℰ SCRIPT CAPITAL E
+#U+2131 8497 ℱ SCRIPT CAPITAL F
+#U+2132 8498 Ⅎ TURNED CAPITAL F
+#U+2133 8499 ℳ SCRIPT CAPITAL M
+#U+2134 8500 ℴ SCRIPT SMALL O
+#U+2135 8501 ℵ ALEF SYMBOL
+#U+2136 8502 ℶ BET SYMBOL
+#U+2137 8503 ℷ GIMEL SYMBOL
+#U+2138 8504 ℸ DALET SYMBOL
+#U+2139 8505 ℹ INFORMATION SOURCE
+#U+213A 8506 ℺ ROTATED CAPITAL Q
+#U+213B 8507 ℻ FACSIMILE SIGN
+#U+213C 8508 ℼ DOUBLE-STRUCK SMALL PI
+#U+213D 8509 ℽ DOUBLE-STRUCK SMALL GAMMA
+#U+213E 8510 ℾ DOUBLE-STRUCK CAPITAL GAMMA
+#U+213F 8511 ℿ DOUBLE-STRUCK CAPITAL PI
+#U+2140 8512 ⅀ DOUBLE-STRUCK N-ARY SUMMATION
+#U+2141 8513 ⅁ TURNED SANS-SERIF CAPITAL G
+#U+2142 8514 ⅂ TURNED SANS-SERIF CAPITAL L
+#U+2143 8515 ⅃ REVERSED SANS-SERIF CAPITAL L
+#U+2144 8516 ⅄ TURNED SANS-SERIF CAPITAL Y
+#U+2145 8517 ⅅ DOUBLE-STRUCK ITALIC CAPITAL D
+#U+2146 8518 ⅆ DOUBLE-STRUCK ITALIC SMALL D
+#U+2147 8519 ⅇ DOUBLE-STRUCK ITALIC SMALL E
+#U+2148 8520 ⅈ DOUBLE-STRUCK ITALIC SMALL I
+#U+2149 8521 ⅉ DOUBLE-STRUCK ITALIC SMALL J
+#U+214A 8522 ⅊ PROPERTY LINE
+#U+214B 8523 ⅋ TURNED AMPERSAND
+#U+214C 8524 ⅌ PER SIGN
+#U+214D 8525 ⅍ AKTIESELSKAB
+#U+214E 8526 ⅎ TURNED SMALL F
+#U+214F 8527 ⅏ SYMBOL FOR SAMARITAN SOURCE
+
+#U+2150 8528 ⅐ VULGAR FRACTION ONE SEVENTH
+#U+2151 8529 ⅑ VULGAR FRACTION ONE NINTH
+#U+2152 8530 ⅒ VULGAR FRACTION ONE TENTH
+#U+2153 8531 ⅓ VULGAR FRACTION ONE THIRD
+#U+2154 8532 ⅔ VULGAR FRACTION TWO THIRDS
+#U+2155 8533 ⅕ VULGAR FRACTION ONE FIFTH
+#U+2156 8534 ⅖ VULGAR FRACTION TWO FIFTHS
+#U+2157 8535 ⅗ VULGAR FRACTION THREE FIFTHS
+#U+2158 8536 ⅘ VULGAR FRACTION FOUR FIFTHS
+#U+2159 8537 ⅙ VULGAR FRACTION ONE SIXTH
+#U+215A 8538 ⅚ VULGAR FRACTION FIVE SIXTHS
+#U+215B 8539 ⅛ VULGAR FRACTION ONE EIGHTH
+#U+215C 8540 ⅜ VULGAR FRACTION THREE EIGHTHS
+#U+215D 8541 ⅝ VULGAR FRACTION FIVE EIGHTHS
+#U+215E 8542 ⅞ VULGAR FRACTION SEVEN EIGHTHS
+#U+215F 8543 ⅟ FRACTION NUMERATOR ONE
+#U+2160 8544 Ⅰ ROMAN NUMERAL ONE
+#U+2161 8545 Ⅱ ROMAN NUMERAL TWO
+#U+2162 8546 Ⅲ ROMAN NUMERAL THREE
+#U+2163 8547 Ⅳ ROMAN NUMERAL FOUR
+#U+2164 8548 Ⅴ ROMAN NUMERAL FIVE
+#U+2165 8549 Ⅵ ROMAN NUMERAL SIX
+#U+2166 8550 Ⅶ ROMAN NUMERAL SEVEN
+#U+2167 8551 Ⅷ ROMAN NUMERAL EIGHT
+#U+2168 8552 Ⅸ ROMAN NUMERAL NINE
+#U+2169 8553 Ⅹ ROMAN NUMERAL TEN
+#U+216A 8554 Ⅺ ROMAN NUMERAL ELEVEN
+#U+216B 8555 Ⅻ ROMAN NUMERAL TWELVE
+#U+216C 8556 Ⅼ ROMAN NUMERAL FIFTY
+#U+216D 8557 Ⅽ ROMAN NUMERAL ONE HUNDRED
+#U+216E 8558 Ⅾ ROMAN NUMERAL FIVE HUNDRED
+#U+216F 8559 Ⅿ ROMAN NUMERAL ONE THOUSAND
+#U+2170 8560 ⅰ SMALL ROMAN NUMERAL ONE
+#U+2171 8561 ⅱ SMALL ROMAN NUMERAL TWO
+#U+2172 8562 ⅲ SMALL ROMAN NUMERAL THREE
+#U+2173 8563 ⅳ SMALL ROMAN NUMERAL FOUR
+#U+2174 8564 ⅴ SMALL ROMAN NUMERAL FIVE
+#U+2175 8565 ⅵ SMALL ROMAN NUMERAL SIX
+#U+2176 8566 ⅶ SMALL ROMAN NUMERAL SEVEN
+#U+2177 8567 ⅷ SMALL ROMAN NUMERAL EIGHT
+#U+2178 8568 ⅸ SMALL ROMAN NUMERAL NINE
+#U+2179 8569 ⅹ SMALL ROMAN NUMERAL TEN
+#U+217A 8570 ⅺ SMALL ROMAN NUMERAL ELEVEN
+#U+217B 8571 ⅻ SMALL ROMAN NUMERAL TWELVE
+#U+217C 8572 ⅼ SMALL ROMAN NUMERAL FIFTY
+#U+217D 8573 ⅽ SMALL ROMAN NUMERAL ONE HUNDRED
+#U+217E 8574 ⅾ SMALL ROMAN NUMERAL FIVE HUNDRED
+#U+217F 8575 ⅿ SMALL ROMAN NUMERAL ONE THOUSAND
+#U+2180 8576 ↀ ROMAN NUMERAL ONE THOUSAND C D
+#U+2181 8577 ↁ ROMAN NUMERAL FIVE THOUSAND
+#U+2182 8578 ↂ ROMAN NUMERAL TEN THOUSAND
+#U+2183 8579 Ↄ ROMAN NUMERAL REVERSED ONE HUNDRED
+#U+2184 8580 ↄ LATIN SMALL LETTER REVERSED C
+#U+2185 8581 ↅ ROMAN NUMERAL SIX LATE FORM
+#U+2186 8582 ↆ ROMAN NUMERAL FIFTY EARLY FORM
+#U+2187 8583 ↇ ROMAN NUMERAL FIFTY THOUSAND
+#U+2188 8584 ↈ ROMAN NUMERAL ONE HUNDRED THOUSAND
+#U+2189 8585 ↉ VULGAR FRACTION ZERO THIRDS
+#U+218A 8586 ↊ TURNED DIGIT TWO
+#U+218B 8587 ↋ TURNED DIGIT THREE
+
+#U+2190 8592 ← LEFTWARDS ARROW
+#U+2191 8593 ↑ UPWARDS ARROW
+#U+2192 8594 → RIGHTWARDS ARROW
+#U+2193 8595 ↓ DOWNWARDS ARROW
+#U+2194 8596 ↔ LEFT RIGHT ARROW
+#U+2195 8597 ↕ UP DOWN ARROW
+#U+2196 8598 ↖ NORTH WEST ARROW
+#U+2197 8599 ↗ NORTH EAST ARROW
+#U+2198 8600 ↘ SOUTH EAST ARROW
+#U+2199 8601 ↙ SOUTH WEST ARROW
+#U+219A 8602 ↚ LEFTWARDS ARROW WITH STROKE
+#U+219B 8603 ↛ RIGHTWARDS ARROW WITH STROKE
+#U+219C 8604 ↜ LEFTWARDS WAVE ARROW
+#U+219D 8605 ↝ RIGHTWARDS WAVE ARROW
+#U+219E 8606 ↞ LEFTWARDS TWO HEADED ARROW
+#U+219F 8607 ↟ UPWARDS TWO HEADED ARROW
+#U+21A0 8608 ↠ RIGHTWARDS TWO HEADED ARROW
+#U+21A1 8609 ↡ DOWNWARDS TWO HEADED ARROW
+#U+21A2 8610 ↢ LEFTWARDS ARROW WITH TAIL
+#U+21A3 8611 ↣ RIGHTWARDS ARROW WITH TAIL
+#U+21A4 8612 ↤ LEFTWARDS ARROW FROM BAR
+#U+21A5 8613 ↥ UPWARDS ARROW FROM BAR
+#U+21A6 8614 ↦ RIGHTWARDS ARROW FROM BAR
+#U+21A7 8615 ↧ DOWNWARDS ARROW FROM BAR
+#U+21A8 8616 ↨ UP DOWN ARROW WITH BASE
+#U+21A9 8617 ↩ LEFTWARDS ARROW WITH HOOK
+#U+21AA 8618 ↪ RIGHTWARDS ARROW WITH HOOK
+#U+21AB 8619 ↫ LEFTWARDS ARROW WITH LOOP
+#U+21AC 8620 ↬ RIGHTWARDS ARROW WITH LOOP
+#U+21AD 8621 ↭ LEFT RIGHT WAVE ARROW
+#U+21AE 8622 ↮ LEFT RIGHT ARROW WITH STROKE
+#U+21AF 8623 ↯ DOWNWARDS ZIGZAG ARROW
+#U+21B0 8624 ↰ UPWARDS ARROW WITH TIP LEFTWARDS
+#U+21B1 8625 ↱ UPWARDS ARROW WITH TIP RIGHTWARDS
+#U+21B2 8626 ↲ DOWNWARDS ARROW WITH TIP LEFTWARDS
+#U+21B3 8627 ↳ DOWNWARDS ARROW WITH TIP RIGHTWARDS
+#U+21B4 8628 ↴ RIGHTWARDS ARROW WITH CORNER DOWNWARDS
+#U+21B5 8629 ↵ DOWNWARDS ARROW WITH CORNER LEFTWARDS
+#U+21B6 8630 ↶ ANTICLOCKWISE TOP SEMICIRCLE ARROW
+#U+21B7 8631 ↷ CLOCKWISE TOP SEMICIRCLE ARROW
+#U+21B8 8632 ↸ NORTH WEST ARROW TO LONG BAR
+#U+21B9 8633 ↹ LEFTWARDS ARROW TO BAR OVER RIGHTWARDS ARROW TO BAR
+#U+21BA 8634 ↺ ANTICLOCKWISE OPEN CIRCLE ARROW
+#U+21BB 8635 ↻ CLOCKWISE OPEN CIRCLE ARROW
+#U+21BC 8636 ↼ LEFTWARDS HARPOON WITH BARB UPWARDS
+#U+21BD 8637 ↽ LEFTWARDS HARPOON WITH BARB DOWNWARDS
+#U+21BE 8638 ↾ UPWARDS HARPOON WITH BARB RIGHTWARDS
+#U+21BF 8639 ↿ UPWARDS HARPOON WITH BARB LEFTWARDS
+#U+21C0 8640 ⇀ RIGHTWARDS HARPOON WITH BARB UPWARDS
+#U+21C1 8641 ⇁ RIGHTWARDS HARPOON WITH BARB DOWNWARDS
+#U+21C2 8642 ⇂ DOWNWARDS HARPOON WITH BARB RIGHTWARDS
+#U+21C3 8643 ⇃ DOWNWARDS HARPOON WITH BARB LEFTWARDS
+#U+21C4 8644 ⇄ RIGHTWARDS ARROW OVER LEFTWARDS ARROW
+#U+21C5 8645 ⇅ UPWARDS ARROW LEFTWARDS OF DOWNWARDS ARROW
+#U+21C6 8646 ⇆ LEFTWARDS ARROW OVER RIGHTWARDS ARROW
+#U+21C7 8647 ⇇ LEFTWARDS PAIRED ARROWS
+#U+21C8 8648 ⇈ UPWARDS PAIRED ARROWS
+#U+21C9 8649 ⇉ RIGHTWARDS PAIRED ARROWS
+#U+21CA 8650 ⇊ DOWNWARDS PAIRED ARROWS
+#U+21CB 8651 ⇋ LEFTWARDS HARPOON OVER RIGHTWARDS HARPOON
+#U+21CC 8652 ⇌ RIGHTWARDS HARPOON OVER LEFTWARDS HARPOON
+#U+21CD 8653 ⇍ LEFTWARDS DOUBLE ARROW WITH STROKE
+#U+21CE 8654 ⇎ LEFT RIGHT DOUBLE ARROW WITH STROKE
+#U+21CF 8655 ⇏ RIGHTWARDS DOUBLE ARROW WITH STROKE
+#U+21D0 8656 ⇐ LEFTWARDS DOUBLE ARROW
+#U+21D1 8657 ⇑ UPWARDS DOUBLE ARROW
+#U+21D2 8658 ⇒ RIGHTWARDS DOUBLE ARROW
+#U+21D3 8659 ⇓ DOWNWARDS DOUBLE ARROW
+#U+21D4 8660 ⇔ LEFT RIGHT DOUBLE ARROW
+#U+21D5 8661 ⇕ UP DOWN DOUBLE ARROW
+#U+21D6 8662 ⇖ NORTH WEST DOUBLE ARROW
+#U+21D7 8663 ⇗ NORTH EAST DOUBLE ARROW
+#U+21D8 8664 ⇘ SOUTH EAST DOUBLE ARROW
+#U+21D9 8665 ⇙ SOUTH WEST DOUBLE ARROW
+#U+21DA 8666 ⇚ LEFTWARDS TRIPLE ARROW
+#U+21DB 8667 ⇛ RIGHTWARDS TRIPLE ARROW
+#U+21DC 8668 ⇜ LEFTWARDS SQUIGGLE ARROW
+#U+21DD 8669 ⇝ RIGHTWARDS SQUIGGLE ARROW
+#U+21DE 8670 ⇞ UPWARDS ARROW WITH DOUBLE STROKE
+#U+21DF 8671 ⇟ DOWNWARDS ARROW WITH DOUBLE STROKE
+#U+21E0 8672 ⇠ LEFTWARDS DASHED ARROW
+#U+21E1 8673 ⇡ UPWARDS DASHED ARROW
+#U+21E2 8674 ⇢ RIGHTWARDS DASHED ARROW
+#U+21E3 8675 ⇣ DOWNWARDS DASHED ARROW
+#U+21E4 8676 ⇤ LEFTWARDS ARROW TO BAR
+#U+21E5 8677 ⇥ RIGHTWARDS ARROW TO BAR
+#U+21E6 8678 ⇦ LEFTWARDS WHITE ARROW
+#U+21E7 8679 ⇧ UPWARDS WHITE ARROW
+#U+21E8 8680 ⇨ RIGHTWARDS WHITE ARROW
+#U+21E9 8681 ⇩ DOWNWARDS WHITE ARROW
+#U+21EA 8682 ⇪ UPWARDS WHITE ARROW FROM BAR
+#U+21EB 8683 ⇫ UPWARDS WHITE ARROW ON PEDESTAL
+#U+21EC 8684 ⇬ UPWARDS WHITE ARROW ON PEDESTAL WITH HORIZONTAL BAR
+#U+21ED 8685 ⇭ UPWARDS WHITE ARROW ON PEDESTAL WITH VERTICAL BAR
+#U+21EE 8686 ⇮ UPWARDS WHITE DOUBLE ARROW
+#U+21EF 8687 ⇯ UPWARDS WHITE DOUBLE ARROW ON PEDESTAL
+#U+21F0 8688 ⇰ RIGHTWARDS WHITE ARROW FROM WALL
+#U+21F1 8689 ⇱ NORTH WEST ARROW TO CORNER
+#U+21F2 8690 ⇲ SOUTH EAST ARROW TO CORNER
+#U+21F3 8691 ⇳ UP DOWN WHITE ARROW
+#U+21F4 8692 ⇴ RIGHT ARROW WITH SMALL CIRCLE
+#U+21F5 8693 ⇵ DOWNWARDS ARROW LEFTWARDS OF UPWARDS ARROW
+#U+21F6 8694 ⇶ THREE RIGHTWARDS ARROWS
+#U+21F7 8695 ⇷ LEFTWARDS ARROW WITH VERTICAL STROKE
+#U+21F8 8696 ⇸ RIGHTWARDS ARROW WITH VERTICAL STROKE
+#U+21F9 8697 ⇹ LEFT RIGHT ARROW WITH VERTICAL STROKE
+#U+21FA 8698 ⇺ LEFTWARDS ARROW WITH DOUBLE VERTICAL STROKE
+#U+21FB 8699 ⇻ RIGHTWARDS ARROW WITH DOUBLE VERTICAL STROKE
+#U+21FC 8700 ⇼ LEFT RIGHT ARROW WITH DOUBLE VERTICAL STROKE
+#U+21FD 8701 ⇽ LEFTWARDS OPEN-HEADED ARROW
+#U+21FE 8702 ⇾ RIGHTWARDS OPEN-HEADED ARROW
+#U+21FF 8703 ⇿ LEFT RIGHT OPEN-HEADED ARROW
+
+#U+2200 8704 ∀ FOR ALL
+#U+2201 8705 ∁ COMPLEMENT
+#U+2202 8706 ∂ PARTIAL DIFFERENTIAL
+#U+2203 8707 ∃ THERE EXISTS
+#U+2204 8708 ∄ THERE DOES NOT EXIST
+#U+2205 8709 ∅ EMPTY SET
+#U+2206 8710 ∆ INCREMENT
+#U+2207 8711 ∇ NABLA
+#U+2208 8712 ∈ ELEMENT OF
+#U+2209 8713 ∉ NOT AN ELEMENT OF
+#U+220A 8714 ∊ SMALL ELEMENT OF
+#U+220B 8715 ∋ CONTAINS AS MEMBER
+#U+220C 8716 ∌ DOES NOT CONTAIN AS MEMBER
+#U+220D 8717 ∍ SMALL CONTAINS AS MEMBER
+#U+220E 8718 ∎ END OF PROOF
+#U+220F 8719 ∏ N-ARY PRODUCT
+#U+2210 8720 ∐ N-ARY COPRODUCT
+#U+2211 8721 ∑ N-ARY SUMMATION
+#U+2212 8722 − MINUS SIGN
+#U+2213 8723 ∓ MINUS-OR-PLUS SIGN
+#U+2214 8724 ∔ DOT PLUS
+#U+2215 8725 ∕ DIVISION SLASH
+#U+2216 8726 ∖ SET MINUS
+#U+2217 8727 ∗ ASTERISK OPERATOR
+#U+2218 8728 ∘ RING OPERATOR
+#U+2219 8729 ∙ BULLET OPERATOR
+#U+221A 8730 √ SQUARE ROOT
+#U+221B 8731 ∛ CUBE ROOT
+#U+221C 8732 ∜ FOURTH ROOT
+#U+221D 8733 ∝ PROPORTIONAL TO
+#U+221E 8734 ∞ INFINITY
+#U+221F 8735 ∟ RIGHT ANGLE
+#U+2220 8736 ∠ ANGLE
+#U+2221 8737 ∡ MEASURED ANGLE
+#U+2222 8738 ∢ SPHERICAL ANGLE
+#U+2223 8739 ∣ DIVIDES
+#U+2224 8740 ∤ DOES NOT DIVIDE
+#U+2225 8741 ∥ PARALLEL TO
+#U+2226 8742 ∦ NOT PARALLEL TO
+#U+2227 8743 ∧ LOGICAL AND
+#U+2228 8744 ∨ LOGICAL OR
+#U+2229 8745 ∩ INTERSECTION
+#U+222A 8746 ∪ UNION
+#U+222B 8747 ∫ INTEGRAL
+#U+222C 8748 ∬ DOUBLE INTEGRAL
+#U+222D 8749 ∭ TRIPLE INTEGRAL
+#U+222E 8750 ∮ CONTOUR INTEGRAL
+#U+222F 8751 ∯ SURFACE INTEGRAL
+#U+2230 8752 ∰ VOLUME INTEGRAL
+#U+2231 8753 ∱ CLOCKWISE INTEGRAL
+#U+2232 8754 ∲ CLOCKWISE CONTOUR INTEGRAL
+#U+2233 8755 ∳ ANTICLOCKWISE CONTOUR INTEGRAL
+#U+2234 8756 ∴ THEREFORE
+#U+2235 8757 ∵ BECAUSE
+#U+2236 8758 ∶ RATIO
+#U+2237 8759 ∷ PROPORTION
+#U+2238 8760 ∸ DOT MINUS
+#U+2239 8761 ∹ EXCESS
+#U+223A 8762 ∺ GEOMETRIC PROPORTION
+#U+223B 8763 ∻ HOMOTHETIC
+#U+223C 8764 ∼ TILDE OPERATOR
+#U+223D 8765 ∽ REVERSED TILDE
+#U+223E 8766 ∾ INVERTED LAZY S
+#U+223F 8767 ∿ SINE WAVE
+#U+2240 8768 ≀ WREATH PRODUCT
+#U+2241 8769 ≁ NOT TILDE
+#U+2242 8770 ≂ MINUS TILDE
+#U+2243 8771 ≃ ASYMPTOTICALLY EQUAL TO
+#U+2244 8772 ≄ NOT ASYMPTOTICALLY EQUAL TO
+#U+2245 8773 ≅ APPROXIMATELY EQUAL TO
+#U+2246 8774 ≆ APPROXIMATELY BUT NOT ACTUALLY EQUAL TO
+#U+2247 8775 ≇ NEITHER APPROXIMATELY NOR ACTUALLY EQUAL TO
+#U+2248 8776 ≈ ALMOST EQUAL TO
+#U+2249 8777 ≉ NOT ALMOST EQUAL TO
+#U+224A 8778 ≊ ALMOST EQUAL OR EQUAL TO
+#U+224B 8779 ≋ TRIPLE TILDE
+#U+224C 8780 ≌ ALL EQUAL TO
+#U+224D 8781 ≍ EQUIVALENT TO
+#U+224E 8782 ≎ GEOMETRICALLY EQUIVALENT TO
+#U+224F 8783 ≏ DIFFERENCE BETWEEN
+#U+2250 8784 ≐ APPROACHES THE LIMIT
+#U+2251 8785 ≑ GEOMETRICALLY EQUAL TO
+#U+2252 8786 ≒ APPROXIMATELY EQUAL TO OR THE IMAGE OF
+#U+2253 8787 ≓ IMAGE OF OR APPROXIMATELY EQUAL TO
+#U+2254 8788 ≔ COLON EQUALS
+#U+2255 8789 ≕ EQUALS COLON
+#U+2256 8790 ≖ RING IN EQUAL TO
+#U+2257 8791 ≗ RING EQUAL TO
+#U+2258 8792 ≘ CORRESPONDS TO
+#U+2259 8793 ≙ ESTIMATES
+#U+225A 8794 ≚ EQUIANGULAR TO
+#U+225B 8795 ≛ STAR EQUALS
+#U+225C 8796 ≜ DELTA EQUAL TO
+#U+225D 8797 ≝ EQUAL TO BY DEFINITION
+#U+225E 8798 ≞ MEASURED BY
+#U+225F 8799 ≟ QUESTIONED EQUAL TO
+#U+2260 8800 ≠ NOT EQUAL TO
+#U+2261 8801 ≡ IDENTICAL TO
+#U+2262 8802 ≢ NOT IDENTICAL TO
+#U+2263 8803 ≣ STRICTLY EQUIVALENT TO
+#U+2264 8804 ≤ LESS-THAN OR EQUAL TO
+#U+2265 8805 ≥ GREATER-THAN OR EQUAL TO
+#U+2266 8806 ≦ LESS-THAN OVER EQUAL TO
+#U+2267 8807 ≧ GREATER-THAN OVER EQUAL TO
+#U+2268 8808 ≨ LESS-THAN BUT NOT EQUAL TO
+#U+2269 8809 ≩ GREATER-THAN BUT NOT EQUAL TO
+#U+226A 8810 ≪ MUCH LESS-THAN
+#U+226B 8811 ≫ MUCH GREATER-THAN
+#U+226C 8812 ≬ BETWEEN
+#U+226D 8813 ≭ NOT EQUIVALENT TO
+#U+226E 8814 ≮ NOT LESS-THAN
+#U+226F 8815 ≯ NOT GREATER-THAN
+#U+2270 8816 ≰ NEITHER LESS-THAN NOR EQUAL TO
+#U+2271 8817 ≱ NEITHER GREATER-THAN NOR EQUAL TO
+#U+2272 8818 ≲ LESS-THAN OR EQUIVALENT TO
+#U+2273 8819 ≳ GREATER-THAN OR EQUIVALENT TO
+#U+2274 8820 ≴ NEITHER LESS-THAN NOR EQUIVALENT TO
+#U+2275 8821 ≵ NEITHER GREATER-THAN NOR EQUIVALENT TO
+#U+2276 8822 ≶ LESS-THAN OR GREATER-THAN
+#U+2277 8823 ≷ GREATER-THAN OR LESS-THAN
+#U+2278 8824 ≸ NEITHER LESS-THAN NOR GREATER-THAN
+#U+2279 8825 ≹ NEITHER GREATER-THAN NOR LESS-THAN
+#U+227A 8826 ≺ PRECEDES
+#U+227B 8827 ≻ SUCCEEDS
+#U+227C 8828 ≼ PRECEDES OR EQUAL TO
+#U+227D 8829 ≽ SUCCEEDS OR EQUAL TO
+#U+227E 8830 ≾ PRECEDES OR EQUIVALENT TO
+#U+227F 8831 ≿ SUCCEEDS OR EQUIVALENT TO
+#U+2280 8832 ⊀ DOES NOT PRECEDE
+#U+2281 8833 ⊁ DOES NOT SUCCEED
+#U+2282 8834 ⊂ SUBSET OF
+#U+2283 8835 ⊃ SUPERSET OF
+#U+2284 8836 ⊄ NOT A SUBSET OF
+#U+2285 8837 ⊅ NOT A SUPERSET OF
+#U+2286 8838 ⊆ SUBSET OF OR EQUAL TO
+#U+2287 8839 ⊇ SUPERSET OF OR EQUAL TO
+#U+2288 8840 ⊈ NEITHER A SUBSET OF NOR EQUAL TO
+#U+2289 8841 ⊉ NEITHER A SUPERSET OF NOR EQUAL TO
+#U+228A 8842 ⊊ SUBSET OF WITH NOT EQUAL TO
+#U+228B 8843 ⊋ SUPERSET OF WITH NOT EQUAL TO
+#U+228C 8844 ⊌ MULTISET
+#U+228D 8845 ⊍ MULTISET MULTIPLICATION
+#U+228E 8846 ⊎ MULTISET UNION
+#U+228F 8847 ⊏ SQUARE IMAGE OF
+#U+2290 8848 ⊐ SQUARE ORIGINAL OF
+#U+2291 8849 ⊑ SQUARE IMAGE OF OR EQUAL TO
+#U+2292 8850 ⊒ SQUARE ORIGINAL OF OR EQUAL TO
+#U+2293 8851 ⊓ SQUARE CAP
+#U+2294 8852 ⊔ SQUARE CUP
+#U+2295 8853 ⊕ CIRCLED PLUS
+#U+2296 8854 ⊖ CIRCLED MINUS
+#U+2297 8855 ⊗ CIRCLED TIMES
+#U+2298 8856 ⊘ CIRCLED DIVISION SLASH
+#U+2299 8857 ⊙ CIRCLED DOT OPERATOR
+#U+229A 8858 ⊚ CIRCLED RING OPERATOR
+#U+229B 8859 ⊛ CIRCLED ASTERISK OPERATOR
+#U+229C 8860 ⊜ CIRCLED EQUALS
+#U+229D 8861 ⊝ CIRCLED DASH
+#U+229E 8862 ⊞ SQUARED PLUS
+#U+229F 8863 ⊟ SQUARED MINUS
+#U+22A0 8864 ⊠ SQUARED TIMES
+#U+22A1 8865 ⊡ SQUARED DOT OPERATOR
+#U+22A2 8866 ⊢ RIGHT TACK
+#U+22A3 8867 ⊣ LEFT TACK
+#U+22A4 8868 ⊤ DOWN TACK
+#U+22A5 8869 ⊥ UP TACK
+#U+22A6 8870 ⊦ ASSERTION
+#U+22A7 8871 ⊧ MODELS
+#U+22A8 8872 ⊨ TRUE
+#U+22A9 8873 ⊩ FORCES
+#U+22AA 8874 ⊪ TRIPLE VERTICAL BAR RIGHT TURNSTILE
+#U+22AB 8875 ⊫ DOUBLE VERTICAL BAR DOUBLE RIGHT TURNSTILE
+#U+22AC 8876 ⊬ DOES NOT PROVE
+#U+22AD 8877 ⊭ NOT TRUE
+#U+22AE 8878 ⊮ DOES NOT FORCE
+#U+22AF 8879 ⊯ NEGATED DOUBLE VERTICAL BAR DOUBLE RIGHT TURNSTILE
+#U+22B0 8880 ⊰ PRECEDES UNDER RELATION
+#U+22B1 8881 ⊱ SUCCEEDS UNDER RELATION
+#U+22B2 8882 ⊲ NORMAL SUBGROUP OF
+#U+22B3 8883 ⊳ CONTAINS AS NORMAL SUBGROUP
+#U+22B4 8884 ⊴ NORMAL SUBGROUP OF OR EQUAL TO
+#U+22B5 8885 ⊵ CONTAINS AS NORMAL SUBGROUP OR EQUAL TO
+#U+22B6 8886 ⊶ ORIGINAL OF
+#U+22B7 8887 ⊷ IMAGE OF
+#U+22B8 8888 ⊸ MULTIMAP
+#U+22B9 8889 ⊹ HERMITIAN CONJUGATE MATRIX
+#U+22BA 8890 ⊺ INTERCALATE
+#U+22BB 8891 ⊻ XOR
+#U+22BC 8892 ⊼ NAND
+#U+22BD 8893 ⊽ NOR
+#U+22BE 8894 ⊾ RIGHT ANGLE WITH ARC
+#U+22BF 8895 ⊿ RIGHT TRIANGLE
+#U+22C0 8896 ⋀ N-ARY LOGICAL AND
+#U+22C1 8897 ⋁ N-ARY LOGICAL OR
+#U+22C2 8898 ⋂ N-ARY INTERSECTION
+#U+22C3 8899 ⋃ N-ARY UNION
+#U+22C4 8900 ⋄ DIAMOND OPERATOR
+#U+22C5 8901 ⋅ DOT OPERATOR
+#U+22C6 8902 ⋆ STAR OPERATOR
+#U+22C7 8903 ⋇ DIVISION TIMES
+#U+22C8 8904 ⋈ BOWTIE
+#U+22C9 8905 ⋉ LEFT NORMAL FACTOR SEMIDIRECT PRODUCT
+#U+22CA 8906 ⋊ RIGHT NORMAL FACTOR SEMIDIRECT PRODUCT
+#U+22CB 8907 ⋋ LEFT SEMIDIRECT PRODUCT
+#U+22CC 8908 ⋌ RIGHT SEMIDIRECT PRODUCT
+#U+22CD 8909 ⋍ REVERSED TILDE EQUALS
+#U+22CE 8910 ⋎ CURLY LOGICAL OR
+#U+22CF 8911 ⋏ CURLY LOGICAL AND
+#U+22D0 8912 ⋐ DOUBLE SUBSET
+#U+22D1 8913 ⋑ DOUBLE SUPERSET
+#U+22D2 8914 ⋒ DOUBLE INTERSECTION
+#U+22D3 8915 ⋓ DOUBLE UNION
+#U+22D4 8916 ⋔ PITCHFORK
+#U+22D5 8917 ⋕ EQUAL AND PARALLEL TO
+#U+22D6 8918 ⋖ LESS-THAN WITH DOT
+#U+22D7 8919 ⋗ GREATER-THAN WITH DOT
+#U+22D8 8920 ⋘ VERY MUCH LESS-THAN
+#U+22D9 8921 ⋙ VERY MUCH GREATER-THAN
+#U+22DA 8922 ⋚ LESS-THAN EQUAL TO OR GREATER-THAN
+#U+22DB 8923 ⋛ GREATER-THAN EQUAL TO OR LESS-THAN
+#U+22DC 8924 ⋜ EQUAL TO OR LESS-THAN
+#U+22DD 8925 ⋝ EQUAL TO OR GREATER-THAN
+#U+22DE 8926 ⋞ EQUAL TO OR PRECEDES
+#U+22DF 8927 ⋟ EQUAL TO OR SUCCEEDS
+#U+22E0 8928 ⋠ DOES NOT PRECEDE OR EQUAL
+#U+22E1 8929 ⋡ DOES NOT SUCCEED OR EQUAL
+#U+22E2 8930 ⋢ NOT SQUARE IMAGE OF OR EQUAL TO
+#U+22E3 8931 ⋣ NOT SQUARE ORIGINAL OF OR EQUAL TO
+#U+22E4 8932 ⋤ SQUARE IMAGE OF OR NOT EQUAL TO
+#U+22E5 8933 ⋥ SQUARE ORIGINAL OF OR NOT EQUAL TO
+#U+22E6 8934 ⋦ LESS-THAN BUT NOT EQUIVALENT TO
+#U+22E7 8935 ⋧ GREATER-THAN BUT NOT EQUIVALENT TO
+#U+22E8 8936 ⋨ PRECEDES BUT NOT EQUIVALENT TO
+#U+22E9 8937 ⋩ SUCCEEDS BUT NOT EQUIVALENT TO
+#U+22EA 8938 ⋪ NOT NORMAL SUBGROUP OF
+#U+22EB 8939 ⋫ DOES NOT CONTAIN AS NORMAL SUBGROUP
+#U+22EC 8940 ⋬ NOT NORMAL SUBGROUP OF OR EQUAL TO
+#U+22ED 8941 ⋭ DOES NOT CONTAIN AS NORMAL SUBGROUP OR EQUAL
+#U+22EE 8942 ⋮ VERTICAL ELLIPSIS
+#U+22EF 8943 ⋯ MIDLINE HORIZONTAL ELLIPSIS
+#U+22F0 8944 ⋰ UP RIGHT DIAGONAL ELLIPSIS
+#U+22F1 8945 ⋱ DOWN RIGHT DIAGONAL ELLIPSIS
+#U+22F2 8946 ⋲ ELEMENT OF WITH LONG HORIZONTAL STROKE
+#U+22F3 8947 ⋳ ELEMENT OF WITH VERTICAL BAR AT END OF HORIZONTAL STROKE
+#U+22F4 8948 ⋴ SMALL ELEMENT OF WITH VERTICAL BAR AT END OF HORIZONTAL STROKE
+#U+22F5 8949 ⋵ ELEMENT OF WITH DOT ABOVE
+#U+22F6 8950 ⋶ ELEMENT OF WITH OVERBAR
+#U+22F7 8951 ⋷ SMALL ELEMENT OF WITH OVERBAR
+#U+22F8 8952 ⋸ ELEMENT OF WITH UNDERBAR
+#U+22F9 8953 ⋹ ELEMENT OF WITH TWO HORIZONTAL STROKES
+#U+22FA 8954 ⋺ CONTAINS WITH LONG HORIZONTAL STROKE
+#U+22FB 8955 ⋻ CONTAINS WITH VERTICAL BAR AT END OF HORIZONTAL STROKE
+#U+22FC 8956 ⋼ SMALL CONTAINS WITH VERTICAL BAR AT END OF HORIZONTAL STROKE
+#U+22FD 8957 ⋽ CONTAINS WITH OVERBAR
+#U+22FE 8958 ⋾ SMALL CONTAINS WITH OVERBAR
+#U+22FF 8959 ⋿ Z NOTATION BAG MEMBERSHIP
+
+#U+2300 8960 ⌀ DIAMETER SIGN
+#U+2301 8961 ⌁ ELECTRIC ARROW
+#U+2302 8962 ⌂ HOUSE
+#U+2303 8963 ⌃ UP ARROWHEAD
+#U+2304 8964 ⌄ DOWN ARROWHEAD
+#U+2305 8965 ⌅ PROJECTIVE
+#U+2306 8966 ⌆ PERSPECTIVE
+#U+2307 8967 ⌇ WAVY LINE
+#U+2308 8968 ⌈ LEFT CEILING
+#U+2309 8969 ⌉ RIGHT CEILING
+#U+230A 8970 ⌊ LEFT FLOOR
+#U+230B 8971 ⌋ RIGHT FLOOR
+#U+230C 8972 ⌌ BOTTOM RIGHT CROP
+#U+230D 8973 ⌍ BOTTOM LEFT CROP
+#U+230E 8974 ⌎ TOP RIGHT CROP
+#U+230F 8975 ⌏ TOP LEFT CROP
+#U+2310 8976 ⌐ REVERSED NOT SIGN
+#U+2311 8977 ⌑ SQUARE LOZENGE
+#U+2312 8978 ⌒ ARC
+#U+2313 8979 ⌓ SEGMENT
+#U+2314 8980 ⌔ SECTOR
+#U+2315 8981 ⌕ TELEPHONE RECORDER
+#U+2316 8982 ⌖ POSITION INDICATOR
+#U+2317 8983 ⌗ VIEWDATA SQUARE
+#U+2318 8984 ⌘ PLACE OF INTEREST SIGN
+#U+2319 8985 ⌙ TURNED NOT SIGN
+#U+231A 8986 ⌚ WATCH
+#U+231B 8987 ⌛ HOURGLASS
+#U+231C 8988 ⌜ TOP LEFT CORNER
+#U+231D 8989 ⌝ TOP RIGHT CORNER
+#U+231E 8990 ⌞ BOTTOM LEFT CORNER
+#U+231F 8991 ⌟ BOTTOM RIGHT CORNER
+#U+2320 8992 ⌠ TOP HALF INTEGRAL
+#U+2321 8993 ⌡ BOTTOM HALF INTEGRAL
+#U+2322 8994 ⌢ FROWN
+#U+2323 8995 ⌣ SMILE
+#U+2324 8996 ⌤ UP ARROWHEAD BETWEEN TWO HORIZONTAL BARS
+#U+2325 8997 ⌥ OPTION KEY
+#U+2326 8998 ⌦ ERASE TO THE RIGHT
+#U+2327 8999 ⌧ X IN A RECTANGLE BOX
+#U+2328 9000 ⌨ KEYBOARD
+#U+2329 9001 〈 LEFT-POINTING ANGLE BRACKET
+#U+232A 9002 〉 RIGHT-POINTING ANGLE BRACKET
+#U+232B 9003 ⌫ ERASE TO THE LEFT
+#U+232C 9004 ⌬ BENZENE RING
+#U+232D 9005 ⌭ CYLINDRICITY
+#U+232E 9006 ⌮ ALL AROUND-PROFILE
+#U+232F 9007 ⌯ SYMMETRY
+#U+2330 9008 ⌰ TOTAL RUNOUT
+#U+2331 9009 ⌱ DIMENSION ORIGIN
+#U+2332 9010 ⌲ CONICAL TAPER
+#U+2333 9011 ⌳ SLOPE
+#U+2334 9012 ⌴ COUNTERBORE
+#U+2335 9013 ⌵ COUNTERSINK
+#U+2336 9014 ⌶ APL FUNCTIONAL SYMBOL I-BEAM
+#U+2337 9015 ⌷ APL FUNCTIONAL SYMBOL SQUISH QUAD
+#U+2338 9016 ⌸ APL FUNCTIONAL SYMBOL QUAD EQUAL
+#U+2339 9017 ⌹ APL FUNCTIONAL SYMBOL QUAD DIVIDE
+#U+233A 9018 ⌺ APL FUNCTIONAL SYMBOL QUAD DIAMOND
+#U+233B 9019 ⌻ APL FUNCTIONAL SYMBOL QUAD JOT
+#U+233C 9020 ⌼ APL FUNCTIONAL SYMBOL QUAD CIRCLE
+#U+233D 9021 ⌽ APL FUNCTIONAL SYMBOL CIRCLE STILE
+#U+233E 9022 ⌾ APL FUNCTIONAL SYMBOL CIRCLE JOT
+#U+233F 9023 ⌿ APL FUNCTIONAL SYMBOL SLASH BAR
+#U+2340 9024 ⍀ APL FUNCTIONAL SYMBOL BACKSLASH BAR
+#U+2341 9025 ⍁ APL FUNCTIONAL SYMBOL QUAD SLASH
+#U+2342 9026 ⍂ APL FUNCTIONAL SYMBOL QUAD BACKSLASH
+#U+2343 9027 ⍃ APL FUNCTIONAL SYMBOL QUAD LESS-THAN
+#U+2344 9028 ⍄ APL FUNCTIONAL SYMBOL QUAD GREATER-THAN
+#U+2345 9029 ⍅ APL FUNCTIONAL SYMBOL LEFTWARDS VANE
+#U+2346 9030 ⍆ APL FUNCTIONAL SYMBOL RIGHTWARDS VANE
+#U+2347 9031 ⍇ APL FUNCTIONAL SYMBOL QUAD LEFTWARDS ARROW
+#U+2348 9032 ⍈ APL FUNCTIONAL SYMBOL QUAD RIGHTWARDS ARROW
+#U+2349 9033 ⍉ APL FUNCTIONAL SYMBOL CIRCLE BACKSLASH
+#U+234A 9034 ⍊ APL FUNCTIONAL SYMBOL DOWN TACK UNDERBAR
+#U+234B 9035 ⍋ APL FUNCTIONAL SYMBOL DELTA STILE
+#U+234C 9036 ⍌ APL FUNCTIONAL SYMBOL QUAD DOWN CARET
+#U+234D 9037 ⍍ APL FUNCTIONAL SYMBOL QUAD DELTA
+#U+234E 9038 ⍎ APL FUNCTIONAL SYMBOL DOWN TACK JOT
+#U+234F 9039 ⍏ APL FUNCTIONAL SYMBOL UPWARDS VANE
+#U+2350 9040 ⍐ APL FUNCTIONAL SYMBOL QUAD UPWARDS ARROW
+#U+2351 9041 ⍑ APL FUNCTIONAL SYMBOL UP TACK OVERBAR
+#U+2352 9042 ⍒ APL FUNCTIONAL SYMBOL DEL STILE
+#U+2353 9043 ⍓ APL FUNCTIONAL SYMBOL QUAD UP CARET
+#U+2354 9044 ⍔ APL FUNCTIONAL SYMBOL QUAD DEL
+#U+2355 9045 ⍕ APL FUNCTIONAL SYMBOL UP TACK JOT
+#U+2356 9046 ⍖ APL FUNCTIONAL SYMBOL DOWNWARDS VANE
+#U+2357 9047 ⍗ APL FUNCTIONAL SYMBOL QUAD DOWNWARDS ARROW
+#U+2358 9048 ⍘ APL FUNCTIONAL SYMBOL QUOTE UNDERBAR
+#U+2359 9049 ⍙ APL FUNCTIONAL SYMBOL DELTA UNDERBAR
+#U+235A 9050 ⍚ APL FUNCTIONAL SYMBOL DIAMOND UNDERBAR
+#U+235B 9051 ⍛ APL FUNCTIONAL SYMBOL JOT UNDERBAR
+#U+235C 9052 ⍜ APL FUNCTIONAL SYMBOL CIRCLE UNDERBAR
+#U+235D 9053 ⍝ APL FUNCTIONAL SYMBOL UP SHOE JOT
+#U+235E 9054 ⍞ APL FUNCTIONAL SYMBOL QUOTE QUAD
+#U+235F 9055 ⍟ APL FUNCTIONAL SYMBOL CIRCLE STAR
+#U+2360 9056 ⍠ APL FUNCTIONAL SYMBOL QUAD COLON
+#U+2361 9057 ⍡ APL FUNCTIONAL SYMBOL UP TACK DIAERESIS
+#U+2362 9058 ⍢ APL FUNCTIONAL SYMBOL DEL DIAERESIS
+#U+2363 9059 ⍣ APL FUNCTIONAL SYMBOL STAR DIAERESIS
+#U+2364 9060 ⍤ APL FUNCTIONAL SYMBOL JOT DIAERESIS
+#U+2365 9061 ⍥ APL FUNCTIONAL SYMBOL CIRCLE DIAERESIS
+#U+2366 9062 ⍦ APL FUNCTIONAL SYMBOL DOWN SHOE STILE
+#U+2367 9063 ⍧ APL FUNCTIONAL SYMBOL LEFT SHOE STILE
+#U+2368 9064 ⍨ APL FUNCTIONAL SYMBOL TILDE DIAERESIS
+#U+2369 9065 ⍩ APL FUNCTIONAL SYMBOL GREATER-THAN DIAERESIS
+#U+236A 9066 ⍪ APL FUNCTIONAL SYMBOL COMMA BAR
+#U+236B 9067 ⍫ APL FUNCTIONAL SYMBOL DEL TILDE
+#U+236C 9068 ⍬ APL FUNCTIONAL SYMBOL ZILDE
+#U+236D 9069 ⍭ APL FUNCTIONAL SYMBOL STILE TILDE
+#U+236E 9070 ⍮ APL FUNCTIONAL SYMBOL SEMICOLON UNDERBAR
+#U+236F 9071 ⍯ APL FUNCTIONAL SYMBOL QUAD NOT EQUAL
+#U+2370 9072 ⍰ APL FUNCTIONAL SYMBOL QUAD QUESTION
+#U+2371 9073 ⍱ APL FUNCTIONAL SYMBOL DOWN CARET TILDE
+#U+2372 9074 ⍲ APL FUNCTIONAL SYMBOL UP CARET TILDE
+#U+2373 9075 ⍳ APL FUNCTIONAL SYMBOL IOTA
+#U+2374 9076 ⍴ APL FUNCTIONAL SYMBOL RHO
+#U+2375 9077 ⍵ APL FUNCTIONAL SYMBOL OMEGA
+#U+2376 9078 ⍶ APL FUNCTIONAL SYMBOL ALPHA UNDERBAR
+#U+2377 9079 ⍷ APL FUNCTIONAL SYMBOL EPSILON UNDERBAR
+#U+2378 9080 ⍸ APL FUNCTIONAL SYMBOL IOTA UNDERBAR
+#U+2379 9081 ⍹ APL FUNCTIONAL SYMBOL OMEGA UNDERBAR
+#U+237A 9082 ⍺ APL FUNCTIONAL SYMBOL ALPHA
+#U+237B 9083 ⍻ NOT CHECK MARK
+#U+237C 9084 ⍼ RIGHT ANGLE WITH DOWNWARDS ZIGZAG ARROW
+#U+237D 9085 ⍽ SHOULDERED OPEN BOX
+#U+237E 9086 ⍾ BELL SYMBOL
+#U+237F 9087 ⍿ VERTICAL LINE WITH MIDDLE DOT
+#U+2380 9088 ⎀ INSERTION SYMBOL
+#U+2381 9089 ⎁ CONTINUOUS UNDERLINE SYMBOL
+#U+2382 9090 ⎂ DISCONTINUOUS UNDERLINE SYMBOL
+#U+2383 9091 ⎃ EMPHASIS SYMBOL
+#U+2384 9092 ⎄ COMPOSITION SYMBOL
+#U+2385 9093 ⎅ WHITE SQUARE WITH CENTRE VERTICAL LINE
+#U+2386 9094 ⎆ ENTER SYMBOL
+#U+2387 9095 ⎇ ALTERNATIVE KEY SYMBOL
+#U+2388 9096 ⎈ HELM SYMBOL
+#U+2389 9097 ⎉ CIRCLED HORIZONTAL BAR WITH NOTCH
+#U+238A 9098 ⎊ CIRCLED TRIANGLE DOWN
+#U+238B 9099 ⎋ BROKEN CIRCLE WITH NORTHWEST ARROW
+#U+238C 9100 ⎌ UNDO SYMBOL
+#U+238D 9101 ⎍ MONOSTABLE SYMBOL
+#U+238E 9102 ⎎ HYSTERESIS SYMBOL
+#U+238F 9103 ⎏ OPEN-CIRCUIT-OUTPUT H-TYPE SYMBOL
+#U+2390 9104 ⎐ OPEN-CIRCUIT-OUTPUT L-TYPE SYMBOL
+#U+2391 9105 ⎑ PASSIVE-PULL-DOWN-OUTPUT SYMBOL
+#U+2392 9106 ⎒ PASSIVE-PULL-UP-OUTPUT SYMBOL
+#U+2393 9107 ⎓ DIRECT CURRENT SYMBOL FORM TWO
+#U+2394 9108 ⎔ SOFTWARE-FUNCTION SYMBOL
+#U+2395 9109 ⎕ APL FUNCTIONAL SYMBOL QUAD
+#U+2396 9110 ⎖ DECIMAL SEPARATOR KEY SYMBOL
+#U+2397 9111 ⎗ PREVIOUS PAGE
+#U+2398 9112 ⎘ NEXT PAGE
+#U+2399 9113 ⎙ PRINT SCREEN SYMBOL
+#U+239A 9114 ⎚ CLEAR SCREEN SYMBOL
+#U+239B 9115 ⎛ LEFT PARENTHESIS UPPER HOOK
+#U+239C 9116 ⎜ LEFT PARENTHESIS EXTENSION
+#U+239D 9117 ⎝ LEFT PARENTHESIS LOWER HOOK
+#U+239E 9118 ⎞ RIGHT PARENTHESIS UPPER HOOK
+#U+239F 9119 ⎟ RIGHT PARENTHESIS EXTENSION
+#U+23A0 9120 ⎠ RIGHT PARENTHESIS LOWER HOOK
+#U+23A1 9121 ⎡ LEFT SQUARE BRACKET UPPER CORNER
+#U+23A2 9122 ⎢ LEFT SQUARE BRACKET EXTENSION
+#U+23A3 9123 ⎣ LEFT SQUARE BRACKET LOWER CORNER
+#U+23A4 9124 ⎤ RIGHT SQUARE BRACKET UPPER CORNER
+#U+23A5 9125 ⎥ RIGHT SQUARE BRACKET EXTENSION
+#U+23A6 9126 ⎦ RIGHT SQUARE BRACKET LOWER CORNER
+#U+23A7 9127 ⎧ LEFT CURLY BRACKET UPPER HOOK
+#U+23A8 9128 ⎨ LEFT CURLY BRACKET MIDDLE PIECE
+#U+23A9 9129 ⎩ LEFT CURLY BRACKET LOWER HOOK
+#U+23AA 9130 ⎪ CURLY BRACKET EXTENSION
+#U+23AB 9131 ⎫ RIGHT CURLY BRACKET UPPER HOOK
+#U+23AC 9132 ⎬ RIGHT CURLY BRACKET MIDDLE PIECE
+#U+23AD 9133 ⎭ RIGHT CURLY BRACKET LOWER HOOK
+#U+23AE 9134 ⎮ INTEGRAL EXTENSION
+#U+23AF 9135 ⎯ HORIZONTAL LINE EXTENSION
+#U+23B0 9136 ⎰ UPPER LEFT OR LOWER RIGHT CURLY BRACKET SECTION
+#U+23B1 9137 ⎱ UPPER RIGHT OR LOWER LEFT CURLY BRACKET SECTION
+#U+23B2 9138 ⎲ SUMMATION TOP
+#U+23B3 9139 ⎳ SUMMATION BOTTOM
+#U+23B4 9140 ⎴ TOP SQUARE BRACKET
+#U+23B5 9141 ⎵ BOTTOM SQUARE BRACKET
+#U+23B6 9142 ⎶ BOTTOM SQUARE BRACKET OVER TOP SQUARE BRACKET
+#U+23B7 9143 ⎷ RADICAL SYMBOL BOTTOM
+#U+23B8 9144 ⎸ LEFT VERTICAL BOX LINE
+#U+23B9 9145 ⎹ RIGHT VERTICAL BOX LINE
+#U+23BA 9146 ⎺ HORIZONTAL SCAN LINE-1
+#U+23BB 9147 ⎻ HORIZONTAL SCAN LINE-3
+#U+23BC 9148 ⎼ HORIZONTAL SCAN LINE-7
+#U+23BD 9149 ⎽ HORIZONTAL SCAN LINE-9
+#U+23BE 9150 ⎾ DENTISTRY SYMBOL LIGHT VERTICAL AND TOP RIGHT
+#U+23BF 9151 ⎿ DENTISTRY SYMBOL LIGHT VERTICAL AND BOTTOM RIGHT
+#U+23C0 9152 ⏀ DENTISTRY SYMBOL LIGHT VERTICAL WITH CIRCLE
+#U+23C1 9153 ⏁ DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH CIRCLE
+#U+23C2 9154 ⏂ DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH CIRCLE
+#U+23C3 9155 ⏃ DENTISTRY SYMBOL LIGHT VERTICAL WITH TRIANGLE
+#U+23C4 9156 ⏄ DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH TRIANGLE
+#U+23C5 9157 ⏅ DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH TRIANGLE
+#U+23C6 9158 ⏆ DENTISTRY SYMBOL LIGHT VERTICAL AND WAVE
+#U+23C7 9159 ⏇ DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH WAVE
+#U+23C8 9160 ⏈ DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH WAVE
+#U+23C9 9161 ⏉ DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL
+#U+23CA 9162 ⏊ DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL
+#U+23CB 9163 ⏋ DENTISTRY SYMBOL LIGHT VERTICAL AND TOP LEFT
+#U+23CC 9164 ⏌ DENTISTRY SYMBOL LIGHT VERTICAL AND BOTTOM LEFT
+#U+23CD 9165 ⏍ SQUARE FOOT
+#U+23CE 9166 ⏎ RETURN SYMBOL
+#U+23CF 9167 ⏏ EJECT SYMBOL
+#U+23D0 9168 ⏐ VERTICAL LINE EXTENSION
+#U+23D1 9169 ⏑ METRICAL BREVE
+#U+23D2 9170 ⏒ METRICAL LONG OVER SHORT
+#U+23D3 9171 ⏓ METRICAL SHORT OVER LONG
+#U+23D4 9172 ⏔ METRICAL LONG OVER TWO SHORTS
+#U+23D5 9173 ⏕ METRICAL TWO SHORTS OVER LONG
+#U+23D6 9174 ⏖ METRICAL TWO SHORTS JOINED
+#U+23D7 9175 ⏗ METRICAL TRISEME
+#U+23D8 9176 ⏘ METRICAL TETRASEME
+#U+23D9 9177 ⏙ METRICAL PENTASEME
+#U+23DA 9178 ⏚ EARTH GROUND
+#U+23DB 9179 ⏛ FUSE
+#U+23DC 9180 ⏜ TOP PARENTHESIS
+#U+23DD 9181 ⏝ BOTTOM PARENTHESIS
+#U+23DE 9182 ⏞ TOP CURLY BRACKET
+#U+23DF 9183 ⏟ BOTTOM CURLY BRACKET
+#U+23E0 9184 ⏠ TOP TORTOISE SHELL BRACKET
+#U+23E1 9185 ⏡ BOTTOM TORTOISE SHELL BRACKET
+#U+23E2 9186 ⏢ WHITE TRAPEZIUM
+#U+23E3 9187 ⏣ BENZENE RING WITH CIRCLE
+#U+23E4 9188 ⏤ STRAIGHTNESS
+#U+23E5 9189 ⏥ FLATNESS
+#U+23E6 9190 ⏦ AC CURRENT
+#U+23E7 9191 ⏧ ELECTRICAL INTERSECTION
+#U+23E8 9192 ⏨ DECIMAL EXPONENT SYMBOL
+#U+23E9 9193 ⏩ BLACK RIGHT-POINTING DOUBLE TRIANGLE
+#U+23EA 9194 ⏪ BLACK LEFT-POINTING DOUBLE TRIANGLE
+#U+23EB 9195 ⏫ BLACK UP-POINTING DOUBLE TRIANGLE
+#U+23EC 9196 ⏬ BLACK DOWN-POINTING DOUBLE TRIANGLE
+#U+23ED 9197 ⏭ BLACK RIGHT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR
+#U+23EE 9198 ⏮ BLACK LEFT-POINTING DOUBLE TRIANGLE WITH VERTICAL BAR
+#U+23EF 9199 ⏯ BLACK RIGHT-POINTING TRIANGLE WITH DOUBLE VERTICAL BAR
+#U+23F0 9200 ⏰ ALARM CLOCK
+#U+23F1 9201 ⏱ STOPWATCH
+#U+23F2 9202 ⏲ TIMER CLOCK
+#U+23F3 9203 ⏳ HOURGLASS WITH FLOWING SAND
+#U+23F4 9204 ⏴ BLACK MEDIUM LEFT-POINTING TRIANGLE
+#U+23F5 9205 ⏵ BLACK MEDIUM RIGHT-POINTING TRIANGLE
+#U+23F6 9206 ⏶ BLACK MEDIUM UP-POINTING TRIANGLE
+#U+23F7 9207 ⏷ BLACK MEDIUM DOWN-POINTING TRIANGLE
+#U+23F8 9208 ⏸ DOUBLE VERTICAL BAR
+#U+23F9 9209 ⏹ BLACK SQUARE FOR STOP
+#U+23FA 9210 ⏺ BLACK CIRCLE FOR RECORD
+#U+23FB 9211 ⏻ POWER SYMBOL
+#U+23FC 9212 ⏼ POWER ON-OFF SYMBOL
+#U+23FD 9213 ⏽ POWER ON SYMBOL
+#U+23FE 9214 ⏾ POWER SLEEP SYMBOL
+#U+23FF 9215 ⏿ OBSERVER EYE SYMBOL
+
+#U+2460 9312 ① CIRCLED DIGIT ONE
+#U+2461 9313 ② CIRCLED DIGIT TWO
+#U+2462 9314 ③ CIRCLED DIGIT THREE
+#U+2463 9315 ④ CIRCLED DIGIT FOUR
+#U+2464 9316 ⑤ CIRCLED DIGIT FIVE
+#U+2465 9317 ⑥ CIRCLED DIGIT SIX
+#U+2466 9318 ⑦ CIRCLED DIGIT SEVEN
+#U+2467 9319 ⑧ CIRCLED DIGIT EIGHT
+#U+2468 9320 ⑨ CIRCLED DIGIT NINE
+#U+2469 9321 ⑩ CIRCLED NUMBER TEN
+#U+246A 9322 ⑪ CIRCLED NUMBER ELEVEN
+#U+246B 9323 ⑫ CIRCLED NUMBER TWELVE
+#U+246C 9324 ⑬ CIRCLED NUMBER THIRTEEN
+#U+246D 9325 ⑭ CIRCLED NUMBER FOURTEEN
+#U+246E 9326 ⑮ CIRCLED NUMBER FIFTEEN
+#U+246F 9327 ⑯ CIRCLED NUMBER SIXTEEN
+#U+2470 9328 ⑰ CIRCLED NUMBER SEVENTEEN
+#U+2471 9329 ⑱ CIRCLED NUMBER EIGHTEEN
+#U+2472 9330 ⑲ CIRCLED NUMBER NINETEEN
+#U+2473 9331 ⑳ CIRCLED NUMBER TWENTY
+#U+2474 9332 ⑴ PARENTHESIZED DIGIT ONE
+#U+2475 9333 ⑵ PARENTHESIZED DIGIT TWO
+#U+2476 9334 ⑶ PARENTHESIZED DIGIT THREE
+#U+2477 9335 ⑷ PARENTHESIZED DIGIT FOUR
+#U+2478 9336 ⑸ PARENTHESIZED DIGIT FIVE
+#U+2479 9337 ⑹ PARENTHESIZED DIGIT SIX
+#U+247A 9338 ⑺ PARENTHESIZED DIGIT SEVEN
+#U+247B 9339 ⑻ PARENTHESIZED DIGIT EIGHT
+#U+247C 9340 ⑼ PARENTHESIZED DIGIT NINE
+#U+247D 9341 ⑽ PARENTHESIZED NUMBER TEN
+#U+247E 9342 ⑾ PARENTHESIZED NUMBER ELEVEN
+#U+247F 9343 ⑿ PARENTHESIZED NUMBER TWELVE
+#U+2480 9344 ⒀ PARENTHESIZED NUMBER THIRTEEN
+#U+2481 9345 ⒁ PARENTHESIZED NUMBER FOURTEEN
+#U+2482 9346 ⒂ PARENTHESIZED NUMBER FIFTEEN
+#U+2483 9347 ⒃ PARENTHESIZED NUMBER SIXTEEN
+#U+2484 9348 ⒄ PARENTHESIZED NUMBER SEVENTEEN
+#U+2485 9349 ⒅ PARENTHESIZED NUMBER EIGHTEEN
+#U+2486 9350 ⒆ PARENTHESIZED NUMBER NINETEEN
+#U+2487 9351 ⒇ PARENTHESIZED NUMBER TWENTY
+#U+2488 9352 ⒈ DIGIT ONE FULL STOP
+#U+2489 9353 ⒉ DIGIT TWO FULL STOP
+#U+248A 9354 ⒊ DIGIT THREE FULL STOP
+#U+248B 9355 ⒋ DIGIT FOUR FULL STOP
+#U+248C 9356 ⒌ DIGIT FIVE FULL STOP
+#U+248D 9357 ⒍ DIGIT SIX FULL STOP
+#U+248E 9358 ⒎ DIGIT SEVEN FULL STOP
+#U+248F 9359 ⒏ DIGIT EIGHT FULL STOP
+#U+2490 9360 ⒐ DIGIT NINE FULL STOP
+#U+2491 9361 ⒑ NUMBER TEN FULL STOP
+#U+2492 9362 ⒒ NUMBER ELEVEN FULL STOP
+#U+2493 9363 ⒓ NUMBER TWELVE FULL STOP
+#U+2494 9364 ⒔ NUMBER THIRTEEN FULL STOP
+#U+2495 9365 ⒕ NUMBER FOURTEEN FULL STOP
+#U+2496 9366 ⒖ NUMBER FIFTEEN FULL STOP
+#U+2497 9367 ⒗ NUMBER SIXTEEN FULL STOP
+#U+2498 9368 ⒘ NUMBER SEVENTEEN FULL STOP
+#U+2499 9369 ⒙ NUMBER EIGHTEEN FULL STOP
+#U+249A 9370 ⒚ NUMBER NINETEEN FULL STOP
+#U+249B 9371 ⒛ NUMBER TWENTY FULL STOP
+#U+249C 9372 ⒜ PARENTHESIZED LATIN SMALL LETTER A
+#U+249D 9373 ⒝ PARENTHESIZED LATIN SMALL LETTER B
+#U+249E 9374 ⒞ PARENTHESIZED LATIN SMALL LETTER C
+#U+249F 9375 ⒟ PARENTHESIZED LATIN SMALL LETTER D
+#U+24A0 9376 ⒠ PARENTHESIZED LATIN SMALL LETTER E
+#U+24A1 9377 ⒡ PARENTHESIZED LATIN SMALL LETTER F
+#U+24A2 9378 ⒢ PARENTHESIZED LATIN SMALL LETTER G
+#U+24A3 9379 ⒣ PARENTHESIZED LATIN SMALL LETTER H
+#U+24A4 9380 ⒤ PARENTHESIZED LATIN SMALL LETTER I
+#U+24A5 9381 ⒥ PARENTHESIZED LATIN SMALL LETTER J
+#U+24A6 9382 ⒦ PARENTHESIZED LATIN SMALL LETTER K
+#U+24A7 9383 ⒧ PARENTHESIZED LATIN SMALL LETTER L
+#U+24A8 9384 ⒨ PARENTHESIZED LATIN SMALL LETTER M
+#U+24A9 9385 ⒩ PARENTHESIZED LATIN SMALL LETTER N
+#U+24AA 9386 ⒪ PARENTHESIZED LATIN SMALL LETTER O
+#U+24AB 9387 ⒫ PARENTHESIZED LATIN SMALL LETTER P
+#U+24AC 9388 ⒬ PARENTHESIZED LATIN SMALL LETTER Q
+#U+24AD 9389 ⒭ PARENTHESIZED LATIN SMALL LETTER R
+#U+24AE 9390 ⒮ PARENTHESIZED LATIN SMALL LETTER S
+#U+24AF 9391 ⒯ PARENTHESIZED LATIN SMALL LETTER T
+#U+24B0 9392 ⒰ PARENTHESIZED LATIN SMALL LETTER U
+#U+24B1 9393 ⒱ PARENTHESIZED LATIN SMALL LETTER V
+#U+24B2 9394 ⒲ PARENTHESIZED LATIN SMALL LETTER W
+#U+24B3 9395 ⒳ PARENTHESIZED LATIN SMALL LETTER X
+#U+24B4 9396 ⒴ PARENTHESIZED LATIN SMALL LETTER Y
+#U+24B5 9397 ⒵ PARENTHESIZED LATIN SMALL LETTER Z
+#U+24B6 9398 Ⓐ CIRCLED LATIN CAPITAL LETTER A
+#U+24B7 9399 Ⓑ CIRCLED LATIN CAPITAL LETTER B
+#U+24B8 9400 Ⓒ CIRCLED LATIN CAPITAL LETTER C
+#U+24B9 9401 Ⓓ CIRCLED LATIN CAPITAL LETTER D
+#U+24BA 9402 Ⓔ CIRCLED LATIN CAPITAL LETTER E
+#U+24BB 9403 Ⓕ CIRCLED LATIN CAPITAL LETTER F
+#U+24BC 9404 Ⓖ CIRCLED LATIN CAPITAL LETTER G
+#U+24BD 9405 Ⓗ CIRCLED LATIN CAPITAL LETTER H
+#U+24BE 9406 Ⓘ CIRCLED LATIN CAPITAL LETTER I
+#U+24BF 9407 Ⓙ CIRCLED LATIN CAPITAL LETTER J
+#U+24C0 9408 Ⓚ CIRCLED LATIN CAPITAL LETTER K
+#U+24C1 9409 Ⓛ CIRCLED LATIN CAPITAL LETTER L
+#U+24C2 9410 Ⓜ CIRCLED LATIN CAPITAL LETTER M
+#U+24C3 9411 Ⓝ CIRCLED LATIN CAPITAL LETTER N
+#U+24C4 9412 Ⓞ CIRCLED LATIN CAPITAL LETTER O
+#U+24C5 9413 Ⓟ CIRCLED LATIN CAPITAL LETTER P
+#U+24C6 9414 Ⓠ CIRCLED LATIN CAPITAL LETTER Q
+#U+24C7 9415 Ⓡ CIRCLED LATIN CAPITAL LETTER R
+#U+24C8 9416 Ⓢ CIRCLED LATIN CAPITAL LETTER S
+#U+24C9 9417 Ⓣ CIRCLED LATIN CAPITAL LETTER T
+#U+24CA 9418 Ⓤ CIRCLED LATIN CAPITAL LETTER U
+#U+24CB 9419 Ⓥ CIRCLED LATIN CAPITAL LETTER V
+#U+24CC 9420 Ⓦ CIRCLED LATIN CAPITAL LETTER W
+#U+24CD 9421 Ⓧ CIRCLED LATIN CAPITAL LETTER X
+#U+24CE 9422 Ⓨ CIRCLED LATIN CAPITAL LETTER Y
+#U+24CF 9423 Ⓩ CIRCLED LATIN CAPITAL LETTER Z
+#U+24D0 9424 ⓐ CIRCLED LATIN SMALL LETTER A
+#U+24D1 9425 ⓑ CIRCLED LATIN SMALL LETTER B
+#U+24D2 9426 ⓒ CIRCLED LATIN SMALL LETTER C
+#U+24D3 9427 ⓓ CIRCLED LATIN SMALL LETTER D
+#U+24D4 9428 ⓔ CIRCLED LATIN SMALL LETTER E
+#U+24D5 9429 ⓕ CIRCLED LATIN SMALL LETTER F
+#U+24D6 9430 ⓖ CIRCLED LATIN SMALL LETTER G
+#U+24D7 9431 ⓗ CIRCLED LATIN SMALL LETTER H
+#U+24D8 9432 ⓘ CIRCLED LATIN SMALL LETTER I
+#U+24D9 9433 ⓙ CIRCLED LATIN SMALL LETTER J
+#U+24DA 9434 ⓚ CIRCLED LATIN SMALL LETTER K
+#U+24DB 9435 ⓛ CIRCLED LATIN SMALL LETTER L
+#U+24DC 9436 ⓜ CIRCLED LATIN SMALL LETTER M
+#U+24DD 9437 ⓝ CIRCLED LATIN SMALL LETTER N
+#U+24DE 9438 ⓞ CIRCLED LATIN SMALL LETTER O
+#U+24DF 9439 ⓟ CIRCLED LATIN SMALL LETTER P
+#U+24E0 9440 ⓠ CIRCLED LATIN SMALL LETTER Q
+#U+24E1 9441 ⓡ CIRCLED LATIN SMALL LETTER R
+#U+24E2 9442 ⓢ CIRCLED LATIN SMALL LETTER S
+#U+24E3 9443 ⓣ CIRCLED LATIN SMALL LETTER T
+#U+24E4 9444 ⓤ CIRCLED LATIN SMALL LETTER U
+#U+24E5 9445 ⓥ CIRCLED LATIN SMALL LETTER V
+#U+24E6 9446 ⓦ CIRCLED LATIN SMALL LETTER W
+#U+24E7 9447 ⓧ CIRCLED LATIN SMALL LETTER X
+#U+24E8 9448 ⓨ CIRCLED LATIN SMALL LETTER Y
+#U+24E9 9449 ⓩ CIRCLED LATIN SMALL LETTER Z
+#U+24EA 9450 ⓪ CIRCLED DIGIT ZERO
+#U+24EB 9451 ⓫ NEGATIVE CIRCLED NUMBER ELEVEN
+#U+24EC 9452 ⓬ NEGATIVE CIRCLED NUMBER TWELVE
+#U+24ED 9453 ⓭ NEGATIVE CIRCLED NUMBER THIRTEEN
+#U+24EE 9454 ⓮ NEGATIVE CIRCLED NUMBER FOURTEEN
+#U+24EF 9455 ⓯ NEGATIVE CIRCLED NUMBER FIFTEEN
+#U+24F0 9456 ⓰ NEGATIVE CIRCLED NUMBER SIXTEEN
+#U+24F1 9457 ⓱ NEGATIVE CIRCLED NUMBER SEVENTEEN
+#U+24F2 9458 ⓲ NEGATIVE CIRCLED NUMBER EIGHTEEN
+#U+24F3 9459 ⓳ NEGATIVE CIRCLED NUMBER NINETEEN
+#U+24F4 9460 ⓴ NEGATIVE CIRCLED NUMBER TWENTY
+#U+24F5 9461 ⓵ DOUBLE CIRCLED DIGIT ONE
+#U+24F6 9462 ⓶ DOUBLE CIRCLED DIGIT TWO
+#U+24F7 9463 ⓷ DOUBLE CIRCLED DIGIT THREE
+#U+24F8 9464 ⓸ DOUBLE CIRCLED DIGIT FOUR
+#U+24F9 9465 ⓹ DOUBLE CIRCLED DIGIT FIVE
+#U+24FA 9466 ⓺ DOUBLE CIRCLED DIGIT SIX
+#U+24FB 9467 ⓻ DOUBLE CIRCLED DIGIT SEVEN
+#U+24FC 9468 ⓼ DOUBLE CIRCLED DIGIT EIGHT
+#U+24FD 9469 ⓽ DOUBLE CIRCLED DIGIT NINE
+#U+24FE 9470 ⓾ DOUBLE CIRCLED NUMBER TEN
+#U+24FF 9471 ⓿ NEGATIVE CIRCLED DIGIT ZERO
+
+#U+2500 9472 ─ BOX DRAWINGS LIGHT HORIZONTAL
+#U+2501 9473 ━ BOX DRAWINGS HEAVY HORIZONTAL
+#U+2502 9474 │ BOX DRAWINGS LIGHT VERTICAL
+#U+2503 9475 ┃ BOX DRAWINGS HEAVY VERTICAL
+#U+2504 9476 ┄ BOX DRAWINGS LIGHT TRIPLE DASH HORIZONTAL
+#U+2505 9477 ┅ BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL
+#U+2506 9478 ┆ BOX DRAWINGS LIGHT TRIPLE DASH VERTICAL
+#U+2507 9479 ┇ BOX DRAWINGS HEAVY TRIPLE DASH VERTICAL
+#U+2508 9480 ┈ BOX DRAWINGS LIGHT QUADRUPLE DASH HORIZONTAL
+#U+2509 9481 ┉ BOX DRAWINGS HEAVY QUADRUPLE DASH HORIZONTAL
+#U+250A 9482 ┊ BOX DRAWINGS LIGHT QUADRUPLE DASH VERTICAL
+#U+250B 9483 ┋ BOX DRAWINGS HEAVY QUADRUPLE DASH VERTICAL
+#U+250C 9484 ┌ BOX DRAWINGS LIGHT DOWN AND RIGHT
+#U+250D 9485 ┍ BOX DRAWINGS DOWN LIGHT AND RIGHT HEAVY
+#U+250E 9486 ┎ BOX DRAWINGS DOWN HEAVY AND RIGHT LIGHT
+#U+250F 9487 ┏ BOX DRAWINGS HEAVY DOWN AND RIGHT
+#U+2510 9488 ┐ BOX DRAWINGS LIGHT DOWN AND LEFT
+#U+2511 9489 ┑ BOX DRAWINGS DOWN LIGHT AND LEFT HEAVY
+#U+2512 9490 ┒ BOX DRAWINGS DOWN HEAVY AND LEFT LIGHT
+#U+2513 9491 ┓ BOX DRAWINGS HEAVY DOWN AND LEFT
+#U+2514 9492 └ BOX DRAWINGS LIGHT UP AND RIGHT
+#U+2515 9493 ┕ BOX DRAWINGS UP LIGHT AND RIGHT HEAVY
+#U+2516 9494 ┖ BOX DRAWINGS UP HEAVY AND RIGHT LIGHT
+#U+2517 9495 ┗ BOX DRAWINGS HEAVY UP AND RIGHT
+#U+2518 9496 ┘ BOX DRAWINGS LIGHT UP AND LEFT
+#U+2519 9497 ┙ BOX DRAWINGS UP LIGHT AND LEFT HEAVY
+#U+251A 9498 ┚ BOX DRAWINGS UP HEAVY AND LEFT LIGHT
+#U+251B 9499 ┛ BOX DRAWINGS HEAVY UP AND LEFT
+#U+251C 9500 ├ BOX DRAWINGS LIGHT VERTICAL AND RIGHT
+#U+251D 9501 ┝ BOX DRAWINGS VERTICAL LIGHT AND RIGHT HEAVY
+#U+251E 9502 ┞ BOX DRAWINGS UP HEAVY AND RIGHT DOWN LIGHT
+#U+251F 9503 ┟ BOX DRAWINGS DOWN HEAVY AND RIGHT UP LIGHT
+#U+2520 9504 ┠ BOX DRAWINGS VERTICAL HEAVY AND RIGHT LIGHT
+#U+2521 9505 ┡ BOX DRAWINGS DOWN LIGHT AND RIGHT UP HEAVY
+#U+2522 9506 ┢ BOX DRAWINGS UP LIGHT AND RIGHT DOWN HEAVY
+#U+2523 9507 ┣ BOX DRAWINGS HEAVY VERTICAL AND RIGHT
+#U+2524 9508 ┤ BOX DRAWINGS LIGHT VERTICAL AND LEFT
+#U+2525 9509 ┥ BOX DRAWINGS VERTICAL LIGHT AND LEFT HEAVY
+#U+2526 9510 ┦ BOX DRAWINGS UP HEAVY AND LEFT DOWN LIGHT
+#U+2527 9511 ┧ BOX DRAWINGS DOWN HEAVY AND LEFT UP LIGHT
+#U+2528 9512 ┨ BOX DRAWINGS VERTICAL HEAVY AND LEFT LIGHT
+#U+2529 9513 ┩ BOX DRAWINGS DOWN LIGHT AND LEFT UP HEAVY
+#U+252A 9514 ┪ BOX DRAWINGS UP LIGHT AND LEFT DOWN HEAVY
+#U+252B 9515 ┫ BOX DRAWINGS HEAVY VERTICAL AND LEFT
+#U+252C 9516 ┬ BOX DRAWINGS LIGHT DOWN AND HORIZONTAL
+#U+252D 9517 ┭ BOX DRAWINGS LEFT HEAVY AND RIGHT DOWN LIGHT
+#U+252E 9518 ┮ BOX DRAWINGS RIGHT HEAVY AND LEFT DOWN LIGHT
+#U+252F 9519 ┯ BOX DRAWINGS DOWN LIGHT AND HORIZONTAL HEAVY
+#U+2530 9520 ┰ BOX DRAWINGS DOWN HEAVY AND HORIZONTAL LIGHT
+#U+2531 9521 ┱ BOX DRAWINGS RIGHT LIGHT AND LEFT DOWN HEAVY
+#U+2532 9522 ┲ BOX DRAWINGS LEFT LIGHT AND RIGHT DOWN HEAVY
+#U+2533 9523 ┳ BOX DRAWINGS HEAVY DOWN AND HORIZONTAL
+#U+2534 9524 ┴ BOX DRAWINGS LIGHT UP AND HORIZONTAL
+#U+2535 9525 ┵ BOX DRAWINGS LEFT HEAVY AND RIGHT UP LIGHT
+#U+2536 9526 ┶ BOX DRAWINGS RIGHT HEAVY AND LEFT UP LIGHT
+#U+2537 9527 ┷ BOX DRAWINGS UP LIGHT AND HORIZONTAL HEAVY
+#U+2538 9528 ┸ BOX DRAWINGS UP HEAVY AND HORIZONTAL LIGHT
+#U+2539 9529 ┹ BOX DRAWINGS RIGHT LIGHT AND LEFT UP HEAVY
+#U+253A 9530 ┺ BOX DRAWINGS LEFT LIGHT AND RIGHT UP HEAVY
+#U+253B 9531 ┻ BOX DRAWINGS HEAVY UP AND HORIZONTAL
+#U+253C 9532 ┼ BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL
+#U+253D 9533 ┽ BOX DRAWINGS LEFT HEAVY AND RIGHT VERTICAL LIGHT
+#U+253E 9534 ┾ BOX DRAWINGS RIGHT HEAVY AND LEFT VERTICAL LIGHT
+#U+253F 9535 ┿ BOX DRAWINGS VERTICAL LIGHT AND HORIZONTAL HEAVY
+#U+2540 9536 ╀ BOX DRAWINGS UP HEAVY AND DOWN HORIZONTAL LIGHT
+#U+2541 9537 ╁ BOX DRAWINGS DOWN HEAVY AND UP HORIZONTAL LIGHT
+#U+2542 9538 ╂ BOX DRAWINGS VERTICAL HEAVY AND HORIZONTAL LIGHT
+#U+2543 9539 ╃ BOX DRAWINGS LEFT UP HEAVY AND RIGHT DOWN LIGHT
+#U+2544 9540 ╄ BOX DRAWINGS RIGHT UP HEAVY AND LEFT DOWN LIGHT
+#U+2545 9541 ╅ BOX DRAWINGS LEFT DOWN HEAVY AND RIGHT UP LIGHT
+#U+2546 9542 ╆ BOX DRAWINGS RIGHT DOWN HEAVY AND LEFT UP LIGHT
+#U+2547 9543 ╇ BOX DRAWINGS DOWN LIGHT AND UP HORIZONTAL HEAVY
+#U+2548 9544 ╈ BOX DRAWINGS UP LIGHT AND DOWN HORIZONTAL HEAVY
+#U+2549 9545 ╉ BOX DRAWINGS RIGHT LIGHT AND LEFT VERTICAL HEAVY
+#U+254A 9546 ╊ BOX DRAWINGS LEFT LIGHT AND RIGHT VERTICAL HEAVY
+#U+254B 9547 ╋ BOX DRAWINGS HEAVY VERTICAL AND HORIZONTAL
+#U+254C 9548 ╌ BOX DRAWINGS LIGHT DOUBLE DASH HORIZONTAL
+#U+254D 9549 ╍ BOX DRAWINGS HEAVY DOUBLE DASH HORIZONTAL
+#U+254E 9550 ╎ BOX DRAWINGS LIGHT DOUBLE DASH VERTICAL
+#U+254F 9551 ╏ BOX DRAWINGS HEAVY DOUBLE DASH VERTICAL
+#U+2550 9552 ═ BOX DRAWINGS DOUBLE HORIZONTAL
+#U+2551 9553 ║ BOX DRAWINGS DOUBLE VERTICAL
+#U+2552 9554 ╒ BOX DRAWINGS DOWN SINGLE AND RIGHT DOUBLE
+#U+2553 9555 ╓ BOX DRAWINGS DOWN DOUBLE AND RIGHT SINGLE
+#U+2554 9556 ╔ BOX DRAWINGS DOUBLE DOWN AND RIGHT
+#U+2555 9557 ╕ BOX DRAWINGS DOWN SINGLE AND LEFT DOUBLE
+#U+2556 9558 ╖ BOX DRAWINGS DOWN DOUBLE AND LEFT SINGLE
+#U+2557 9559 ╗ BOX DRAWINGS DOUBLE DOWN AND LEFT
+#U+2558 9560 ╘ BOX DRAWINGS UP SINGLE AND RIGHT DOUBLE
+#U+2559 9561 ╙ BOX DRAWINGS UP DOUBLE AND RIGHT SINGLE
+#U+255A 9562 ╚ BOX DRAWINGS DOUBLE UP AND RIGHT
+#U+255B 9563 ╛ BOX DRAWINGS UP SINGLE AND LEFT DOUBLE
+#U+255C 9564 ╜ BOX DRAWINGS UP DOUBLE AND LEFT SINGLE
+#U+255D 9565 ╝ BOX DRAWINGS DOUBLE UP AND LEFT
+#U+255E 9566 ╞ BOX DRAWINGS VERTICAL SINGLE AND RIGHT DOUBLE
+#U+255F 9567 ╟ BOX DRAWINGS VERTICAL DOUBLE AND RIGHT SINGLE
+#U+2560 9568 ╠ BOX DRAWINGS DOUBLE VERTICAL AND RIGHT
+#U+2561 9569 ╡ BOX DRAWINGS VERTICAL SINGLE AND LEFT DOUBLE
+#U+2562 9570 ╢ BOX DRAWINGS VERTICAL DOUBLE AND LEFT SINGLE
+#U+2563 9571 ╣ BOX DRAWINGS DOUBLE VERTICAL AND LEFT
+#U+2564 9572 ╤ BOX DRAWINGS DOWN SINGLE AND HORIZONTAL DOUBLE
+#U+2565 9573 ╥ BOX DRAWINGS DOWN DOUBLE AND HORIZONTAL SINGLE
+#U+2566 9574 ╦ BOX DRAWINGS DOUBLE DOWN AND HORIZONTAL
+#U+2567 9575 ╧ BOX DRAWINGS UP SINGLE AND HORIZONTAL DOUBLE
+#U+2568 9576 ╨ BOX DRAWINGS UP DOUBLE AND HORIZONTAL SINGLE
+#U+2569 9577 ╩ BOX DRAWINGS DOUBLE UP AND HORIZONTAL
+#U+256A 9578 ╪ BOX DRAWINGS VERTICAL SINGLE AND HORIZONTAL DOUBLE
+#U+256B 9579 ╫ BOX DRAWINGS VERTICAL DOUBLE AND HORIZONTAL SINGLE
+#U+256C 9580 ╬ BOX DRAWINGS DOUBLE VERTICAL AND HORIZONTAL
+#U+256D 9581 ╭ BOX DRAWINGS LIGHT ARC DOWN AND RIGHT
+#U+256E 9582 ╮ BOX DRAWINGS LIGHT ARC DOWN AND LEFT
+#U+256F 9583 ╯ BOX DRAWINGS LIGHT ARC UP AND LEFT
+#U+2570 9584 ╰ BOX DRAWINGS LIGHT ARC UP AND RIGHT
+#U+2571 9585 ╱ BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT
+#U+2572 9586 ╲ BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT
+#U+2573 9587 ╳ BOX DRAWINGS LIGHT DIAGONAL CROSS
+#U+2574 9588 ╴ BOX DRAWINGS LIGHT LEFT
+#U+2575 9589 ╵ BOX DRAWINGS LIGHT UP
+#U+2576 9590 ╶ BOX DRAWINGS LIGHT RIGHT
+#U+2577 9591 ╷ BOX DRAWINGS LIGHT DOWN
+#U+2578 9592 ╸ BOX DRAWINGS HEAVY LEFT
+#U+2579 9593 ╹ BOX DRAWINGS HEAVY UP
+#U+257A 9594 ╺ BOX DRAWINGS HEAVY RIGHT
+#U+257B 9595 ╻ BOX DRAWINGS HEAVY DOWN
+#U+257C 9596 ╼ BOX DRAWINGS LIGHT LEFT AND HEAVY RIGHT
+#U+257D 9597 ╽ BOX DRAWINGS LIGHT UP AND HEAVY DOWN
+#U+257E 9598 ╾ BOX DRAWINGS HEAVY LEFT AND LIGHT RIGHT
+#U+257F 9599 ╿ BOX DRAWINGS HEAVY UP AND LIGHT DOWN
+
+#U+2580 9600 ▀ Upper half block
+#U+2581 9601 ▁ Lower one eighth block
+#U+2582 9602 ▂ Lower one quarter block
+#U+2583 9603 ▃ Lower three eighths block
+#U+2584 9604 ▄ Lower half block
+#U+2585 9605 ▅ Lower five eighths block
+#U+2586 9606 ▆ Lower three quarters block
+#U+2587 9607 ▇ Lower seven eighths block
+#U+2588 9608 █ Full block
+#U+2589 9609 ▉ Left seven eighths block
+#U+258A 9610 ▊ Left three quarters block
+#U+258B 9611 ▋ Left five eighths block
+#U+258C 9612 ▌ Left half block
+#U+258D 9613 ▍ Left three eighths block
+#U+258E 9614 ▎ Left one quarter block
+#U+258F 9615 ▏ Left one eighth block
+#U+2590 9616 ▐ Right half block
+#U+2591 9617 ░ Light shade
+#U+2592 9618 ▒ Medium shade
+#U+2593 9619 ▓ Dark shade
+#U+2594 9620 ▔ Upper one eighth block
+#U+2595 9621 ▕ Right one eighth block
+#U+2596 9622 ▖ Quadrant lower left
+#U+2597 9623 ▗ Quadrant lower right
+#U+2598 9624 ▘ Quadrant upper left
+#U+2599 9625 ▙ Quadrant upper left and lower left and lower right
+#U+259A 9626 ▚ Quadrant upper left and lower right
+#U+259B 9627 ▛ Quadrant upper left and upper right and lower left
+#U+259C 9628 ▜ Quadrant upper left and upper right and lower right
+#U+259D 9629 ▝ Quadrant upper right
+#U+259E 9630 ▞ Quadrant upper right and lower left
+#U+259F 9631 ▟ Quadrant upper right and lower left and lower right
+#U+25A0 9632 ■ Black square
+#U+25A1 9633 □ White square
+#U+25A2 9634 ▢ White square with rounded corners
+#U+25A3 9635 ▣ White square containing small black square
+#U+25A4 9636 ▤ Square with horizontal fill
+#U+25A5 9637 ▥ Square with vertical fill
+#U+25A6 9638 ▦ Square with orthogonal crosshatch fill
+#U+25A7 9639 ▧ Square with upper left to lower right fill
+#U+25A8 9640 ▨ Square with upper right to lower left fill
+#U+25A9 9641 ▩ Square with diagonal crosshatch fill
+#U+25AA 9642 ▪ Black small square
+#U+25AB 9643 ▫ White small square
+#U+25AC 9644 ▬ Black rectangle
+#U+25AD 9645 ▭ White rectangle
+#U+25AE 9646 ▮ Black vertical rectangle
+#U+25AF 9647 ▯ White vertical rectangle
+#U+25B0 9648 ▰ Black parallelogram
+#U+25B1 9649 ▱ White parallelogram
+#U+25B2 9650 ▲ Black up-pointing triangle
+#U+25B3 9651 △ White up-pointing triangle
+#U+25B4 9652 ▴ Black up-pointing small triangle
+#U+25B5 9653 ▵ White up-pointing small triangle
+#U+25B6 9654 ▶ Black right-pointing triangle
+#U+25B7 9655 ▷ White right-pointing triangle
+#U+25B8 9656 ▸ Black right-pointing small triangle
+#U+25B9 9657 ▹ White right-pointing small triangle
+#U+25BA 9658 ► Black right-pointing pointer
+#U+25BB 9659 ▻ White right-pointing pointer
+#U+25BC 9660 ▼ Black down-pointing triangle
+#U+25BD 9661 ▽ White down-pointing triangle
+#U+25BE 9662 ▾ Black down-pointing small triangle
+#U+25BF 9663 ▿ White down-pointing small triangle
+#U+25C0 9664 ◀ Black left-pointing triangle
+#U+25C1 9665 ◁ White left-pointing triangle
+#U+25C2 9666 ◂ Black left-pointing small triangle
+#U+25C3 9667 ◃ White left-pointing small triangle
+#U+25C4 9668 ◄ Black left-pointing pointer
+#U+25C5 9669 ◅ White left-pointing pointer
+#U+25C6 9670 ◆ Black diamond
+#U+25C7 9671 ◇ White diamond
+#U+25C8 9672 ◈ White diamond containing small black diamond
+#U+25C9 9673 ◉ Fisheye
+#U+25CA 9674 ◊ Lozenge
+#U+25CB 9675 ○ White circle
+#U+25CC 9676 ◌ Dotted circle
+#U+25CD 9677 ◍ Circle with vertical fill
+#U+25CE 9678 ◎ Bullseye
+#U+25CF 9679 ● Black circle
+#U+25D0 9680 ◐ Circle with left half black
+#U+25D1 9681 ◑ Circle with right half black
+#U+25D2 9682 ◒ Circle with lower half black
+#U+25D3 9683 ◓ Circle with upper half black
+#U+25D4 9684 ◔ Circle with upper right quadrant black
+#U+25D5 9685 ◕ Circle with all but upper left quadrant black
+#U+25D6 9686 ◖ Left half circle black
+#U+25D7 9687 ◗ Right half black circle
+#U+25D8 9688 ◘ Inverse bullet
+#U+25D9 9689 ◙ Inverse white circle
+#U+25DA 9690 ◚ Upper half inverse white circle
+#U+25DB 9691 ◛ Lower half inverse white circle
+#U+25DC 9692 ◜ Upper left quadrant circular arc
+#U+25DD 9693 ◝ Upper right quadrant circular arc
+#U+25DE 9694 ◞ Lower right quadrant circular arc
+#U+25DF 9695 ◟ Lower left quadrant circular arc
+#U+25E0 9696 ◠ Upper half circle
+#U+25E1 9697 ◡ Lower half circle
+#U+25E2 9698 ◢ Black lower right triangle
+#U+25E3 9699 ◣ Black lower left triangle
+#U+25E4 9700 ◤ Black upper left triangle
+#U+25E5 9701 ◥ Black upper right triangle
+#U+25E6 9702 ◦ White bullet
+#U+25E7 9703 ◧ Square with left half black
+#U+25E8 9704 ◨ Square with right half black
+#U+25E9 9705 ◩ Square with upper left diagonal half black
+#U+25EA 9706 ◪ Square with lower right diagonal half black
+#U+25EB 9707 ◫ White square with vertical bisecting line
+#U+25EC 9708 ◬ White up-pointing triangle with dot
+#U+25ED 9709 ◭ Up-pointing triangle with left half black
+#U+25EE 9710 ◮ Up-pointing triangle with right half black
+#U+25EF 9711 ◯ Large circle
+#U+25F0 9712 ◰ White square with upper left quadrant
+#U+25F1 9713 ◱ White square with lower left quadrant
+#U+25F2 9714 ◲ White square with lower right quadrant
+#U+25F3 9715 ◳ White square with upper right quadrant
+#U+25F4 9716 ◴ White circle with upper left quadrant
+#U+25F5 9717 ◵ White circle with lower left quadrant
+#U+25F6 9718 ◶ White circle with lower right quadrant
+#U+25F7 9719 ◷ White circle with upper right quadrant
+#U+25F8 9720 ◸ Upper left triangle
+#U+25F9 9721 ◹ Upper right triangle
+#U+25FA 9722 ◺ Lower-left triangle
+#U+25FB 9723 ◻ White medium square
+#U+25FC 9724 ◼ Black medium square
+#U+25FD 9725 ◽ White medium small square
+#U+25FE 9726 ◾ Black medium small square
+#U+25FF 9727 ◿ Lower right triangle
+
+#U+2600 9728 ☀ BLACK SUN WITH RAYS
+#U+2601 9729 ☁ CLOUD
+#U+2602 9730 ☂ UMBRELLA
+#U+2603 9731 ☃ SNOWMAN
+#U+2604 9732 ☄ COMET
+#U+2605 9733 ★ BLACK STAR
+#U+2606 9734 ☆ WHITE STAR
+#U+2607 9735 ☇ LIGHTNING
+#U+2608 9736 ☈ THUNDERSTORM
+#U+2609 9737 ☉ SUN
+#U+260A 9738 ☊ ASCENDING NODE
+#U+260B 9739 ☋ DESCENDING NODE
+#U+260C 9740 ☌ CONJUNCTION
+#U+260D 9741 ☍ OPPOSITION
+#U+260E 9742 ☎ BLACK TELEPHONE
+#U+260F 9743 ☏ WHITE TELEPHONE
+#U+2610 9744 ☐ BALLOT BOX
+#U+2611 9745 ☑ BALLOT BOX WITH CHECK
+#U+2612 9746 ☒ BALLOT BOX WITH X
+#U+2613 9747 ☓ SALTIRE
+#U+2614 9748 ☔ UMBRELLA WITH RAIN DROPS
+#U+2615 9749 ☕ HOT BEVERAGE
+#U+2616 9750 ☖ WHITE SHOGI PIECE
+#U+2617 9751 ☗ BLACK SHOGI PIECE
+#U+2618 9752 ☘ SHAMROCK
+#U+2619 9753 ☙ REVERSED ROTATED FLORAL HEART BULLET
+#U+261A 9754 ☚ BLACK LEFT POINTING INDEX
+#U+261B 9755 ☛ BLACK RIGHT POINTING INDEX
+#U+261C 9756 ☜ WHITE LEFT POINTING INDEX
+#U+261D 9757 ☝ WHITE UP POINTING INDEX
+#U+261E 9758 ☞ WHITE RIGHT POINTING INDEX
+#U+261F 9759 ☟ WHITE DOWN POINTING INDEX
+#U+2620 9760 ☠ SKULL AND CROSSBONES
+#U+2621 9761 ☡ CAUTION SIGN
+#U+2622 9762 ☢ RADIOACTIVE SIGN
+#U+2623 9763 ☣ BIOHAZARD SIGN
+#U+2624 9764 ☤ CADUCEUS
+#U+2625 9765 ☥ ANKH
+#U+2626 9766 ☦ ORTHODOX CROSS
+#U+2627 9767 ☧ CHI RHO
+#U+2628 9768 ☨ CROSS OF LORRAINE
+#U+2629 9769 ☩ CROSS OF JERUSALEM
+#U+262A 9770 ☪ STAR AND CRESCENT
+#U+262B 9771 ☫ FARSI SYMBOL
+#U+262C 9772 ☬ ADI SHAKTI
+#U+262D 9773 ☭ HAMMER AND SICKLE
+#U+262E 9774 ☮ PEACE SYMBOL
+#U+262F 9775 ☯ YIN YANG
+#U+2630 9776 ☰ TRIGRAM FOR HEAVEN
+#U+2631 9777 ☱ TRIGRAM FOR LAKE
+#U+2632 9778 ☲ TRIGRAM FOR FIRE
+#U+2633 9779 ☳ TRIGRAM FOR THUNDER
+#U+2634 9780 ☴ TRIGRAM FOR WIND
+#U+2635 9781 ☵ TRIGRAM FOR WATER
+#U+2636 9782 ☶ TRIGRAM FOR MOUNTAIN
+#U+2637 9783 ☷ TRIGRAM FOR EARTH
+#U+2638 9784 ☸ WHEEL OF DHARMA
+#U+2639 9785 ☹ WHITE FROWNING FACE
+#U+263A 9786 ☺ WHITE SMILING FACE
+#U+263B 9787 ☻ BLACK SMILING FACE
+#U+263C 9788 ☼ WHITE SUN WITH RAYS
+#U+263D 9789 ☽ FIRST QUARTER MOON
+#U+263E 9790 ☾ LAST QUARTER MOON
+#U+263F 9791 ☿ MERCURY
+#U+2640 9792 ♀ FEMALE SIGN
+#U+2641 9793 ♁ EARTH
+#U+2642 9794 ♂ MALE SIGN
+#U+2643 9795 ♃ JUPITER
+#U+2644 9796 ♄ SATURN
+#U+2645 9797 ♅ URANUS
+#U+2646 9798 ♆ NEPTUNE
+#U+2647 9799 ♇ PLUTO
+#U+2648 9800 ♈ ARIES
+#U+2649 9801 ♉ TAURUS
+#U+264A 9802 ♊ GEMINI
+#U+264B 9803 ♋ CANCER
+#U+264C 9804 ♌ LEO
+#U+264D 9805 ♍ VIRGO
+#U+264E 9806 ♎ LIBRA
+#U+264F 9807 ♏ SCORPIUS
+#U+2650 9808 ♐ SAGITTARIUS
+#U+2651 9809 ♑ CAPRICORN
+#U+2652 9810 ♒ AQUARIUS
+#U+2653 9811 ♓ PISCES
+#U+2654 9812 ♔ WHITE CHESS KING
+#U+2655 9813 ♕ WHITE CHESS QUEEN
+#U+2656 9814 ♖ WHITE CHESS ROOK
+#U+2657 9815 ♗ WHITE CHESS BISHOP
+#U+2658 9816 ♘ WHITE CHESS KNIGHT
+#U+2659 9817 ♙ WHITE CHESS PAWN
+#U+265A 9818 ♚ BLACK CHESS KING
+#U+265B 9819 ♛ BLACK CHESS QUEEN
+#U+265C 9820 ♜ BLACK CHESS ROOK
+#U+265D 9821 ♝ BLACK CHESS BISHOP
+#U+265E 9822 ♞ BLACK CHESS KNIGHT
+#U+265F 9823 ♟ BLACK CHESS PAWN
+#U+2660 9824 ♠ BLACK SPADE SUIT
+#U+2661 9825 ♡ WHITE HEART SUIT
+#U+2662 9826 ♢ WHITE DIAMOND SUIT
+#U+2663 9827 ♣ BLACK CLUB SUIT
+#U+2664 9828 ♤ WHITE SPADE SUIT
+#U+2665 9829 ♥ BLACK HEART SUIT
+#U+2666 9830 ♦ BLACK DIAMOND SUIT
+#U+2667 9831 ♧ WHITE CLUB SUIT
+#U+2668 9832 ♨ HOT SPRINGS
+#U+2669 9833 ♩ QUARTER NOTE
+#U+266A 9834 ♪ EIGHTH NOTE
+#U+266B 9835 ♫ BEAMED EIGHTH NOTES
+#U+266C 9836 ♬ BEAMED SIXTEENTH NOTES
+#U+266D 9837 ♭ MUSIC FLAT SIGN
+#U+266E 9838 ♮ MUSIC NATURAL SIGN
+#U+266F 9839 ♯ MUSIC SHARP SIGN
+#U+2670 9840 ♰ WEST SYRIAC CROSS
+#U+2671 9841 ♱ EAST SYRIAC CROSS
+#U+2672 9842 ♲ UNIVERSAL RECYCLING SYMBOL
+#U+2673 9843 ♳ RECYCLING SYMBOL FOR TYPE-1 PLASTICS
+#U+2674 9844 ♴ RECYCLING SYMBOL FOR TYPE-2 PLASTICS
+#U+2675 9845 ♵ RECYCLING SYMBOL FOR TYPE-3 PLASTICS
+#U+2676 9846 ♶ RECYCLING SYMBOL FOR TYPE-4 PLASTICS
+#U+2677 9847 ♷ RECYCLING SYMBOL FOR TYPE-5 PLASTICS
+#U+2678 9848 ♸ RECYCLING SYMBOL FOR TYPE-6 PLASTICS
+#U+2679 9849 ♹ RECYCLING SYMBOL FOR TYPE-7 PLASTICS
+#U+267A 9850 ♺ RECYCLING SYMBOL FOR GENERIC MATERIALS
+#U+267B 9851 ♻ BLACK UNIVERSAL RECYCLING SYMBOL
+#U+267C 9852 ♼ RECYCLED PAPER SYMBOL
+#U+267D 9853 ♽ PARTIALLY-RECYCLED PAPER SYMBOL
+#U+267E 9854 ♾ PERMANENT PAPER SIGN
+#U+267F 9855 ♿ WHEELCHAIR SYMBOL
+#U+2680 9856 ⚀ DIE FACE-1
+#U+2681 9857 ⚁ DIE FACE-2
+#U+2682 9858 ⚂ DIE FACE-3
+#U+2683 9859 ⚃ DIE FACE-4
+#U+2684 9860 ⚄ DIE FACE-5
+#U+2685 9861 ⚅ DIE FACE-6
+#U+2686 9862 ⚆ WHITE CIRCLE WITH DOT RIGHT
+#U+2687 9863 ⚇ WHITE CIRCLE WITH TWO DOTS
+#U+2688 9864 ⚈ BLACK CIRCLE WITH WHITE DOT RIGHT
+#U+2689 9865 ⚉ BLACK CIRCLE WITH TWO WHITE DOTS
+#U+268A 9866 ⚊ MONOGRAM FOR YANG
+#U+268B 9867 ⚋ MONOGRAM FOR YIN
+#U+268C 9868 ⚌ DIGRAM FOR GREATER YANG
+#U+268D 9869 ⚍ DIGRAM FOR LESSER YIN
+#U+268E 9870 ⚎ DIGRAM FOR LESSER YANG
+#U+268F 9871 ⚏ DIGRAM FOR GREATER YIN
+#U+2690 9872 ⚐ WHITE FLAG
+#U+2691 9873 ⚑ BLACK FLAG
+#U+2692 9874 ⚒ HAMMER AND PICK
+#U+2693 9875 ⚓ ANCHOR
+#U+2694 9876 ⚔ CROSSED SWORDS
+#U+2695 9877 ⚕ STAFF OF AESCULAPIUS
+#U+2696 9878 ⚖ SCALES
+#U+2697 9879 ⚗ ALEMBIC
+#U+2698 9880 ⚘ FLOWER
+#U+2699 9881 ⚙ GEAR
+#U+269A 9882 ⚚ STAFF OF HERMES
+#U+269B 9883 ⚛ ATOM SYMBOL
+#U+269C 9884 ⚜ FLEUR-DE-LIS
+#U+269D 9885 ⚝ OUTLINED WHITE STAR
+#U+269E 9886 ⚞ THREE LINES CONVERGING RIGHT
+#U+269F 9887 ⚟ THREE LINES CONVERGING LEFT
+#U+26A0 9888 ⚠ WARNING SIGN
+#U+26A1 9889 ⚡ HIGH VOLTAGE SIGN
+#U+26A2 9890 ⚢ DOUBLED FEMALE SIGN
+#U+26A3 9891 ⚣ DOUBLED MALE SIGN
+#U+26A4 9892 ⚤ INTERLOCKED FEMALE AND MALE SIGN
+#U+26A5 9893 ⚥ MALE AND FEMALE SIGN
+#U+26A6 9894 ⚦ MALE WITH STROKE SIGN
+#U+26A7 9895 ⚧ MALE WITH STROKE AND MALE AND FEMALE SIGN
+#U+26A8 9896 ⚨ VERTICAL MALE WITH STROKE SIGN
+#U+26A9 9897 ⚩ HORIZONTAL MALE WITH STROKE SIGN
+#U+26AA 9898 ⚪ MEDIUM WHITE CIRCLE
+#U+26AB 9899 ⚫ MEDIUM BLACK CIRCLE
+#U+26AC 9900 ⚬ MEDIUM SMALL WHITE CIRCLE
+#U+26AD 9901 ⚭ MARRIAGE SYMBOL
+#U+26AE 9902 ⚮ DIVORCE SYMBOL
+#U+26AF 9903 ⚯ UNMARRIED PARTNERSHIP SYMBOL
+#U+26B0 9904 ⚰ COFFIN
+#U+26B1 9905 ⚱ FUNERAL URN
+#U+26B2 9906 ⚲ NEUTER
+#U+26B3 9907 ⚳ CERES
+#U+26B4 9908 ⚴ PALLAS
+#U+26B5 9909 ⚵ JUNO
+#U+26B6 9910 ⚶ VESTA
+#U+26B7 9911 ⚷ CHIRON
+#U+26B8 9912 ⚸ BLACK MOON LILITH
+#U+26B9 9913 ⚹ SEXTILE
+#U+26BA 9914 ⚺ SEMISEXTILE
+#U+26BB 9915 ⚻ QUINCUNX
+#U+26BC 9916 ⚼ SESQUIQUADRATE
+#U+26BD 9917 ⚽ SOCCER BALL
+#U+26BE 9918 ⚾ BASEBALL
+#U+26BF 9919 ⚿ SQUARED KEY
+#U+26C0 9920 ⛀ WHITE DRAUGHTS MAN
+#U+26C1 9921 ⛁ WHITE DRAUGHTS KING
+#U+26C2 9922 ⛂ BLACK DRAUGHTS MAN
+#U+26C3 9923 ⛃ BLACK DRAUGHTS KING
+#U+26C4 9924 ⛄ SNOWMAN WITHOUT SNOW
+#U+26C5 9925 ⛅ SUN BEHIND CLOUD
+#U+26C6 9926 ⛆ RAIN
+#U+26C7 9927 ⛇ BLACK SNOWMAN
+#U+26C8 9928 ⛈ THUNDER CLOUD AND RAIN
+#U+26C9 9929 ⛉ TURNED WHITE SHOGI PIECE
+#U+26CA 9930 ⛊ TURNED BLACK SHOGI PIECE
+#U+26CB 9931 ⛋ WHITE DIAMOND IN SQUARE
+#U+26CC 9932 ⛌ CROSSING LANES
+#U+26CD 9933 ⛍ DISABLED CAR
+#U+26CE 9934 ⛎ OPHIUCHUS
+#U+26CF 9935 ⛏ PICK
+#U+26D0 9936 ⛐ CAR SLIDING
+#U+26D1 9937 ⛑ HELMET WITH WHITE CROSS
+#U+26D2 9938 ⛒ CIRCLED CROSSING LANES
+#U+26D3 9939 ⛓ CHAINS
+#U+26D4 9940 ⛔ NO ENTRY
+#U+26D5 9941 ⛕ ALTERNATE ONE-WAY LEFT WAY TRAFFIC
+#U+26D6 9942 ⛖ BLACK TWO-WAY LEFT WAY TRAFFIC
+#U+26D7 9943 ⛗ WHITE TWO-WAY LEFT WAY TRAFFIC
+#U+26D8 9944 ⛘ BLACK LEFT LANE MERGE
+#U+26D9 9945 ⛙ WHITE LEFT LANE MERGE
+#U+26DA 9946 ⛚ DRIVE SLOW SIGN
+#U+26DB 9947 ⛛ HEAVY WHITE DOWN-POINTING TRIANGLE
+#U+26DC 9948 ⛜ LEFT CLOSED ENTRY
+#U+26DD 9949 ⛝ SQUARED SALTIRE
+#U+26DE 9950 ⛞ FALLING DIAGONAL IN WHITE CIRCLE IN BLACK SQUARE
+#U+26DF 9951 ⛟ BLACK TRUCK
+#U+26E0 9952 ⛠ RESTRICTED LEFT ENTRY-1
+#U+26E1 9953 ⛡ RESTRICTED LEFT ENTRY-2
+#U+26E2 9954 ⛢ ASTRONOMICAL SYMBOL FOR URANUS
+#U+26E3 9955 ⛣ HEAVY CIRCLE WITH STROKE AND TWO DOTS ABOVE
+#U+26E4 9956 ⛤ PENTAGRAM
+#U+26E5 9957 ⛥ RIGHT-HANDED INTERLACED PENTAGRAM
+#U+26E6 9958 ⛦ LEFT-HANDED INTERLACED PENTAGRAM
+#U+26E7 9959 ⛧ INVERTED PENTAGRAM
+#U+26E8 9960 ⛨ BLACK CROSS ON SHIELD
+#U+26E9 9961 ⛩ SHINTO SHRINE
+#U+26EA 9962 ⛪ CHURCH
+#U+26EB 9963 ⛫ CASTLE
+#U+26EC 9964 ⛬ HISTORIC SITE
+#U+26ED 9965 ⛭ GEAR WITHOUT HUB
+#U+26EE 9966 ⛮ GEAR WITH HANDLES
+#U+26EF 9967 ⛯ MAP SYMBOL FOR LIGHTHOUSE
+#U+26F0 9968 ⛰ MOUNTAIN
+#U+26F1 9969 ⛱ UMBRELLA ON GROUND
+#U+26F2 9970 ⛲ FOUNTAIN
+#U+26F3 9971 ⛳ FLAG IN HOLE
+#U+26F4 9972 ⛴ FERRY
+#U+26F5 9973 ⛵ SAILBOAT
+#U+26F6 9974 ⛶ SQUARE FOUR CORNERS
+#U+26F7 9975 ⛷ SKIER
+#U+26F8 9976 ⛸ ICE SKATE
+#U+26F9 9977 ⛹ PERSON WITH BALL
+#U+26FA 9978 ⛺ TENT
+#U+26FB 9979 ⛻ JAPANESE BANK SYMBOL
+#U+26FC 9980 ⛼ HEADSTONE GRAVEYARD SYMBOL
+#U+26FD 9981 ⛽ FUEL PUMP
+#U+26FE 9982 ⛾ CUP ON BLACK SQUARE
+#U+26FF 9983 ⛿ WHITE FLAG WITH HORIZONTAL MIDDLE BLACK STRIPE
+
+#U+FB00 64256 ﬀ LATIN SMALL LIGATURE FF
+#U+FB01 64257 ﬁ LATIN SMALL LIGATURE FI
+#U+FB02 64258 ﬂ LATIN SMALL LIGATURE FL
+#U+FB03 64259 ﬃ LATIN SMALL LIGATURE FFI
+#U+FB04 64260 ﬄ LATIN SMALL LIGATURE FFL
+#U+FB05 64261 ﬅ LATIN SMALL LIGATURE LONG S T
+#U+FB06 64262 ﬆ LATIN SMALL LIGATURE ST
+#U+FB13 64275 ﬓ ARMENIAN SMALL LIGATURE MEN NOW
+#U+FB14 64276 ﬔ ARMENIAN SMALL LIGATURE MEN ECH
+#U+FB15 64277 ﬕ ARMENIAN SMALL LIGATURE MEN INI
+#U+FB16 64278 ﬖ ARMENIAN SMALL LIGATURE VEW NOW
+#U+FB17 64279 ﬗ ARMENIAN SMALL LIGATURE MEN XEH
+#U+FB1D 64285 יִ HEBREW LETTER YOD WITH HIRIQ
+#U+FB1E 64286  ﬞ HEBREW POINT JUDEO-SPANISH VARIKA
+#U+FB1F 64287 ײַ HEBREW LIGATURE YIDDISH YOD YOD PATAH
+#U+FB20 64288 ﬠ HEBREW LETTER ALTERNATIVE AYIN
+#U+FB21 64289 ﬡ HEBREW LETTER WIDE ALEF
+#U+FB22 64290 ﬢ HEBREW LETTER WIDE DALET
+#U+FB23 64291 ﬣ HEBREW LETTER WIDE HE
+#U+FB24 64292 ﬤ HEBREW LETTER WIDE KAF
+#U+FB25 64293 ﬥ HEBREW LETTER WIDE LAMED
+#U+FB26 64294 ﬦ HEBREW LETTER WIDE FINAL MEM
+#U+FB27 64295 ﬧ HEBREW LETTER WIDE RESH
+#U+FB28 64296 ﬨ HEBREW LETTER WIDE TAV
+#U+FB29 64297 ﬩ HEBREW LETTER ALTERNATIVE PLUS SIGN
+#U+FB2A 64298 שׁ HEBREW LETTER SHIN WITH SHIN DOT
+#U+FB2B 64299 שׂ HEBREW LETTER SHIN WITH SIN DOT
+#U+FB2C 64300 שּׁ HEBREW LETTER SHIN WITH DAGESH AND SHIN DOT
+#U+FB2D 64301 שּׂ HEBREW LETTER SHIN WITH DAGESH AND SIN DOT
+#U+FB2E 64302 אַ HEBREW LETTER ALEF WITH PATAH
+#U+FB2F 64303 אָ HEBREW LETTER ALEF WITH QAMATS
+#U+FB30 64304 אּ HEBREW LETTER ALEF WITH MAPIQ
+#U+FB31 64305 בּ HEBREW LETTER BET WITH DAGESH
+#U+FB32 64306 גּ HEBREW LETTER GIMEL WITH DAGESH
+#U+FB33 64307 דּ HEBREW LETTER DALET WITH DAGESH
+#U+FB34 64308 הּ HEBREW LETTER HE WITH MAPIQ
+#U+FB35 64309 וּ HEBREW LETTER VAV WITH DAGESH
+#U+FB36 64310 זּ HEBREW LETTER ZAYIN WITH DAGESH
+#U+FB38 64312 טּ HEBREW LETTER TET WITH DAGESH
+#U+FB39 64313 יּ HEBREW LETTER YOD WITH DAGESH
+#U+FB3A 64314 ךּ HEBREW LETTER FINAL KAF WITH DAGESH
+#U+FB3B 64315 כּ HEBREW LETTER KAF WITH DAGESH
+#U+FB3C 64316 לּ HEBREW LETTER LAMED WITH DAGESH
+#U+FB3E 64318 מּ HEBREW LETTER MEM WITH DAGESH
+#U+FB40 64320 נּ HEBREW LETTER NUN WITH DAGESH
+#U+FB41 64321 סּ HEBREW LETTER SAMEKH WITH DAGESH
+#U+FB43 64323 ףּ HEBREW LETTER FINAL PE WITH DAGESH
+#U+FB44 64324 פּ HEBREW LETTER PE WITH DAGESH
+#U+FB46 64326 צּ HEBREW LETTER TSADI WITH DAGESH
+#U+FB47 64327 קּ HEBREW LETTER QOF WITH DAGESH
+#U+FB48 64328 רּ HEBREW LETTER RESH WITH DAGESH
+#U+FB49 64329 שּ HEBREW LETTER SHIN WITH DAGESH
+#U+FB4A 64330 תּ HEBREW LETTER TAV WITH DAGESH
+#U+FB4B 64331 וֹ HEBREW LETTER VAV WITH HOLAM
+#U+FB4C 64332 בֿ HEBREW LETTER BET WITH RAFE
+#U+FB4D 64333 כֿ HEBREW LETTER KAF WITH RAFE
+#U+FB4E 64334 פֿ HEBREW LETTER PE WITH RAFE
+#U+FB4F 64335 ﭏ HEBREW LIGATURE ALEF LAMED
