@@ -2,7 +2,15 @@
 #deps: sed dmenu awk tr xclip|xsel
 #desc: Browse unicode with dmenu and copy to clipboard with xclip/xsel
 
-sed -n 's/^#U+/U+/;/^U+.*$/p' "$(command -v "$0")" | dmenu -l 6 -i -p 'unicode:' | awk '{print $3}' | tr -d '\n' | (if command -v xclip; then xclip -selection clipboard; else xsel -b; fi)
+ch=$(sed -n 's/^#U+/U+/;/^U+.*$/p' "$(command -v "$0")" | dmenu -l 6 -i -p 'unicode:' | awk '{print $3}')
+[ -n "$ch" ] && {
+  if command -v xclip
+  then printf '%s' "$ch" | xclip -selection clipboard
+  else
+    printf '%s' "$ch" | xsel -p
+    printf '%s' "$ch" | xsel -b
+  fi
+}
 
 #U+0000 0 NUL Null character
 #U+0001 1 SOH Start of Heading
