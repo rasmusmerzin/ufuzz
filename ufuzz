@@ -4,11 +4,19 @@
 
 ch=$(sed -n 's/^#U+/U+/;/^U+.*$/p' "$(command -v "$0")" | dmenu -l 6 -i -p 'unicode:' | awk '{print $3}')
 [ -n "$ch" ] && {
-  if command -v xclip
-  then printf '%s' "$ch" | xclip -selection clipboard
-  else
+  if command -v xclip >/dev/null
+  then
+    echo "'$ch' copied to primary and clipboard"
+    printf '%s' "$ch" | xclip -selection primary
+    printf '%s' "$ch" | xclip -selection clipboard
+  elif command -v xsel >/dev/null
+  then
+    echo "'$ch' copied to primary and clipboard"
     printf '%s' "$ch" | xsel -p
     printf '%s' "$ch" | xsel -b
+  else
+    echo "'$ch'"
+    echo 'error: xsel nor xclip is installed'
   fi
 }
 
